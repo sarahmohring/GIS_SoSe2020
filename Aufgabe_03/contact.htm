@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt</title>
-    <link rel=“stylesheet“ href=“style.css”>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-      <nav>
-        <a href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/portfolio.htm">Portfolio</a>
-        <a id="aktuelle_Seite" href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/contact.htm">Kontakt</a>
-        <a href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/about_me.htm">About Me</a>
+    <nav>
+      <a href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/portfolio.htm">portfolio</a>
+      |
+      <a id="aktuelle_Seite" href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/contact.htm">kontakt</a>
+      |
+      <a href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/about_me.htm">about me</a>
     </nav>
+    <header>
         <h1>Kontakt</h1>
     </header>
     <main>
@@ -21,47 +23,53 @@
               <th>Plattform</th>
               <th>Username</th> 
               <th>Link</th>
-              <th>Logo</th>
             </tr>
             <tr>
-              <td>HFU-Mail</td>
+              <td><img class="icon" src=hfu.png alt="HFU" height=64 width=64></td>
               <td>Sarah Mohring</td>
-              <td>sarah.erika.sigrid.mohring@hs-furtwangen.de</td>
-              <td><img src=hfu.png alt="HFU" height=64 width=64></td>
+              <td><a href="mailto:sarah.erika.sigrid.mohring@hs-furtwangen.de">E-Mail</a></td>
             </tr>
             <tr>
-              <td>Facebook</td>
+              <td><img class="icon" src=facebook.png alt="Facebook" height=64 width=64></td>
               <td>Sarah Mohring</td>
               <td><a href="https://www.facebook.com/sarah.moring.5">Facebook</a></td>
-              <td><img src=facebook.png alt="Facebook" height=64 width=64></td>
+              
             </tr>
             <tr>
-              <td>Instagram</td>
+              <td><img class="icon" src=instagram.png alt="Instagram" height=64 width=64></td>
               <td>@mohsarah</td>
               <td><a href="https://www.instagram.com/mohsarah/">Instagram</a></td>
-              <td><img src=instagram.png alt="Instagram" height=64 width=64></td>
             </tr>
         </table>
         <h2>Kontaktiere mich:</h2>
-        <p>(leider funktioniert das nicht)</p>
         <form>
-          <fieldset>
-            <h4>Kontaktformular</h4>
+          <h4>Kontaktformular</h4>
             <div>
-              <label for="Name">Name:</label>
-                <input id="Name" type="text" name="Name">
+              <input class="Felder" type="text" placeholder="Name">
             </div>
             <div>
-              <label for="E-Mail">Email:</label>
-                <input id="E-Mail" type="text" name="E-Mail">
+              <input class="Felder" type="text" placeholder="E-Mail">
             </div>
             <div>
-              <label for="Nachricht">Nachricht:</label>
-                <textarea id="Nachricht" name="Nachricht" cols="20" rows="5"></textarea>
+              <textarea class="Felder" placeholder="Schreib mir!" cols="20" rows="5"></textarea>
             </div>
+            <p id="disclaimer">(leider funktioniert das Formular nicht.)</p>
             <button>Absenden!</button>
-          </fieldset>
         </form>
     </main>
+    <footer>
+      <nav class="socials">
+          <a href="https://www.instagram.com/mohsarah/">
+              <img src="instagram.png" width=32>
+          </a>
+          <a href="https://www.facebook.com/sarah.moring.5">
+              <img src="facebook.png" width=32>
+          </a>
+          <a href="mailto:sarah.erika.sigrid.mohring@hs-furtwangen.de">
+            <img src="email.png" width=32>
+          </a>
+          <p>&copy; Sarah Mohring, 2020</p>
+      </nav>
+  </footer>
 </body>
 </html>

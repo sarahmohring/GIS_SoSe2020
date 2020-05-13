@@ -4,32 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel=“stylesheet“ href=“style.css”>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav>
+        <a id="aktuelle_Seite" href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/portfolio.htm">portfolio</a>
+        |
+        <a href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/contact.htm">kontakt</a>
+        |
+        <a href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/about_me.htm">about me</a>
+    </nav>
     <header>
-        <nav>
-            <a id="aktuelle_Seite" href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/portfolio.htm">Portfolio</a>
-            <a href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/contact.htm">Kontakt</a>
-            <a href= "https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_03/about_me.htm">About Me</a>
-        </nav>
         <h1>Portfolio</h1>
     </header>
     <main>
-        <p>Hier ein Foto, das ich vor kurzem gemacht habe:</p>
-        <img src="Damwild.jpg" alt="Damwild" height=720 width=1080>
-        <p>Hier ein Bild, das ich gemalt habe:</p>
-        <img src="Spiekeroog_Aquarell.JPG" alt="Aquarell" height=720 width=1080>
-        <p>Hier ein Video von der Wassershow vor dem Burj Khalifa in Dubai:</p>
-        <video controls>
+        <p>Hier ein <strong>Foto</strong>, das ich vor kurzem gemacht habe:</p>
+        <img class="media" src="Damwild.jpg" alt="Damwild" width=800>
+        <p>Hier ein <strong>Bild</strong>, das ich gemalt habe:</p>
+        <img class="media" src="Spiekeroog_Aquarell.JPG" alt="Aquarell" width=800>
+        <p>Hier ein <strong>Video</strong> von der Wassershow vor dem Burj Khalifa in Dubai:</p>
+        <video class="media" controls width=800>
             <source src="BurjKhalifa.mp4" type="video/mp4">
           Your browser does not support the video tag.
           </video>
-        <p>Hier eine Audiodatei, die mir allerdings nicht gehört:</p>
-        <audio controls>
+        <p>Hier eine <strong>Audiodatei</strong>, die mir allerdings nicht gehört:</p>
+        <audio class="media" controls>
             <source src="Sour_Tennessee_Red_Sting.mp3" type="audio/mp3">
           Your browser does not support the audio tag.
         </audio>
     </main>
+    <footer>
+        <nav class="socials">
+            <a href="https://www.instagram.com/mohsarah/">
+                <img src="instagram.png" width=32>
+            </a>
+            <a href="https://www.facebook.com/sarah.moring.5">
+                <img src="facebook.png" width=32>
+            </a>
+            <a href="mailto:sarah.erika.sigrid.mohring@hs-furtwangen.de">
+                <img src="email.png" width=32>
+            </a>
+            <p>&copy; Sarah Mohring, 2020</p>
+        </nav>
+    </footer>
 </body>
 </html>
