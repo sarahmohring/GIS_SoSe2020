@@ -101,50 +101,6 @@ textarea {
     margin: 20px;
 }
 
-/*Desktop, Tablet*/
-@media screen and (min-width: 720px) {
-
-#logo, #warenkorb {
-    margin: 20px;
-    width: 80px;  
-    height: 80px; 
-}
-
-div img[src$="jpg"] {
-    margin: 20px;
-    border: solid rgb(43, 26, 11);
-    border-radius: 5px;
-    width: 400px;
-}
-
-.kameras, .zubehör {
-    width: 480px;
-    height: 620px;
-    background-color: rgb(201, 89, 15);
-    margin: auto auto 15px auto;
-    border-radius: 5px;
-    border: solid rgb(43, 26, 11);
-}
-
-h1+input {
-    margin: 20px;
-}
-
-}
-
-/*Smartphone*/
-@media screen and (max-width: 720px){
-
-#logo, #warenkorb {
-    margin: 10px;
-    height: 30px;
-    width: 30px;   
-}
-
-header>h1 {
-    font-size: smaller;
-}
-
 div img[src$="jpg"] {
     margin: 20px 20px 0px 20px;
     border: solid rgb(43, 26, 11);
@@ -160,6 +116,34 @@ div img[src$="jpg"] {
     margin: auto auto 15px auto;
     border-radius: 5px;
     border: solid rgb(43, 26, 11);
+}
+
+/*Desktop, Tablet*/
+@media screen and (min-width: 1000px) {
+
+#logo, #warenkorb {
+    margin: 20px;
+    width: 80px;  
+    height: 80px; 
+}
+
+h1+input {
+    margin: 20px;
+}
+
+}
+
+/*Smartphone*/
+@media screen and (max-width: 1000px){
+
+#logo, #warenkorb {
+    margin: 10px;
+    height: 30px;
+    width: 30px;   
+}
+
+header>h1 {
+    font-size: smaller;
 }
 
 }
