@@ -2,7 +2,7 @@
 var Aufgabe_05;
 (function (Aufgabe_05) {
     let kamera1 = { imgurl: "Canon-EOS-2000D.jpg", name: "Canon EOS 2000D", beschreibung: "- DSLR -", preis: "Preis: 299,99€" };
-    let kamera2 = { imgurl: "Canon-EOS-9D.jpg", name: "Canon EOS 9D", beschreibung: "- DSLR -", preis: "Preis: 1.229,99€" };
+    let kamera2 = { imgurl: "Canon-EOS-90D.jpg", name: "Canon EOS 90D", beschreibung: "- DSLR -", preis: "Preis: 1.229,99€" };
     let kamera3 = { imgurl: "Nikon-D5600.jpg", name: "Nikon D5600", beschreibung: "- DSLR -", preis: "Preis: 559,99€" };
     let kamera4 = { imgurl: "Olympus-OMD-EM10-Mark-II.jpg", name: "Olympus OMD EM10 Mark II", beschreibung: "- Mirrorless-", preis: "Preis: 495,99€" };
     let kamera5 = { imgurl: "Panasonic-Lumix-DMC-G7.jpg", name: "Panasonic Lumix DMC G7", beschreibung: "- Mirrorless -", preis: "Preis: 399,99€" };

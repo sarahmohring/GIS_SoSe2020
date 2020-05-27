@@ -8,7 +8,7 @@ namespace Aufgabe_05 {
     }
 
     let kamera1: Produkte = {imgurl: "Canon-EOS-2000D.jpg", name: "Canon EOS 2000D", beschreibung: "- DSLR -", preis: "Preis: 299,99€"};
-    let kamera2: Produkte = {imgurl: "Canon-EOS-9D.jpg", name: "Canon EOS 9D", beschreibung: "- DSLR -", preis: "Preis: 1.229,99€"};
+    let kamera2: Produkte = {imgurl: "Canon-EOS-90D.jpg", name: "Canon EOS 90D", beschreibung: "- DSLR -", preis: "Preis: 1.229,99€"};
     let kamera3: Produkte = {imgurl: "Nikon-D5600.jpg", name: "Nikon D5600", beschreibung: "- DSLR -", preis: "Preis: 559,99€"};
     let kamera4: Produkte = {imgurl: "Olympus-OMD-EM10-Mark-II.jpg", name: "Olympus OMD EM10 Mark II", beschreibung: "- Mirrorless-", preis: "Preis: 495,99€"};
     let kamera5: Produkte = {imgurl: "Panasonic-Lumix-DMC-G7.jpg", name: "Panasonic Lumix DMC G7", beschreibung: "- Mirrorless -", preis: "Preis: 399,99€"};
