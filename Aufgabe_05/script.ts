@@ -1,79 +1,80 @@
 namespace Aufgabe_05 {
 
-    let divElemAll: HTMLDivElement = document.createElement("div");
-    divElemAll.setAttribute("class", "flexProdukte");
+    let divProdukte: HTMLDivElement = document.createElement("div");
+    divProdukte.setAttribute("class", "flexProdukte");
+    
+    document.getElementById("main")?.appendChild(divProdukte);
 
-    let divHeader: HTMLElement = document.createElement("div");
-    divHeader.setAttribute("class", "kategorie");
-    let hElemDiv: HTMLElement = document.createElement("h1");
-    hElemDiv.setAttribute("id", "kategorie1");
-    hElemDiv.innerHTML = "Kameras";
-    divHeader.appendChild(hElemDiv);
-    divElemAll.appendChild(divHeader);
+    let divTitel: HTMLDivElement = document.createElement("div");
+    divTitel.setAttribute("class", "kategorie");
+    let h1Kateg: HTMLHeadingElement = document.createElement("h1");
+    h1Kateg.setAttribute("id", "kategorie1");
+    h1Kateg.innerHTML = "Kameras";
+    divTitel.appendChild(h1Kateg);
+    divProdukte.appendChild(divTitel);
 
     for (let index: number = 0; index < produkteKamera.length; index++) {
 
-        let divElem: HTMLDivElement = document.createElement("div");
-        divElem.setAttribute("class", "kameras");
-        divElemAll.appendChild(divElem);
+        let divKamera: HTMLDivElement = document.createElement("div");
+        divKamera.setAttribute("class", "kameras");
+        divProdukte.appendChild(divKamera);
 
-        let imgElem: HTMLImageElement = document.createElement("img");
-        imgElem.setAttribute("src", produkteKamera[index].imgurl);
-        imgElem.setAttribute("alt", produkteKamera[index].name);
-        divElem.appendChild(imgElem);
+        let imgURL: HTMLImageElement = document.createElement("img");
+        imgURL.setAttribute("src", produkteKamera[index].imgurl);
+        imgURL.setAttribute("alt", produkteKamera[index].name);
+        divKamera.appendChild(imgURL);
 
-        let p1Elem: HTMLParagraphElement = document.createElement("p");
-        divElem.appendChild(p1Elem);
-        p1Elem.innerHTML = produkteKamera[index].name;
+        let p1Name: HTMLParagraphElement = document.createElement("p");
+        divKamera.appendChild(p1Name);
+        p1Name.innerHTML = produkteKamera[index].name;
 
-        let p2Elem: HTMLParagraphElement = document.createElement("p");
-        divElem.appendChild(p2Elem);
-        p2Elem.innerHTML = produkteKamera[index].beschreibung;
+        let p2Beschr: HTMLParagraphElement = document.createElement("p");
+        divKamera.appendChild(p2Beschr);
+        p2Beschr.innerHTML = produkteKamera[index].beschreibung;
 
-        let p3Elem: HTMLParagraphElement = document.createElement("p");
-        divElem.appendChild(p3Elem);
-        p3Elem.innerHTML = produkteKamera[index].preis;
+        let p3Preis: HTMLParagraphElement = document.createElement("p");
+        divKamera.appendChild(p3Preis);
+        p3Preis.innerHTML = produkteKamera[index].preis;
         
-        let buttonElem: HTMLButtonElement = document.createElement("button");
-        buttonElem.innerHTML = "In den Warenkorb!";
-        divElem.appendChild(buttonElem);
+        let warenkorb: HTMLButtonElement = document.createElement("button");
+        divKamera.appendChild(warenkorb);
+        warenkorb.innerHTML = "In den Warenkorb!";
+        
     }
 
-    let divHeader2: HTMLElement = document.createElement("div");
-    divHeader2.setAttribute("class", "kategorie");
-    let hElemDiv2: HTMLElement = document.createElement("h1");
-    hElemDiv2.setAttribute("id", "kategorie2");
-    hElemDiv2.innerHTML = "Zubehör";
-    divHeader2.appendChild(hElemDiv2);
-    divElemAll.appendChild(divHeader2);
+    let divTitel2: HTMLDivElement = document.createElement("div");
+    divTitel2.setAttribute("class", "kategorie");
+    let h1Kateg2: HTMLHeadingElement = document.createElement("h1");
+    h1Kateg2.setAttribute("id", "kategorie2");
+    h1Kateg2.innerHTML = "Zubehör";
+    divTitel2.appendChild(h1Kateg);
+    divProdukte.appendChild(divTitel2);
 
     for (let index: number = 0; index < produkteZubehoer.length; index++) {
 
-        let divElem: HTMLDivElement = document.createElement("div");
-        divElem.setAttribute("class", "zubehoer");
-        divElemAll.appendChild(divElem);
+        let divZubeh: HTMLDivElement = document.createElement("div");
+        divZubeh.setAttribute("class", "zubehoer");
+        divProdukte.appendChild(divZubeh);
 
-        let imgElem: HTMLImageElement = document.createElement("img");
-        imgElem.setAttribute("src", produkteZubehoer[index].imgurl);
-        imgElem.setAttribute("alt", produkteZubehoer[index].name);
-        divElem.appendChild(imgElem);
+        let imgURL: HTMLImageElement = document.createElement("img");
+        imgURL.setAttribute("src", produkteZubehoer[index].imgurl);
+        imgURL.setAttribute("alt", produkteZubehoer[index].name);
+        divZubeh.appendChild(imgURL);
 
-        let p1Elem: HTMLParagraphElement = document.createElement("p");
-        divElem.appendChild(p1Elem);
-        p1Elem.innerHTML = produkteZubehoer[index].name;
+        let p1Name: HTMLParagraphElement = document.createElement("p");
+        divZubeh.appendChild(p1Name);
+        p1Name.innerHTML = produkteZubehoer[index].name;
 
-        let p2Elem: HTMLParagraphElement = document.createElement("p");
-        divElem.appendChild(p2Elem);
-        p2Elem.innerHTML = produkteZubehoer[index].beschreibung;
+        let p2Beschr: HTMLParagraphElement = document.createElement("p");
+        divZubeh.appendChild(p2Beschr);
+        p2Beschr.innerHTML = produkteZubehoer[index].beschreibung;
 
-        let p3Elem: HTMLParagraphElement = document.createElement("p");
-        divElem.appendChild(p3Elem);
-        p3Elem.innerHTML = produkteZubehoer[index].preis;
+        let p3Preis: HTMLParagraphElement = document.createElement("p");
+        divZubeh.appendChild(p3Preis);
+        p3Preis.innerHTML = produkteZubehoer[index].preis;
 
-        let buttonElem: HTMLButtonElement = document.createElement("button");
-        buttonElem.innerHTML = "In den Warenkorb!";
-        divElem.appendChild(buttonElem);
+        let warenkorb: HTMLButtonElement = document.createElement("button");
+        divZubeh.appendChild(warenkorb);
+        warenkorb.innerHTML = "In den Warenkorb!";
     }
-
-    document.getElementById("main")?.appendChild(divElemAll);
 }
