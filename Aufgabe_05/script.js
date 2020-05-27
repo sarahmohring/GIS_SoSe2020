@@ -9,6 +9,7 @@ var Aufgabe_05;
         divElemAll.appendChild(divElem);
         let imgElem = document.createElement("img");
         imgElem.setAttribute("src", Aufgabe_05.produkteKamera[index].imgurl);
+        imgElem.setAttribute("alt", Aufgabe_05.produkteKamera[index].name);
         divElem.appendChild(imgElem);
         let p1Elem = document.createElement("p");
         divElem.appendChild(p1Elem);
@@ -26,6 +27,7 @@ var Aufgabe_05;
         divElemAll.appendChild(divElem);
         let imgElem = document.createElement("img");
         imgElem.setAttribute("src", Aufgabe_05.produkteZubehoer[index].imgurl);
+        imgElem.setAttribute("alt", Aufgabe_05.produkteZubehoer[index].name);
         divElem.appendChild(imgElem);
         let p1Elem = document.createElement("p");
         divElem.appendChild(p1Elem);
@@ -36,10 +38,9 @@ var Aufgabe_05;
         let p3Elem = document.createElement("p");
         divElem.appendChild(p3Elem);
         p3Elem.innerHTML = Aufgabe_05.produkteZubehoer[index].preis;
-        /*let buttonElem: HTMLElement = document.createElement("button");
+        let buttonElem = document.createElement("button");
         buttonElem.setAttribute("src", "shoppingcart.png");
         divElem.appendChild(buttonElem);
-        */
     }
     document.getElementById("main")?.appendChild(divElemAll);
 })(Aufgabe_05 || (Aufgabe_05 = {}));
