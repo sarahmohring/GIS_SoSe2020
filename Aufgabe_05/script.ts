@@ -49,10 +49,10 @@ namespace Aufgabe_05 {
     //  p3Elem.setAttribute("class", "preis");
         p3Elem.innerHTML = produkteZubehoer[index].preis;
 
-        let buttonElem: InputEventInit = document.createElement("input");
+        /*let buttonElem: InputEventInit = document.createElement("input");
         buttonElem.value = "In den Warenkorb!";
         buttonElem.type = "submit";
-        divElem.appendChild(buttonElem);
+        divElem.appendChild(buttonElem);*/
     }
 
     document.getElementById("main")?.appendChild(divElemAll);
