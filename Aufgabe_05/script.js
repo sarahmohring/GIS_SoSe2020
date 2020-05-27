@@ -31,7 +31,7 @@ var Aufgabe_05;
         divElem.appendChild(imgElem);
         let p1Elem = document.createElement("p");
         divElem.appendChild(p1Elem);
-        p1Elem.innerHTML = Aufgabe_05.produkteZubehoer[index].beschreibung;
+        p1Elem.innerHTML = Aufgabe_05.produkteZubehoer[index].name;
         let p2Elem = document.createElement("p");
         divElem.appendChild(p2Elem);
         p2Elem.innerHTML = Aufgabe_05.produkteZubehoer[index].beschreibung;

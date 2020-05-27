@@ -40,7 +40,7 @@ namespace Aufgabe_05 {
 
         let p1Elem: HTMLParagraphElement = document.createElement("p");
         divElem.appendChild(p1Elem);
-        p1Elem.innerHTML = produkteZubehoer[index].beschreibung;
+        p1Elem.innerHTML = produkteZubehoer[index].name;
 
         let p2Elem: HTMLParagraphElement = document.createElement("p");
         divElem.appendChild(p2Elem);
