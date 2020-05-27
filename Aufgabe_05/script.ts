@@ -29,30 +29,30 @@ namespace Aufgabe_05 {
 
     for (let index: number = 0; index < produkteZubehoer.length; index++) {
 
-        let divElem2: HTMLDivElement = document.createElement("div");
-        divElem2.setAttribute("class", "zubehoer");
-        divElemAll.appendChild(divElem2);
+        let divElem: HTMLDivElement = document.createElement("div");
+        divElem.setAttribute("class", "zubehoer");
+        divElemAll.appendChild(divElem);
 
         let imgElem: HTMLImageElement = document.createElement("img");
         imgElem.setAttribute("src", produkteZubehoer[index].imgurl);
         imgElem.setAttribute("alt", produkteZubehoer[index].name);
-        divElem2.appendChild(imgElem);
+        divElem.appendChild(imgElem);
 
         let p1Elem: HTMLParagraphElement = document.createElement("p");
-        divElem2.appendChild(p1Elem);
+        divElem.appendChild(p1Elem);
         p1Elem.innerHTML = produkteZubehoer[index].beschreibung;
 
         let p2Elem: HTMLParagraphElement = document.createElement("p");
-        divElem2.appendChild(p2Elem);
+        divElem.appendChild(p2Elem);
         p2Elem.innerHTML = produkteZubehoer[index].beschreibung;
 
         let p3Elem: HTMLParagraphElement = document.createElement("p");
-        divElem2.appendChild(p3Elem);
+        divElem.appendChild(p3Elem);
         p3Elem.innerHTML = produkteZubehoer[index].preis;
 
         let buttonElem: HTMLButtonElement = document.createElement("button");
         buttonElem.setAttribute("src", "shoppingcart.png");
-        divElem2.appendChild(buttonElem);
+        divElem.appendChild(buttonElem);
     }
 
     document.getElementById("main")?.appendChild(divElemAll);
