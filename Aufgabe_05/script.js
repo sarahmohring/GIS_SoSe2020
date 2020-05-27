@@ -37,7 +37,17 @@ var Aufgabe_05;
         divElem.appendChild(p3Elem);
         //  p3Elem.setAttribute("class", "preis");
         p3Elem.innerHTML = Aufgabe_05.produkteZubehoer[index].preis;
+        let buttonElem = document.createElement("input");
+        buttonElem.value = "In den Warenkorb!";
+        buttonElem.type = "submit";
+        divElem.appendChild(buttonElem);
     }
     document.getElementById("main")?.appendChild(divElemAll);
 })(Aufgabe_05 || (Aufgabe_05 = {}));
+/* button ???
+let buttonElem = document.createElement("input");
+    buttonElem.value = "In den Warenkorb!";
+    buttonElem.type = "submit";
+    divElem.appendChild(newB);
+} */ 
 //# sourceMappingURL=script.js.map
