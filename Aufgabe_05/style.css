@@ -42,6 +42,12 @@ nav>a:hover {
     
 }
 
+.kategorie{
+    width: 100%;
+    color: white;
+    font-size: xx-large;
+}
+
 button {
     background-color: rgb(118, 208, 224);
     color: white;
