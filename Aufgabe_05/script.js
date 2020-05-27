@@ -3,6 +3,13 @@ var Aufgabe_05;
 (function (Aufgabe_05) {
     let divElemAll = document.createElement("div");
     divElemAll.setAttribute("class", "flexProdukte");
+    let divHeader = document.createElement("div");
+    divHeader.setAttribute("class", "kategorie");
+    let hElemDiv = document.createElement("h1");
+    hElemDiv.setAttribute("id", "kategorie1");
+    hElemDiv.innerHTML = "Kameras";
+    divHeader.appendChild(hElemDiv);
+    divElemAll.appendChild(divHeader);
     for (let index = 0; index < Aufgabe_05.produkteKamera.length; index++) {
         let divElem = document.createElement("div");
         divElem.setAttribute("class", "kameras");
@@ -20,7 +27,17 @@ var Aufgabe_05;
         let p3Elem = document.createElement("p");
         divElem.appendChild(p3Elem);
         p3Elem.innerHTML = Aufgabe_05.produkteKamera[index].preis;
+        let buttonElem = document.createElement("button");
+        buttonElem.innerHTML = "In den Warenkorb!";
+        divElem.appendChild(buttonElem);
     }
+    let divHeader2 = document.createElement("div");
+    divHeader2.setAttribute("class", "kategorie");
+    let hElemDiv2 = document.createElement("h1");
+    hElemDiv2.setAttribute("id", "kategorie2");
+    hElemDiv2.innerHTML = "Zubehör";
+    divHeader2.appendChild(hElemDiv2);
+    divElemAll.appendChild(divHeader2);
     for (let index = 0; index < Aufgabe_05.produkteZubehoer.length; index++) {
         let divElem = document.createElement("div");
         divElem.setAttribute("class", "zubehoer");
@@ -39,7 +56,7 @@ var Aufgabe_05;
         divElem.appendChild(p3Elem);
         p3Elem.innerHTML = Aufgabe_05.produkteZubehoer[index].preis;
         let buttonElem = document.createElement("button");
-        buttonElem.setAttribute("src", "shoppingcart.png");
+        buttonElem.innerHTML = "In den Warenkorb!";
         divElem.appendChild(buttonElem);
     }
     document.getElementById("main")?.appendChild(divElemAll);
