@@ -1,0 +1,151 @@
+/* bildschirmgrößen-unabhängig*/
+body {
+    background-image: url(background.jpg);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+header {
+    display: flex;  
+    flex-direction: row;
+    background-image: url(header_background.jpg);
+    color: white;
+}
+
+nav {
+    display: flex;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+}
+
+nav>a {
+    text-decoration: none;
+    color: rgb(118, 208, 224);
+    width: 33.333%;
+    box-sizing: border-box;
+    background-color: rgb(43, 26, 11);
+    font-size: larger;
+    height: 30px;
+    padding-top: 5px;
+}
+
+nav>a:hover { 
+    color: white;
+    font-weight: bolder;
+} 
+
+#aktuelleSeite { 
+    text-decoration: none;
+    color:white;
+    
+}
+
+button {
+    background-color: rgb(118, 208, 224);
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border: solid rgb(43, 26, 11);
+}
+
+button:hover {
+    background-color: rgb(43, 26, 11);
+}
+
+input {
+    margin: 10px;
+    width: 75%;
+    border-radius: 5px;
+    border: solid rgb(43, 26, 11);
+}
+
+#disclaimer {
+    font-size: xx-small;
+    color: rgb(158, 158, 158);
+}
+
+form {
+    background-image: url(bg_türkis.jpg);
+    color: rgb(43, 26, 11);
+    border: 5px solid rgb(43, 26, 11);
+}
+
+.Felder {
+    padding: 10px;
+    margin: 0px 0px 10px 0px;
+}
+
+.flexProdukte {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(118, 208, 224);
+}
+
+footer a:hover { 
+    text-decoration: none;
+    color: white;
+}
+    
+textarea { 
+    width: 75%;
+}
+
+.start * {
+    width: 50%;
+    margin: 20px;
+}
+
+div img[src$="jpg"] {
+    margin: 20px 20px 0px 20px;
+    border: solid rgb(43, 26, 11);
+    border-radius: 5px;
+    width: 300px;
+}
+
+.kameras, .zubehör {
+    width: 340px;
+    height: 485px;
+    font-size: small;
+    background-color: rgb(201, 89, 15);
+    margin: auto auto 15px auto;
+    border-radius: 5px;
+    border: solid rgb(43, 26, 11);
+}
+
+/*Desktop, Tablet*/
+@media screen and (min-width: 1000px) {
+
+#logo, #warenkorb {
+    margin: 20px;
+    width: 80px;  
+    height: 80px; 
+}
+
+h1+input {
+    margin: 20px;
+}
+
+}
+
+/*Smartphone*/
+@media screen and (max-width: 1000px){
+
+#logo, #warenkorb {
+    margin: 10px;
+    height: 30px;
+    width: 30px;   
+}
+
+header>h1 {
+    font-size: smaller;
+}
+
+}
+
+
