@@ -36,12 +36,6 @@ nav>a:hover {
     font-weight: bolder;
 } 
 
-#aktuelleSeite { 
-    text-decoration: none;
-    color:white;
-    
-}
-
 .kategorie{
     width: 100%;
     color: white;
@@ -84,7 +78,7 @@ form {
     margin: 0px 0px 10px 0px;
 }
 
-.flexProdukte {
+#zubehoerDiv, #kamerasDiv {
     display: flex;
     flex-wrap: wrap;
 }
@@ -115,7 +109,7 @@ div img[src$="jpg"] {
     width: 300px;
 }
 
-.kameras, .zubehoer {
+.produkte {
     width: 340px;
     height: 485px;
     font-size: small;

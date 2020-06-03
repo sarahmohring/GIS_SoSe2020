@@ -7,23 +7,25 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer=""></script>
     <script src="scriptProduktdaten.js"></script>
-    <script src="scriptTest.js"></script>
 </head>
 <body>
     <header>
-        <a href="https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_06/startseite.htm"><img id="logo" src="logo.png" alt="Logo"/></a>
+        <a href="startseite.htm"><img id="logo" src="logo.png" alt="Logo"/></a>
         <h1>Fotografie-Online</h1>
         <input type="text" placeholder="Suche...">
         <img id="warenkorb" src="shoppingcart.png" alt="Warenkorb">
     </header>
     <nav>
-        <a href="#alleArtikel">Alle Artikel</a>
-        <a href="#kategorie1">Kameras</a>
-        <a href="#kategorie2">Zubehör</a>
+        <a id="alleProdukte">Alle Artikel</a>
+        <a id="nurKameras">Kameras</a>
+        <a id="nurZubehoer">Zubehör</a>
     </nav>
-    <main id="main"></main>
+    <h1 id="titel1">Kameras</h1>
+    <div id="kameras"></div>
+    <h1 id="titel2">Zubehör</h1>
+    <div id="zubehoer"></div>
     <footer>
-        <a href="https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_06/kontakt.htm">Kontakt</a>
+        <a href="kontakt.htm">Kontakt</a>
         <p>&copy; Fotografie-Online, 2020</p>
     </footer>
 </body>

@@ -1,99 +1,117 @@
 namespace Aufgabe_06 {
 
     // großes Div-Element erstellen, dass alle zu generierenden Artikel umfassen wird
-    let divProdukte: HTMLDivElement = document.createElement("div");
-    divProdukte.setAttribute("class", "flexProdukte");
+    let kategorie: HTMLDivElement = document.createElement("div");
+    kategorie.setAttribute("id", "kamerasDiv");
 
-    // Titelzeile für Produktkategorie 1 (Kameras)
-    let divTitel: HTMLDivElement = document.createElement("div");
-    divTitel.setAttribute("class", "kategorie");
-    let h1Kateg: HTMLHeadingElement = document.createElement("h1");
-    h1Kateg.setAttribute("id", "kategorie1");
-    h1Kateg.innerHTML = "Kameras";
-    divTitel.appendChild(h1Kateg);
-    divProdukte.appendChild(divTitel);
+    function produkteErzeugen(_produktliste: Produkt[], produktDiv: HTMLElement): void {
 
-    // Schleife generiert alle Kamera-Produkte aus der scriptProduktdaten.ts-Datei
-    for (let index: number = 0; index < produkteKamera.length; index++) {
+        // Schleife generiert alle Produkte aus der scriptProduktdaten.ts-Datei
+        for (let index: number = 0; index < _produktliste.length; index++) {
 
-        // umgebender Div-Block pro Produkt
-        let divKamera: HTMLDivElement = document.createElement("div");
-        divKamera.setAttribute("class", "kameras");
-        divProdukte.appendChild(divKamera);
+            // umgebender Div-Block pro Produkt
+            let divProdukt: HTMLDivElement = document.createElement("div");
+            divProdukt.setAttribute("class", "produkte"); //??
+            produktDiv.appendChild(divProdukt);
 
-        // Bild einfuegen
-        let imgURL: HTMLImageElement = document.createElement("img");
-        imgURL.setAttribute("src", produkteKamera[index].imgurl);
-        imgURL.setAttribute("alt", produkteKamera[index].name);
-        divKamera.appendChild(imgURL);
+            // Bild einfuegen
+            let imgURL: HTMLImageElement = document.createElement("img");
+            imgURL.setAttribute("src", _produktliste[index].imgurl);
+            imgURL.setAttribute("alt", _produktliste[index].name);
+            divProdukt.appendChild(imgURL);
 
-        // Produktname einfuegen
-        let p1Name: HTMLParagraphElement = document.createElement("p");
-        divKamera.appendChild(p1Name);
-        p1Name.innerHTML = produkteKamera[index].name;
+            // Produktname einfuegen
+            let h3Name: HTMLParagraphElement = document.createElement("h3");
+            h3Name.innerHTML = _produktliste[index].name;
+            divProdukt.appendChild(h3Name);
 
+            // Beschreibung einfuegen
+            let pBeschr: HTMLParagraphElement = document.createElement("p");
+            pBeschr.innerHTML = _produktliste[index].beschreibung;
+            divProdukt.appendChild(pBeschr);
 
-        // Beschreibung einfuegen
-        let p2Beschr: HTMLParagraphElement = document.createElement("p");
-        divKamera.appendChild(p2Beschr);
-        p2Beschr.innerHTML = produkteKamera[index].beschreibung;
+            // Preis einfuegen
+            let pPreis: HTMLParagraphElement = document.createElement("p");
+            pPreis.setAttribute("class", "preis");
+            pPreis.innerHTML = "Preis: " + _produktliste[index].preis + "€";
+            divProdukt.appendChild(pPreis);
 
+            // Warenkorb-Button einfuegen
+            let warenkorb: HTMLButtonElement = document.createElement("button");
+            warenkorb.setAttribute("type", "button");
+            warenkorb.setAttribute("class", "knopf");
+            divProdukt.appendChild(warenkorb);
+            warenkorb.innerHTML = "In den Warenkorb!";
+            //warenkorb.addEventListener("click", handleClick);
+        }
 
-        // Preis einfuegen
-        let p3Preis: HTMLParagraphElement = document.createElement("p");
-        divKamera.appendChild(p3Preis);
-        p3Preis.innerHTML = `${produkteKamera[index].preis.toString()} €`;
-
-        // Warenkorb-Button einfuegen
-        let warenkorb: HTMLButtonElement = document.createElement("button");
-        warenkorb.setAttribute("class", "knopf");
-        divKamera.appendChild(warenkorb);
-        warenkorb.innerHTML = "In den Warenkorb!";
     }
 
-    // Titelzeile für Produktkategorie 2 (Zubehoer)
-    let divTitel2: HTMLDivElement = document.createElement("div");
-    divTitel2.setAttribute("class", "kategorie");
-    let h1Kateg2: HTMLHeadingElement = document.createElement("h1");
-    h1Kateg2.setAttribute("id", "kategorie2");
-    h1Kateg2.innerHTML = "Zubehör";
-    divTitel2.appendChild(h1Kateg2);
-    divProdukte.appendChild(divTitel2);
+    produkteErzeugen(produkteKamera, kategorie);
 
-    // Schleife generiert alle Zubehoer-Produkte aus der scriptProduktdaten.ts-Datei
-    for (let index: number = 0; index < produkteZubehoer.length; index++) {
+    document.getElementById("kameras")?.appendChild(kategorie);
 
-        // umgebender Div-Block pro Produkt
-        let divZubeh: HTMLDivElement = document.createElement("div");
-        divZubeh.setAttribute("class", "zubehoer");
-        divProdukte.appendChild(divZubeh);
+    let kategorie2: HTMLElement = document.createElement("div");
+    kategorie2.setAttribute("id", "zubehoerDiv");
 
-        // Bild einfuegen
-        let imgURL: HTMLImageElement = document.createElement("img");
-        imgURL.setAttribute("src", produkteZubehoer[index].imgurl);
-        imgURL.setAttribute("alt", produkteZubehoer[index].name);
-        divZubeh.appendChild(imgURL);
+    produkteErzeugen(produkteZubehoer, kategorie2);
 
-        // Produktname einfuegen
-        let p1Name: HTMLParagraphElement = document.createElement("p");
-        divZubeh.appendChild(p1Name);
-        p1Name.innerHTML = produkteZubehoer[index].name;
+    document.getElementById("zubehoer")?.appendChild(kategorie2);
 
-        // Beschreibung einfuegen
-        let p2Beschr: HTMLParagraphElement = document.createElement("p");
-        divZubeh.appendChild(p2Beschr);
-        p2Beschr.innerHTML = produkteZubehoer[index].beschreibung;
 
-        // Preis einfuegen
-        let p3Preis: HTMLParagraphElement = document.createElement("p");
-        divZubeh.appendChild(p3Preis);
-        p3Preis.innerHTML = `${produkteKamera[index].preis.toString()} €`;
+    let nurKameras: HTMLElement = <HTMLElement>document.getElementById("nurKameras");
+    nurKameras.addEventListener("click", handleKameras);
 
-        // Warenkorb-Button einfuegen
-        let warenkorb: HTMLButtonElement = document.createElement("button");
-        divZubeh.appendChild(warenkorb);
-        warenkorb.innerHTML = "In den Warenkorb!";
+    let nurZubehoer: HTMLElement = <HTMLElement>document.getElementById("nurZubehoer");
+    nurZubehoer.addEventListener("click", handleZubehoer);
+
+    let alleProdukte: HTMLElement = <HTMLElement>document.getElementById("alleProdukte");
+    alleProdukte.addEventListener("click", handleAlleProdukte);
+
+    //Funktionen für Filter
+
+    function handleKameras(): void {
+
+        let kamerasDiv: HTMLElement = <HTMLElement>document.getElementById("kameras"); //tag doppelt?
+        kamerasDiv.hidden = false;
+
+        let titelKamera: HTMLElement = <HTMLElement>document.getElementById("titel1");
+        titelKamera.hidden = false;
+        
+        let zubehoerDiv: HTMLElement = <HTMLElement>document.getElementById("zubehoer"); //zubehoer bereits verwendet??
+        zubehoerDiv.hidden = true;
+
+        let titelZubehoer: HTMLElement = <HTMLElement>document.getElementById("titel2");
+        titelZubehoer.hidden = true;
     }
-    // Div an im HTML-Code vorhandenes main-Element anhaengen
-    document.getElementById("main")?.appendChild(divProdukte);
+
+    function handleZubehoer(): void {
+
+        let kamerasDiv: HTMLElement = <HTMLElement>document.getElementById("kameras");
+        kamerasDiv.hidden = true;
+
+        let titelKameras: HTMLElement = <HTMLElement>document.getElementById("titel1");
+        titelKameras.hidden = true;
+
+        let zubehoerDiv: HTMLElement = <HTMLElement>document.getElementById("zubehoer");
+        zubehoerDiv.hidden = false;
+
+        let titelZubehoer: HTMLElement = <HTMLElement>document.getElementById("titel2");
+        titelZubehoer.hidden = false;
+    }
+
+    function handleAlleProdukte(): void {
+
+        let kamerasDiv: HTMLElement = <HTMLElement>document.getElementById("kameras");
+        kamerasDiv.hidden = false;
+
+        let titelKameras: HTMLElement = <HTMLElement>document.getElementById("titel1");
+        titelKameras.hidden = false;
+
+        let zubehoerDiv: HTMLElement = <HTMLElement>document.getElementById("zubehoer");
+        zubehoerDiv.hidden = false;
+
+        let titelZubehoer: HTMLElement = <HTMLElement>document.getElementById("titel2");
+        titelZubehoer.hidden = false;
+    }
 }
