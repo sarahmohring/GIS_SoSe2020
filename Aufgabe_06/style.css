@@ -109,6 +109,17 @@ div img[src$="jpg"] {
     width: 300px;
 }
 
+#zahl {
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 10px 20px 0px -45px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: rgb(118, 208, 224);
+}
+
 .produkte {
     width: 340px;
     height: 485px;
@@ -136,6 +147,13 @@ h1+input {
 
 /*Smartphone*/
 @media screen and (max-width: 1000px){
+
+#zahl {
+    height: 15px;
+    width: 15px;
+    margin: 7px 10px 0px -17px;
+    font-size: 11px;
+}
 
 #logo, #warenkorb {
     margin: 10px;

@@ -6,28 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotografie-Online: Startseite</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer=""></script>
+    <script src="scriptProduktdaten.js"></script>
 </head>
 
 <body>
     <header>
-        <a href="https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_06/startseite.htm"><img id="logo" src="logo.png"
-                alt="Logo" /></a>
+        <a href="startseite.htm"><img id="logo" src="logo.png" alt="Logo" /></a>
         <h1>Fotografie-Online</h1>
         <input type="text" placeholder="Suche...">
         <img id="warenkorb" src="shoppingcart.png" alt="Warenkorb">
+        <div id=kreisIcon></div>
     </header>
     <nav>
-        <a id="alleProdukte">Alle Artikel</a>
-        <a id="nurKameras">Kameras</a>
-        <a id="nurZubehoer">Zubehör</a>
+        <a id="alleProdukte" href="shop.htm#titel1">Alle Artikel</a>
+        <a id="nurKameras" href="shop.htm#titel1">Kameras</a>
+        <a id="nurZubehoer" href="shop.htm#titel2">Zubehör</a>
     </nav>
     <main class="start">
-        <a href="shop.htm#kategorie1"><img src="start_kamera_hover.jpg" alt="Kameras"></a>
-        <a href="shop.htm#kategorie2"><img src="start_zubehoer_hover.jpg" alt="Zubehör"></a>
+        <a href="shop.htm#titel1"><img src="start_kamera_hover.jpg" alt="Kameras"></a>
+        <a href="shop.htm#titel2"><img src="start_zubehoer_hover.jpg" alt="Zubehör"></a>
     </main>
     <footer>
-        <a href="https://sarahmohring.github.io/GIS_SoSe2020/Aufgabe_06/kontakt.htm">Kontakt</a>
+        <a href="kontakt.htm">Kontakt</a>
         <p>&copy; Fotografie-Online, 2020</p>
     </footer>
 </body>
