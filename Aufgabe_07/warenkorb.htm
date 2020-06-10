@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotografie-Online: Startseite</title>
     <link rel="stylesheet" href="style.css">
+    <script src="warenkorb.js" defer=""></script>
     <script src="script.js" defer=""></script>
-    <script src="scriptProduktdaten.js"></script>
+    <script src="scriptProduktdaten.js" defer=""></script>
 </head>
 
 <body>
@@ -23,8 +24,11 @@
         <a id="nurKameras" href="shop.htm#titel1">Kameras</a>
         <a id="nurZubehoer" href="shop.htm#titel2">Zubehör</a>
     </nav>
-    <main class="start">
-        <!-- hier Warenkorb Items-->
+    <main>
+        <h1>Produkte in Ihrem Warenkorb:</h1>
+        <div id="cartItem"></div>
+        <p id="gesamtpreis"></p>
+        <button id="deleteAll">Warenkorb leeren</button>
     </main>
     <footer>
         <a href="kontakt.htm">Kontakt</a>

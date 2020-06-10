@@ -7,14 +7,13 @@ namespace Aufgabe_07 {
         beschreibung: string;
         preis: number;
         kategorie: string;
-
     }
 
     // Produkte aus JSON-Datei einladen
     export let produkte: Produkt[];
-    loadArticles("artikel.json");
+    loadProducts("artikel.json");
 
-    async function loadArticles(_url: RequestInfo): Promise<void> {
+    async function loadProducts(_url: RequestInfo): Promise<void> {
         let response: Response = await fetch(_url);
         let jsonArray: JSON = await response.json();
         produkte = await JSON.parse(JSON.stringify(jsonArray));
