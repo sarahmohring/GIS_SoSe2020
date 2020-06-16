@@ -1,0 +1,21 @@
+{
+  "name": "gis_sose2020",
+  "version": "1.0.0",
+  "description": "kp",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node GIS_SoSe2020>/Aufgabe_07/script.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahmohring/GIS_SoSe2020.git"
+  },
+  "author": "Sarah Mohring",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarahmohring/GIS_SoSe2020/issues"
+  },
+  "homepage": "https://github.com/sarahmohring/GIS_SoSe2020#readme"
+}
