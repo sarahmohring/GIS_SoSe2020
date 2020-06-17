@@ -1,14 +1,9 @@
 "use strict";
 var Aufgabe_08;
 (function (Aufgabe_08) {
-    let formData = new FormData(document.forms[0]);
-    let myButton = document.getElementById("button");
-    myButton.addEventListener("click", buttonHandler);
-    for (let entry of formData) {
-        console.log("name: " + entry[0]);
-        console.log("value: " + entry[1]);
-    }
+    document.getElementById("button")?.addEventListener("click", buttonHandler);
     async function addToURL() {
+        let formData = new FormData(document.forms[0]);
         let url = "https://gis-sose2020.herokuapp.com/";
         let query = new URLSearchParams(formData);
         url += url + "?" + query.toString();
@@ -18,9 +13,9 @@ var Aufgabe_08;
         getResponse(await addToURL());
     }
     async function getResponse(_url) {
-        let response = await fetch(_url, { method: "get" });
+        let response = await fetch(_url);
         let resp2 = await response.text();
-        console.log(resp2);
+        console.log("Response", resp2);
     }
 })(Aufgabe_08 || (Aufgabe_08 = {}));
 //# sourceMappingURL=script.js.map
