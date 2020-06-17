@@ -2,7 +2,7 @@
 var Aufgabe_08;
 (function (Aufgabe_08) {
     document.getElementById("button")?.addEventListener("click", buttonHandler);
-    async function addToURL() {
+    async function zuURL() {
         let formData = new FormData(document.forms[0]);
         let url = "https://gis-sose2020.herokuapp.com/";
         let query = new URLSearchParams(formData);
@@ -15,12 +15,12 @@ var Aufgabe_08;
         return url;
     }
     async function buttonHandler() {
-        getResponse(await addToURL());
+        responseHolen(await zuURL());
     }
-    async function getResponse(_url) {
-        let response = await fetch(_url);
-        let resp2 = await response.text();
-        console.log("Response", resp2);
+    async function responseHolen(_url) {
+        let response1 = await fetch(_url);
+        let response2 = await response1.text();
+        console.log("Response", response2);
     }
 })(Aufgabe_08 || (Aufgabe_08 = {}));
 //# sourceMappingURL=script.js.map
