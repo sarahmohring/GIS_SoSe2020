@@ -23,4 +23,4 @@ var Aufgabe_08;
         console.log(resp2);
     }
 })(Aufgabe_08 || (Aufgabe_08 = {}));
-//# sourceMappingURL=auswertung.js.map
+//# sourceMappingURL=script.js.map
