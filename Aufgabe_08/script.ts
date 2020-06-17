@@ -2,11 +2,6 @@ namespace Aufgabe_08 {
 
     document.getElementById("button")?.addEventListener("click", buttonHandler);
     let formData: FormData = new FormData(document.forms[0]);
-    for (let entry of formData) {
-            console.log(entry);
-            console.log("name: " + entry[0]);
-            console.log("value: " + entry[1]);
-        }
 
     async function zuURL(): Promise<string> {
         let url: string = "https://gis-sose2020.herokuapp.com/";

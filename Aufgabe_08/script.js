@@ -3,11 +3,6 @@ var Aufgabe_08;
 (function (Aufgabe_08) {
     document.getElementById("button")?.addEventListener("click", buttonHandler);
     let formData = new FormData(document.forms[0]);
-    for (let entry of formData) {
-        console.log(entry);
-        console.log("name: " + entry[0]);
-        console.log("value: " + entry[1]);
-    }
     async function zuURL() {
         let url = "https://gis-sose2020.herokuapp.com/";
         let query = new URLSearchParams(formData);
