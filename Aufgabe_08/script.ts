@@ -1,9 +1,10 @@
 namespace Aufgabe_08 {
 
+    let formData: FormData = new FormData(document.forms[0]);
     document.getElementById("button")?.addEventListener("click", buttonHandler);
 
     async function addToURL(): Promise<string> {
-        let formData: FormData = new FormData(document.forms[0]);
+        
         let url: string = "https://gis-sose2020.herokuapp.com/";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url += url + "?" + query.toString();
@@ -18,5 +19,12 @@ namespace Aufgabe_08 {
         let resp2: string = await response.text();
         console.log("Response", resp2);
     }
+
+    for (let entry of formData) {
+        console.log(entry);
+        console.log("name: " + entry[0]);
+        console.log("value: " + entry[1]);
+    }
+    
 
 }
