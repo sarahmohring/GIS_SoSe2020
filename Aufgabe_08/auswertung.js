@@ -9,7 +9,7 @@ var Aufgabe_08;
         console.log("value: " + entry[1]);
     }*/
     async function addToURL() {
-        let url = "https://whatever.server/path/file"; // am Ende auf Heroku App verlinken
+        let url = "https://gis-sose2020.herokuapp.com/"; // am Ende auf Heroku App verlinken
         let query = new URLSearchParams(formData);
         url += url + "?" + query.toString();
         return url;
