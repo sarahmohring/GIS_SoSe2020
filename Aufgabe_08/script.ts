@@ -1,18 +1,18 @@
 namespace Aufgabe_08 {
 
     document.getElementById("button")?.addEventListener("click", buttonHandler);
-
-    async function zuURL(): Promise<string> {
-        let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gis-sose2020.herokuapp.com/";
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url += url + "?" + query.toString();
-        
-        for (let entry of formData) {
+    let formData: FormData = new FormData(document.forms[0]);
+    for (let entry of formData) {
             console.log(entry);
             console.log("name: " + entry[0]);
             console.log("value: " + entry[1]);
         }
+
+    async function zuURL(): Promise<string> {
+        let url: string = "https://gis-sose2020.herokuapp.com/";
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        url += url + "?" + query.toString();
+        console.log(url);
         return url;
     }
 
