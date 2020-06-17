@@ -10,7 +10,7 @@ namespace Aufgabe_08 {
     }*/
 
     async function addToURL(): Promise<string> {
-        let url: string = "https://gis-sose2020.herokuapp.com/"; // am Ende auf Heroku App verlinken
+        let url: string = "https://gis-sose2020.herokuapp.com/";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url += url + "?" + query.toString();
         return url;
