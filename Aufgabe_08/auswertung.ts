@@ -1,12 +1,28 @@
-let formData: FormData = new FormData(document.forms[0]);
+namespace Aufgabe_08 {
 
-for (let entry of formData) {
-    console.log(entry);
-    console.log("name: " + entry[0]);
-    console.log("value: " + entry[1]);
+    let formData: FormData = new FormData(document.forms[0]);
+    let myButton: HTMLButtonElement = (<HTMLButtonElement>document.getElementById("button"));
+    myButton.addEventListener("click", buttonHandler);
+
+    /*for (let entry of formData) {
+        console.log("name: " + entry[0]);
+        console.log("value: " + entry[1]);
+    }*/
+
+    async function addToURL(): Promise<string> {
+        let url: string = "https://whatever.server/path/file"; // am Ende auf Heroku App verlinken
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        url += url + "?" + query.toString();
+        return url;
+    }
+    async function buttonHandler(): Promise<void> {
+        getResponse(await addToURL());
+    }
+    
+    async function getResponse(_url: RequestInfo): Promise<void> {
+        let response: Response = await fetch(_url, { method: "get" });
+        let resp2: string = await response.text();
+        console.log(resp2);
+    }
+
 }
-
-let url: string = "https://whatever.server/path/file";
-let query: URLSearchParams = new URLSearchParams(<any>formData);
-url += url + "?" + query.toString();
-await fetch(url);

@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "start": "node GIS_SoSe2020>/Aufgabe_07/script.js" 
+    "start": "node Aufgabe_08/server.js" 
   },
   "repository": {
     "type": "git",
