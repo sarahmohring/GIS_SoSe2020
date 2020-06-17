@@ -4,10 +4,10 @@ namespace Aufgabe_08 {
     let myButton: HTMLButtonElement = (<HTMLButtonElement>document.getElementById("button"));
     myButton.addEventListener("click", buttonHandler);
 
-    /*for (let entry of formData) {
+    for (let entry of formData) {
         console.log("name: " + entry[0]);
         console.log("value: " + entry[1]);
-    }*/
+    }
 
     async function addToURL(): Promise<string> {
         let url: string = "https://gis-sose2020.herokuapp.com/";
