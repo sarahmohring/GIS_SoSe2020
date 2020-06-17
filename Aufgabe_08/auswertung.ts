@@ -20,7 +20,7 @@ namespace Aufgabe_08 {
     }
     
     async function getResponse(_url: RequestInfo): Promise<void> {
-        let response: Response = await fetch(_url, { method: "get" });
+        let response: Response = await fetch(_url, {method: "get"});
         let resp2: string = await response.text();
         console.log(resp2);
     }
