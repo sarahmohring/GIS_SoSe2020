@@ -4,9 +4,11 @@
   "description": "kp",
   "main": "index.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^14.0.13"
+  },
   "scripts": {
-    "start": "node Aufgabe_08/server.js" 
+    "start": "node Aufgabe_08/server.js"
   },
   "repository": {
     "type": "git",
