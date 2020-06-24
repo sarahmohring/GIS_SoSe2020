@@ -17,7 +17,7 @@ export namespace Aufgabe_09 {
   }
 
   function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { // Passen Sie Request Handler so an, dass der query/path string nicht nur auf der Webseite, sondern auch in der Konsole des Servers ausgegeben wird.
-    console.log("I hear voices!");
+    //console.log("I hear voices!");
 
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
