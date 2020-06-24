@@ -9,7 +9,12 @@ export namespace Aufgabe_09 {
 
   let server: Http.Server = Http.createServer();
   server.addListener("request", handleRequest);
+  server.addListener("listening", handleListen);
   server.listen(port);
+
+  function handleListen(): void {
+    console.log("Listening");
+  }
 
   function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { // Passen Sie Request Handler so an, dass der query/path string nicht nur auf der Webseite, sondern auch in der Konsole des Servers ausgegeben wird.
     console.log("I hear voices!");
@@ -22,7 +27,7 @@ export namespace Aufgabe_09 {
       let path: string | null = url.pathname;
       if (path == "//html") {
         for (let key in url.query) {
-          _response.write(key + ":" + url.query[key] + "<br/>");
+          _response.write(key + ": " + url.query[key] + "<br/>");
         }
       }
 

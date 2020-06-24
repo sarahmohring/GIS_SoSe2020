@@ -11,7 +11,11 @@ var Aufgabe_09;
         port = 8100;
     let server = Http.createServer();
     server.addListener("request", handleRequest);
+    server.addListener("listening", handleListen);
     server.listen(port);
+    function handleListen() {
+        console.log("Listening");
+    }
     function handleRequest(_request, _response) {
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
@@ -21,7 +25,7 @@ var Aufgabe_09;
             let path = url.pathname;
             if (path == "//html") {
                 for (let key in url.query) {
-                    _response.write(key + ":" + url.query[key] + "<br/>");
+                    _response.write(key + ": " + url.query[key] + "<br/>");
                 }
             }
             else if (path == "//json") {

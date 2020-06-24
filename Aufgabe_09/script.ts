@@ -10,9 +10,10 @@ namespace Aufgabe_09 {
         url += "/html";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url += url + "?" + query.toString();
+
         let response: Response = await fetch(url);
         let responseToClient: string = await response.text();
-        let serverResponse: HTMLElement = <HTMLElement> document.getElementById("serverResponse");
+        let serverResponse: HTMLElement = <HTMLElement>document.getElementById("serverResponse");
         serverResponse.innerHTML = responseToClient;
     }
 
@@ -22,6 +23,7 @@ namespace Aufgabe_09 {
         url += "/json";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url += url + "?" + query.toString();
+
         let response: Response = await fetch(url);
         let responseToClient: string = await response.json();
         console.log(responseToClient);
