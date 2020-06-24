@@ -2,8 +2,12 @@
 var Aufgabe_09;
 (function (Aufgabe_09) {
     let formData;
-    document.getElementById("buttonHTML")?.addEventListener("click", buttonHandlerHTML);
-    document.getElementById("buttonJSON")?.addEventListener("click", buttonHandlerJSON);
+    //document.getElementById("buttonHTML")?.addEventListener("click", buttonHandlerHTML);
+    //document.getElementById("buttonJSON")?.addEventListener("click", buttonHandlerJSON);
+    let buttonHTML = document.getElementById("buttonHTML");
+    buttonHTML.addEventListener("click", buttonHandlerHTML);
+    let buttonJSON = document.getElementById("buttonJSON");
+    buttonJSON.addEventListener("click", buttonHandlerJSON);
     async function buttonHandlerHTML() {
         formData = new FormData(document.forms[0]);
         let url = "https://gis-sose2020.herokuapp.com/";

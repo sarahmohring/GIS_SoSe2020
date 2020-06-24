@@ -1,8 +1,14 @@
 namespace Aufgabe_09 {
 
     let formData: FormData;
-    document.getElementById("buttonHTML")?.addEventListener("click", buttonHandlerHTML);
-    document.getElementById("buttonJSON")?.addEventListener("click", buttonHandlerJSON);
+    //document.getElementById("buttonHTML")?.addEventListener("click", buttonHandlerHTML);
+    //document.getElementById("buttonJSON")?.addEventListener("click", buttonHandlerJSON);
+    let buttonHTML: HTMLButtonElement = <HTMLButtonElement> document.getElementById("buttonHTML");
+    buttonHTML.addEventListener("click", buttonHandlerHTML);
+
+    let buttonJSON: HTMLButtonElement = <HTMLButtonElement> document.getElementById("buttonJSON");
+    buttonJSON.addEventListener("click", buttonHandlerJSON);
+
 
     async function buttonHandlerHTML(): Promise<void> {
         formData = new FormData(document.forms[0]);
