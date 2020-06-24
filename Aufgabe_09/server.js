@@ -21,18 +21,14 @@ var Aufgabe_09;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            let path = url.pathname;
-            if (path == "//html") {
+            if (url.pathname == "/html") {
                 for (let key in url.query) {
-                    _response.write(key + ": " + url.query[key] + "<br/>");
+                    _response.write(key + ": " + url.query[key] + "<br>");
                 }
             }
-            else if (path == "//json") {
+            else if (url.pathname == "/json") {
                 let jsonString = JSON.stringify(url.query);
                 _response.write(jsonString);
-            }
-            else if (path == "//Aufgabe_08") {
-                _response.write(_request.url);
             }
         }
         _response.end();
