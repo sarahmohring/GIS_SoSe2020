@@ -18,11 +18,19 @@ var Aufgabe_09;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            for (let key in url.query) {
-                _response.write(key + ":" + url.query[key] + "<br/>");
+            let path = url.pathname;
+            if (path == "//html") {
+                for (let key in url.query) {
+                    _response.write(key + ":" + url.query[key] + "<br/>");
+                }
             }
-            let jsonString = JSON.stringify(url.query);
-            _response.write(jsonString);
+            else if (path == "//json") {
+                let jsonString = JSON.stringify(url.query);
+                _response.write(jsonString);
+            }
+            else if (path == "//Aufgabe_08") {
+                _response.write(_request.url);
+            }
         }
         _response.end();
     }
