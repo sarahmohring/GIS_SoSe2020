@@ -1,11 +1,10 @@
 namespace Aufgabe_09 {
 
-    let formData: FormData;
     document.getElementById("buttonHTML")?.addEventListener("click", buttonHandlerHTML);
     document.getElementById("buttonJSON")?.addEventListener("click", buttonHandlerJSON);
 
     async function buttonHandlerHTML(): Promise<void> {
-        formData = new FormData(document.forms[0]);
+        let formData: FormData = new FormData(document.forms[0]);
         let url: string = "https://gis-sose2020.herokuapp.com/";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/html" + "?" + query.toString();
@@ -17,9 +16,8 @@ namespace Aufgabe_09 {
     }
 
     async function buttonHandlerJSON(): Promise<void> {
-        formData = new FormData(document.forms[0]);
+        let formData: FormData = new FormData(document.forms[0]);
         let url: string = "https://gis-sose2020.herokuapp.com/";
-        url += "/json";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/json" + "?" + query.toString();
 
