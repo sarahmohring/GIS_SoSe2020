@@ -17,6 +17,7 @@ var Aufgabe_09;
         console.log("Listening");
     }
     function handleRequest(_request, _response) {
+        console.log("I hear voices!");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         if (_request.url) {

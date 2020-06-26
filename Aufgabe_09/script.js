@@ -5,7 +5,7 @@ var Aufgabe_09;
     document.getElementById("buttonJSON")?.addEventListener("click", buttonHandlerJSON);
     async function buttonHandlerHTML() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://gis-sose2020.herokuapp.com/";
+        let url = "https://gis-sose2020.herokuapp.com";
         let query = new URLSearchParams(formData);
         url = url + "/html" + "?" + query.toString();
         let response = await fetch(url);
@@ -15,7 +15,7 @@ var Aufgabe_09;
     }
     async function buttonHandlerJSON() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://gis-sose2020.herokuapp.com/";
+        let url = "https://gis-sose2020.herokuapp.com";
         let query = new URLSearchParams(formData);
         url = url + "/json" + "?" + query.toString();
         let response = await fetch(url);

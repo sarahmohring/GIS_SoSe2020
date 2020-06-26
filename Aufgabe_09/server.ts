@@ -16,7 +16,8 @@ export namespace Aufgabe_09 {
     console.log("Listening");
   }
 
-  function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {    //console.log("I hear voices!");
+  function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {    
+    console.log("I hear voices!");
 
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");

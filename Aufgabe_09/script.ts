@@ -5,7 +5,7 @@ namespace Aufgabe_09 {
 
     async function buttonHandlerHTML(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gis-sose2020.herokuapp.com/";
+        let url: string = "https://gis-sose2020.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/html" + "?" + query.toString();
 
@@ -17,7 +17,7 @@ namespace Aufgabe_09 {
 
     async function buttonHandlerJSON(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://gis-sose2020.herokuapp.com/";
+        let url: string = "https://gis-sose2020.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "/json" + "?" + query.toString();
 
