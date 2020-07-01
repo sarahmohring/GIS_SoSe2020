@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabe_11</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <form method="GET" action="https://gis-sose2020.herokuapp.com/">
+        <h4>Kontaktformular</h4>
+        <label>Name:</label><br>
+        <input type="text" name="name">
+        <br>
+        <label>E-Mail:</label><br>
+        <input type="text" name="email">
+        <br>
+        <label>Bestellung:</label><br>
+        <textarea name="textfeld" placeholder="Was darf es sein?" cols="20" rows="5"></textarea>
+        <br>
+        <button id="buttonHTML" type="button">Datenbank füllen</button>
+        <button id="buttonJSON" type="button">Serverantwort in JSON</button>
+    </form>
+    <div id="serverResponse"></div>
+</body>
+
+</html>

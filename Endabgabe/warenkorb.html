@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warenkorb</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="header">
+        <img id="logo" src="logo.png" alt="Logo">
+    </header>
+    <main>
+        <h1>Dein Warenkorb</h1>
+        <h3><b>Dieses Eis liefern wir dir:</b></h3>
+        <div id="eise"></div>
+        <h3><b>Gesamtpreis:</b></h3>
+
+        <form method="GET" action="https://gis-sose2020.herokuapp.com/">
+            <h2>Damit du dein Eis bekommst, brauchen wir natürlich noch deine Kontaktdaten!</h2>
+            <label>Name:</label><br>
+            <input type="text" name="name">
+            <br>
+            <label>Adresse</label><br>
+            <input type="text" name="adresse">
+            <br>
+            <label><b>Zahlungsart</b></label><br>
+            <label for="paypal">PayPal</label>
+            <input type="radio" name="zahlungsart" value="paypal">
+            <label for="kreditkarte">Kreditkarte</label>
+            <input type="radio" name="zahlungsart" value="kreditkarte">
+            <label for="sofort">Sofort-Überweisung</label>
+            <input type="radio" name="zahlungsart" value="sofort">
+
+            <br>
+            <label>Nachricht:</label><br>
+            <textarea name="textfeld" placeholder="Schreib mir!" cols="20" rows="5"></textarea>
+            <br>
+            <button id="bestellen" type="button">Jetzt bestellen!</button>
+
+        </form>
+    </main>
+    <footer id="footer">
+        <p>&copy; Sarah Mohring, 2020</p>
+        <p>Kontakt | Impressum | GiS-Meme</p>
+    </footer>
+</body>
+
+</html>
