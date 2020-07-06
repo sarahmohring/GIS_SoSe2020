@@ -12,7 +12,7 @@ var Aufgabe_11;
     let args = process.argv.slice(2);
     if (args[0] == "local")
         databaseUrl = "mongodb://localhost:27017";
-    else // Wenn nicht lokal dann immer remote
+    else // default: remote
         databaseUrl = "mongodb+srv://new-user:new-user@sarahgis2020-cv3gn.mongodb.net/Aufgabe_11?retryWrites=true&w=majority";
     let port = process.env.PORT;
     if (port == undefined)
