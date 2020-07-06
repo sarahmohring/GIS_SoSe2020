@@ -10,6 +10,7 @@ export namespace Aufgabe_11 {
 
     let orders: Mongo.Collection;
 
+    //let databaseUrl: string = "mongodb+srv://new-user:<new-user>@sarahgis2020-cv3gn.mongodb.net/<dbname>?retryWrites=true&w=majority"; -> dbname ändern
     let databaseUrl: string = "mongodb://localhost:27017";
 
     let port: number | string | undefined = process.env.PORT;

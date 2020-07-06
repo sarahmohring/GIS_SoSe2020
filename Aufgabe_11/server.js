@@ -7,6 +7,7 @@ const Mongo = require("mongodb");
 var Aufgabe_11;
 (function (Aufgabe_11) {
     let orders;
+    //let databaseUrl: string = "mongodb+srv://new-user:<new-user>@sarahgis2020-cv3gn.mongodb.net/<dbname>?retryWrites=true&w=majority"; -> dbname ändern
     let databaseUrl = "mongodb://localhost:27017";
     let port = process.env.PORT;
     if (port == undefined)
