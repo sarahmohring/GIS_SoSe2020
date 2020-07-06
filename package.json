@@ -7,9 +7,11 @@
     "@types/mongodb": "^3.5.25",
     "mongodb": "^3.5.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^14.0.13"
+  },
   "scripts": {
-    "start": "node Aufgabe_11/server2.js"
+    "start": "node Aufgabe_11/server2.js remote"
   },
   "repository": {
     "type": "git",
