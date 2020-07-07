@@ -10,14 +10,9 @@ namespace Aufgabe_11 {
   async function handleClickRetrieve(): Promise<void> {
     let serverURL: string = "https://gis-sose2020.herokuapp.com";
     serverURL += "/retrieve";
-
     let response: Response = await fetch(serverURL);
-    console.log(response);
-    let responseText: string = await response.json();
-
-    let serverResponse: HTMLElement = <HTMLElement>document.getElementById("serverResponse");
-    serverResponse.innerHTML = responseText;
-    console.log(responseText);
+    let responseText: string = await response.text();
+    (<HTMLElement>document.getElementById("serverResponse")).innerHTML = responseText;
   }
 
   async function handleClickStore(): Promise<void> {

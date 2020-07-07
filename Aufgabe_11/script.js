@@ -10,11 +10,8 @@ var Aufgabe_11;
         let serverURL = "https://gis-sose2020.herokuapp.com";
         serverURL += "/retrieve";
         let response = await fetch(serverURL);
-        console.log(response);
-        let responseText = await response.json();
-        let serverResponse = document.getElementById("serverResponse");
-        serverResponse.innerHTML = responseText;
-        console.log(responseText);
+        let responseText = await response.text();
+        document.getElementById("serverResponse").innerHTML = responseText;
     }
     async function handleClickStore() {
         formData = new FormData(document.forms[0]);

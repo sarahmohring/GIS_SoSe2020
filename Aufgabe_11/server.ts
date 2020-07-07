@@ -5,7 +5,7 @@ import * as Mongo from "mongodb";
 export namespace Aufgabe_11 {
 
     let data: Mongo.Collection;
-    let databaseUrl: string;
+    let databaseUrl: string = "";
 
     //local oder remote
     let args: string[] = process.argv.slice(2);
@@ -38,7 +38,7 @@ export namespace Aufgabe_11 {
         console.log("Database connection", data != undefined); // Ausgabe true - hat geklappt; false - hat nicht geklappt
     }
 
-    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+    async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
         console.log("I hear voices!");
 
         _response.setHeader("Access-Control-Allow-Origin", "*");
@@ -47,24 +47,15 @@ export namespace Aufgabe_11 {
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
             let pfad: string | null = url.pathname;
-            if (pfad == "/retrieve") {
-                data.find({}).toArray(function (err: Mongo.MongoError, result: string[]): void {
-                    if (err)
-                        throw err;
 
-                    let resultString: string = "";
-                    for (let i: number = 0; i < result.length; i++) {
-                        resultString += JSON.stringify(result[i]) + ",";
-                    }
-
-                    console.log(resultString);
-                    _response.write(JSON.stringify(resultString));
-                    _response.end();
-                });
+            if (pfad == "/store") {
+                data.insertOne(url.query);
             }
 
-            else if (pfad == "/store")
-                data.insertOne(url.query);
+            else if (pfad == "/retrieve") {
+                _response.write(JSON.stringify(await data.find().toArray()));
+            }    
         }
+        _response.end();
     }
 }

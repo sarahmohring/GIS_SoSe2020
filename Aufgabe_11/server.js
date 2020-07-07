@@ -7,7 +7,7 @@ const Mongo = require("mongodb");
 var Aufgabe_11;
 (function (Aufgabe_11) {
     let data;
-    let databaseUrl;
+    let databaseUrl = "";
     //local oder remote
     let args = process.argv.slice(2);
     if (args[0] == "local")
@@ -32,29 +32,21 @@ var Aufgabe_11;
         data = mongoClient.db("Aufgabe_11").collection("Collection_11");
         console.log("Database connection", data != undefined); // Ausgabe true - hat geklappt; false - hat nicht geklappt
     }
-    function handleRequest(_request, _response) {
+    async function handleRequest(_request, _response) {
         console.log("I hear voices!");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             let pfad = url.pathname;
-            if (pfad == "/retrieve") {
-                data.find({}).toArray(function (err, result) {
-                    if (err)
-                        throw err;
-                    let resultString = "";
-                    for (let i = 0; i < result.length; i++) {
-                        resultString += JSON.stringify(result[i]) + ",";
-                    }
-                    console.log(resultString);
-                    _response.write(JSON.stringify(resultString));
-                    _response.end();
-                });
-            }
-            else if (pfad == "/store")
+            if (pfad == "/store") {
                 data.insertOne(url.query);
+            }
+            else if (pfad == "/retrieve") {
+                _response.write(JSON.stringify(await data.find().toArray()));
+            }
         }
+        _response.end();
     }
 })(Aufgabe_11 = exports.Aufgabe_11 || (exports.Aufgabe_11 = {}));
 //# sourceMappingURL=server.js.map
