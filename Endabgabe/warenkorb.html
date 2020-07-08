@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warenkorb</title>
+    <link rel="icon" href="ice-cream-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -14,10 +15,12 @@
         <img id="logo" src="logo.png" alt="Logo">
     </header>
     <main>
-        <h1>Dein Warenkorb</h1>
-        <h3><b>Dieses Eis liefern wir dir:</b></h3>
-        <div id="eise"></div>
-        <h3><b>Gesamtpreis:</b></h3>
+        <div>
+            <h2>Deine Bestellung:</h2>
+            <div id="order">
+                ... <!-- aus local storage??-->
+            </div>
+        </div>
 
         <form method="GET" action="https://gis-sose2020.herokuapp.com/">
             <h2>Damit du dein Eis bekommst, brauchen wir natürlich noch deine Kontaktdaten!</h2>
@@ -34,18 +37,16 @@
             <input type="radio" name="zahlungsart" value="kreditkarte">
             <label for="sofort">Sofort-Überweisung</label>
             <input type="radio" name="zahlungsart" value="sofort">
-
             <br>
             <label>Nachricht:</label><br>
-            <textarea name="textfeld" placeholder="Schreib mir!" cols="20" rows="5"></textarea>
+            <textarea name="textfeld" placeholder="Hast du Anmerkungen zu deiner Bestellung?" cols="20" rows="5"></textarea>
             <br>
             <button id="bestellen" type="button">Jetzt bestellen!</button>
 
         </form>
     </main>
     <footer id="footer">
-        <p>&copy; Sarah Mohring, 2020</p>
-        <p>Kontakt | Impressum | GiS-Meme</p>
+        <p>&copy; Sarah Mohring, 2020 | Hier geht es zum <a href="gis-meme.html">GiS-Meme</a></p>
     </footer>
 </body>
 

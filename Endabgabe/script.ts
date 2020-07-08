@@ -13,44 +13,67 @@ namespace Endabgabe {
     }*/
 
     // Produkte erzeugen aus JSON
-    let divBehaelter: HTMLElement = <HTMLElement>document.getElementById("behaelter");
-    let divEissorten: HTMLElement = <HTMLElement>document.getElementById("eissorten");
-    let divToppings: HTMLElement = <HTMLElement>document.getElementById("toppings");
 
-    export function auswahlErzeugen(): void {
+    window.addEventListener("load", handleLoad);
+    let form: HTMLFormElement;
+    let url: string = "http://localhost:5001";
 
-        for (let index: number = 0; index < auswahl.length; index++) {
+    async function handleLoad(_event: Event): Promise<void> {
 
-            // umgebender Div-Block pro Produkt
-            let divProdukt: HTMLElement = document.createElement("div");
-            divProdukt.setAttribute("class", "produkte");
-            if (auswahl[index].kategorie == "Behaelter") {
-                divBehaelter.appendChild(divProdukt);
-            }
-            else if (auswahl[index].kategorie == "Eissorte") {
-                divEissorten.appendChild(divProdukt);
-            }
-            else {
-                divToppings.appendChild(divProdukt);
-            }
+        let response: Response = await fetch("auswahl.json");
+        let artikel: string = await response.text();
+        let inhalt: Inhalt = JSON.parse(artikel);
 
-            // Bild
-            let url: HTMLElement = document.createElement("img");
-            url.setAttribute("src", auswahl[index].url);
-            url.setAttribute("alt", auswahl[index].name);
-            divProdukt.appendChild(url);
+        produkteErzeugen(inhalt);
 
-            // Produktname
-            let h3Name: HTMLParagraphElement = document.createElement("h3");
-            h3Name.innerHTML = auswahl[index].name;
-            divProdukt.appendChild(h3Name);
+        form = <HTMLFormElement>document.querySelector("form");
+        let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=button]");
+        console.log(submit);
 
-        }
+        form.addEventListener("change", handleChange);
+        submit.addEventListener("click", sendOrder);
 
+        displayOrder();
     }
 
+    async function sendOrder(_event: Event): Promise<void> {
+        console.log("Send order");
+        let formData: FormData = new FormData(form);
+        // tslint:disable-next-line: no-any
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        let response: Response = await fetch(url + "?" + query.toString());
+        let responseText: string = await response.text();
+        alert(responseText);
+    }
+
+    function handleChange(_event: Event): void {
+        displayOrder();
+    }
+
+    function displayOrder(): void {
+        let preis: number = 0;
+        let bestellung: HTMLDivElement = <HTMLDivElement>document.querySelector("div#order");
+        bestellung.innerHTML = "";
+
+        let formData: FormData = new FormData(form);
+
+        for (let entry of formData) {
+            let selector: string = "[value='" + entry[1] + "']"; // "[name='" + entry[0] + "'][value='" + entry[1] + "']";
+            let auswahl: HTMLInputElement = <HTMLInputElement>document.querySelector(selector);
+            let auswahlPreis: number = Number(auswahl.getAttribute("preis"));
+            bestellung.innerHTML += auswahl.value + ": " + auswahlPreis.toFixed(2) + " €" + "<br>";
+            preis += auswahlPreis;
+        }
+
+        bestellung.innerHTML += "<p><strong>Gesamtsumme: " + preis.toFixed(2) + " €";
+    }
 }
-            /*warenkorb.addEventListener("click", handleClick);
+
+
+
+/* LOCAL STORAGE, WARENKORB-ICON
+
+warenkorb.addEventListener("click", handleClick);
 
             function handleClick(): void {
 
@@ -78,59 +101,5 @@ namespace Endabgabe {
     }
 }
 
-// Eventlistener fuer Navigation - Filter nach Kategorie
-let nurKameras: HTMLElement = <HTMLElement>document.getElementById("nurKameras");
-nurKameras.addEventListener("click", handleKameras);
-
-let nurZubehoer: HTMLElement = <HTMLElement>document.getElementById("nurZubehoer");
-nurZubehoer.addEventListener("click", handleZubehoer);
-
-let alleProdukte: HTMLElement = <HTMLElement>document.getElementById("alleProdukte");
-alleProdukte.addEventListener("click", handleAlleProdukte);
-
-// Funktionen, um nach den 3 Kategorien zu filtern
-function handleKameras(): void { // Klick im Menu auf "Kameras" - Titel und Produkte Zubehoer verstecken
-
-    let kamerasDiv: HTMLElement = <HTMLElement>document.getElementById("kameras"); //tag doppelt?
-    kamerasDiv.style.display = "flex";
-
-    let titelKamera: HTMLElement = <HTMLElement>document.getElementById("titel1");
-    titelKamera.hidden = false;
-
-    let zubehoerDiv: HTMLElement = <HTMLElement>document.getElementById("zubehoer"); //zubehoer bereits verwendet??
-    zubehoerDiv.style.display = "none";
-
-    let titelZubehoer: HTMLElement = <HTMLElement>document.getElementById("titel2");
-    titelZubehoer.hidden = true;
-}
-
-function handleZubehoer(): void { // Klick im Menu auf "Zubehoer" - Titel und Produkte Kamera verstecken
-
-    let kamerasDiv: HTMLElement = <HTMLElement>document.getElementById("kameras");
-    kamerasDiv.style.display = "none";
-
-    let titelKameras: HTMLElement = <HTMLElement>document.getElementById("titel1");
-    titelKameras.hidden = true;
-
-    let zubehoerDiv: HTMLElement = <HTMLElement>document.getElementById("zubehoer");
-    zubehoerDiv.style.display = "flex";
-
-    let titelZubehoer: HTMLElement = <HTMLElement>document.getElementById("titel2");
-    titelZubehoer.hidden = false;
-}
-
-function handleAlleProdukte(): void { // Klick im Menu auf "Alle Artikel" - nichts verstecken
-
-    let kamerasDiv: HTMLElement = <HTMLElement>document.getElementById("kameras");
-    kamerasDiv.hidden = false;
-
-    let titelKameras: HTMLElement = <HTMLElement>document.getElementById("titel1");
-    titelKameras.hidden = false;
-
-    let zubehoerDiv: HTMLElement = <HTMLElement>document.getElementById("zubehoer");
-    zubehoerDiv.hidden = false;
-
-    let titelZubehoer: HTMLElement = <HTMLElement>document.getElementById("titel2");
-    titelZubehoer.hidden = false;
-}*/
+*/
 

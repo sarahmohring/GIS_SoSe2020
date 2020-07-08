@@ -6,7 +6,7 @@ body {
     margin: auto;
 }
 
-main {
+form {
     width: 800px;
     text-align: center;
     align-content: center;
@@ -49,31 +49,30 @@ img {
     width: 200px;
 }
 
-.flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-self: center;
-}
 
-#bestellen {
+
+button {
     padding: 10px 20px 10px 20px;
     background-color: rgb(214, 106, 115);
     color: white;
     margin-bottom: 20px;
     font-family: 'Lobster', 'cursive';
     font-size: xx-large;
+    width: 300px;
 }
 
-#bestellen:hover {
+button:hover {
    background-color: rgb(121, 186, 103);
    
 }
 
 footer {
     background-color: rgb(255, 198, 1);
+    background-image: url(streusel-textur.png);
     color: rgb(255, 255, 255);
-    height: 100px;
-    padding-top: 10px;
+    height: 65px;
+    padding-top: 20px;
+    font-size: large;
     
 }
 
@@ -85,4 +84,43 @@ label {
 #warenkorb {
     width: 100px;
     margin-right: -100;
+}
+
+#order {
+    color: rgb(121, 186, 103);
+    font-family: 'Roboto', sans-serif;
+}
+
+#flexDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+    width: 25%;
+    padding-bottom: 50px;
+}
+
+span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+}
+
+fieldset {
+    border-color: rgb(214, 106, 115);
+    border-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(121, 186, 103)
+}
+
+a:hover {
+    color: rgb(214, 106, 115)
+}
+
+#meme {
+    width: 650px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
