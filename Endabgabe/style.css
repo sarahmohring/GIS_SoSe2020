@@ -1,5 +1,5 @@
 body {
-    background-image: url(background.jpg);
+    background-image: url(images/background.jpg);
     font-family: 'Lobster', cursive;
     color: rgb(214, 106, 115);
     text-align: center;
@@ -15,7 +15,7 @@ form {
 }
 
 #header {
-    background-image: url(header.png);
+    background-image: url(images/header.png);
     position: sticky;
     height: 250px;
     top:0;
@@ -68,7 +68,7 @@ button:hover {
 
 footer {
     background-color: rgb(255, 198, 1);
-    background-image: url(streusel-textur.png);
+    background-image: url(images/streusel-textur.png);
     color: rgb(255, 255, 255);
     height: 65px;
     padding-top: 20px;
@@ -120,7 +120,7 @@ a:hover {
 }
 
 #meme {
-    width: 650px;
+    width: 425px;
     margin-top: 25px;
     margin-bottom: 25px;
 }
