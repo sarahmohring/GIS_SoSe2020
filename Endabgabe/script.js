@@ -56,11 +56,14 @@ var Endabgabe;
             localStorage.setItem("Produkte", JSON.stringify(bestellung.innerHTML));
         }
         bestellung.innerHTML += "<p><strong>Gesamtsumme: " + preis.toFixed(2) + " €";
-        localStorage.setItem("Gesamtsumme", JSON.stringify(preis.toFixed(2)));
+        localStorage.setItem("Gesamtsumme", "<b>Gesamtsumme: </b>" + JSON.stringify(preis.toFixed(2) + " €"));
     }
     function resetForm() {
         let formular = document.getElementById("bestellung");
-        formular.reset();
+        if (formular)
+            formular.reset();
+        localStorage.removeItem("Gesamtsumme");
+        localStorage.removeItem("Produkte");
     }
 })(Endabgabe || (Endabgabe = {}));
 /* LOCAL STORAGE, WARENKORB-ICON

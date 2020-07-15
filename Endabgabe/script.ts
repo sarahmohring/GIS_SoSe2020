@@ -69,12 +69,15 @@ namespace Endabgabe {
         }
 
         bestellung.innerHTML += "<p><strong>Gesamtsumme: " + preis.toFixed(2) + " €";
-        localStorage.setItem("Gesamtsumme", JSON.stringify(preis.toFixed(2)));
+        localStorage.setItem("Gesamtsumme", "<b>Gesamtsumme: </b>" + JSON.stringify(preis.toFixed(2) + " €"));
     }
 
     function resetForm(): void {
         let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
-        formular.reset();
+        if (formular)
+            formular.reset();
+        localStorage.removeItem("Gesamtsumme");
+        localStorage.removeItem("Produkte");
     }
 }
 

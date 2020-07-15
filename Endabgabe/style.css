@@ -17,7 +17,7 @@ form {
 #header {
     background-image: url(images/header.png);
     position: sticky;
-    height: 250px;
+    height: 225px;
     top:0;
     margin-bottom: -50px;
     word-spacing: 100px;
@@ -57,8 +57,8 @@ button {
     color: white;
     margin-bottom: 20px;
     font-family: 'Lobster', 'cursive';
-    font-size: xx-large;
-    width: 300px;
+    font-size: large;
+    width: 150px;
 }
 
 button:hover {
