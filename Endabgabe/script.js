@@ -17,6 +17,7 @@ var Endabgabe;
     window.addEventListener("load", handleLoad);
     let form;
     let url = "http://localhost:5001";
+    document.getElementById("reset")?.addEventListener("click", resetForm);
     async function handleLoad(_event) {
         let response = await fetch("auswahl.json");
         let artikel = await response.text();
@@ -52,8 +53,14 @@ var Endabgabe;
             let auswahlPreis = Number(auswahl.getAttribute("preis"));
             bestellung.innerHTML += auswahl.value + ": " + auswahlPreis.toFixed(2) + " €" + "<br>";
             preis += auswahlPreis;
+            localStorage.setItem("Produkte", JSON.stringify(bestellung.innerHTML));
         }
         bestellung.innerHTML += "<p><strong>Gesamtsumme: " + preis.toFixed(2) + " €";
+        localStorage.setItem("Gesamtsumme", JSON.stringify(preis.toFixed(2)));
+    }
+    function resetForm() {
+        let formular = document.getElementById("bestellung");
+        formular.reset();
     }
 })(Endabgabe || (Endabgabe = {}));
 /* LOCAL STORAGE, WARENKORB-ICON

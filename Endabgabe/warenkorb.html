@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="warenkorb.js" defer=""></script>
 </head>
+
 <body>
     <header id="header">
-        <img id="logo" src="images/logo.png" alt="Logo">
+        <a href="kunde_shop.html"><img id="logo" src="images/logo.png" alt="Logo" /></a>
     </header>
     <main>
         <div>
             <h2>Deine Bestellung:</h2>
             <div id="order">
-                ... <!-- aus local storage??-->
+                <!-- aus local storage-->
             </div>
         </div>
 
@@ -39,11 +41,14 @@
             <input type="radio" name="zahlungsart" value="sofort">
             <br>
             <label>Nachricht:</label><br>
-            <textarea name="textfeld" placeholder="Hast du Anmerkungen zu deiner Bestellung?" cols="20" rows="5"></textarea>
+            <textarea name="textfeld" placeholder="Hast du Anmerkungen zu deiner Bestellung?" cols="20"
+                rows="5"></textarea>
             <br>
             <button id="bestellen" type="button">Jetzt bestellen!</button>
 
         </form>
+
+        <h2>Noch mehr <a href="kunde_shop.html">Eis</a></h2>
     </main>
     <footer id="footer">
         <p>&copy; Sarah Mohring, 2020 | Hier geht es zum <a href="gis-meme.html">GiS-Meme</a></p>

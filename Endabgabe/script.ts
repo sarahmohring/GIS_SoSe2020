@@ -18,6 +18,8 @@ namespace Endabgabe {
     let form: HTMLFormElement;
     let url: string = "http://localhost:5001";
 
+    document.getElementById("reset")?.addEventListener("click", resetForm);
+
     async function handleLoad(_event: Event): Promise<void> {
 
         let response: Response = await fetch("auswahl.json");
@@ -63,9 +65,16 @@ namespace Endabgabe {
             let auswahlPreis: number = Number(auswahl.getAttribute("preis"));
             bestellung.innerHTML += auswahl.value + ": " + auswahlPreis.toFixed(2) + " €" + "<br>";
             preis += auswahlPreis;
+            localStorage.setItem("Produkte", JSON.stringify(bestellung.innerHTML));
         }
 
         bestellung.innerHTML += "<p><strong>Gesamtsumme: " + preis.toFixed(2) + " €";
+        localStorage.setItem("Gesamtsumme", JSON.stringify(preis.toFixed(2)));
+    }
+
+    function resetForm(): void {
+        let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
+        formular.reset();
     }
 }
 
