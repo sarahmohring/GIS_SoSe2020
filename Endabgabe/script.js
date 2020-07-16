@@ -16,7 +16,7 @@ var Endabgabe;
     // Produkte erzeugen aus JSON
     window.addEventListener("load", handleLoad);
     let form;
-    let url = "http://localhost:5001";
+    let url = "https://gis-sose2020.herokuapp.com/";
     document.getElementById("reset")?.addEventListener("click", resetForm);
     async function handleLoad(_event) {
         let response = await fetch("auswahl.json");
@@ -62,6 +62,7 @@ var Endabgabe;
         let formular = document.getElementById("bestellung");
         if (formular)
             formular.reset();
+        window.localStorage.clear();
         localStorage.removeItem("Gesamtsumme");
         localStorage.removeItem("Produkte");
     }

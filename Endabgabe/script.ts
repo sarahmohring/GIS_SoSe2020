@@ -16,7 +16,7 @@ namespace Endabgabe {
 
     window.addEventListener("load", handleLoad);
     let form: HTMLFormElement;
-    let url: string = "http://localhost:5001";
+    let url: string = "https://gis-sose2020.herokuapp.com/";
 
     document.getElementById("reset")?.addEventListener("click", resetForm);
 
@@ -76,6 +76,7 @@ namespace Endabgabe {
         let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
         if (formular)
             formular.reset();
+        window.localStorage.clear();
         localStorage.removeItem("Gesamtsumme");
         localStorage.removeItem("Produkte");
     }

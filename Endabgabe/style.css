@@ -1,3 +1,5 @@
+/* bildschirmgrößen-unabhängig*/
+
 body {
     background-image: url(images/background.jpg);
     font-family: 'Lobster', cursive;
@@ -6,50 +8,22 @@ body {
     margin: auto;
 }
 
-form {
-    width: 800px;
-    text-align: center;
-    align-content: center;
-    margin: auto;
-    
-}
-
 #header {
-    background-image: url(images/header.png);
-    position: sticky;
-    height: 225px;
-    top:0;
-    margin-bottom: -50px;
-    word-spacing: 100px;
-    left: 100%;
-}
-
-#logo {
-    width: 300px;
-    align-self: center;
-}
+        background-image: url(images/header.png);
+        position: sticky;
+        height: 145px;
+        top:0;
+        margin-bottom: -50px;
+    }
 
 h3 {
     font-family: 'Roboto', sans-serif;
     color: rgb(121, 186, 103);
 }
 
-h2 {
-    padding-top: 30px;
-    font-size: xx-large;
-}
-
-h1 {
-    font-family: 'Lobster', cursive;
-    color: rgb(214, 106, 115);
-    font-size:70px;
-}
-
 img {
     width: 200px;
 }
-
-
 
 button {
     padding: 10px 20px 10px 20px;
@@ -72,55 +46,128 @@ footer {
     color: rgb(255, 255, 255);
     height: 65px;
     padding-top: 20px;
-    font-size: large;
+    font-size: large;  
+}
+
+form {
+        width: 800px;
+        text-align: center;
+        align-content: center;
+        margin: auto;
+    }
     
+#logo {
+    width: 350px;
+    align-self: center;
+}    
+    
+h1 {
+    font-family: 'Lobster', cursive;
+    color: rgb(214, 106, 115);
+    font-size:70px;
+}
+    
+h2 {
+    padding-top: 30px;
+    font-size: xx-large;
 }
 
 label {
     color: rgb(121, 186, 103);
     font-family: 'Roboto', sans-serif;
 }
-
-#warenkorb {
-    width: 100px;
-    margin-right: -100;
-}
-
+    
 #order {
     color: rgb(121, 186, 103);
     font-family: 'Roboto', sans-serif;
 }
-
+    
 #flexDiv {
     display: flex;
     flex-wrap: wrap;
     justify-self: center;
     width: 25%;
     padding-bottom: 50px;
-}
-
+    }
+    
 span {
     display: flex;
     flex-wrap: wrap;
     justify-self: center;
 }
-
+    
 fieldset {
     border-color: rgb(214, 106, 115);
     border-style: none;
 }
-
+    
 a {
     text-decoration: none;
     color: rgb(121, 186, 103)
 }
-
+    
 a:hover {
     color: rgb(214, 106, 115)
 }
 
-#meme {
-    width: 425px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+/*Desktop*/
+@media screen and (min-width: 1000px) {
+
+    #meme {
+        width: 500px;
+        margin-top: 100px;
+        margin-bottom: 25px;
+    }
+}
+
+/*Tablet*/
+@media screen and (max-width: 800px) {
+
+    form {
+        width: 700px;
+    }
+    
+    #meme {
+        width: 500px;
+        margin-top: 80px;
+        margin-bottom: 0px;
+    }
+}
+
+/*Smartphone*/
+@media screen and (max-width: 500px){
+
+    form {
+        width: 350px;
+    }
+
+    #header {
+        background-position-x: -255px;
+    }
+
+    #logo {
+        width: 240px; 
+    }
+
+    h1 {
+        font-size:40px;
+    }
+
+    h2 {
+        font-size: large;
+    }
+
+    #flexDiv {
+        width: 50%;
+    }
+
+    #meme {
+        width: 300px;
+        margin-top: 70px;
+        margin-bottom: 0px;
+    }
+
+    footer {
+        font-size: medium;
+    }
 }
