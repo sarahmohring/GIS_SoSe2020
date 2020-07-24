@@ -1,126 +1,126 @@
 {
     "Behaelter": [
         {
-            "url": "Behaelter/Becher.png",
+            "url": "../images/Behaelter/Becher.png",
             "name": "Becher",
             "preis": 0.00
         },
         {
-            "url": "Behaelter/Waffel.png",
+            "url": "../images/Behaelter/Waffel.png",
             "name": "Waffel",
             "preis": 0.00
         },
         {
-            "url": "Behaelter/Schoko-Waffel.png",
+            "url": "../images/Behaelter/Schoko-Waffel.png",
             "name": "Schoko-Waffel",
             "preis": 0.50
         },
         {
-            "url": "Behaelter/Streusel-Waffel.png",
+            "url": "../images/Behaelter/Streusel-Waffel.png",
             "name": "Streusel-Waffel",
             "preis": 0.50
         }
     ],
     "Eissorten": [
         {
-            "url": "Eissorten/Vanille.png",
+            "url": "../images/Eissorten/Vanille.png",
             "name": "Vanille",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Erdbeer.png",
+            "url": "../images/Eissorten/Erdbeer.png",
             "name": "Erdbeer",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Schokolade.png",
+            "url": "../images/Eissorten/Schokolade.png",
             "name": "Schokolade",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Banane-Schoko.png",
+            "url": "../images/Eissorten/Banane-Schoko.png",
             "name": "Banane-Schoko",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Minze.png",
+            "url": "../images/Eissorten/Minze.png",
             "name": "Minze",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Blaubeer.png",
+            "url": "../images/Eissorten/Blaubeer.png",
             "name": "Blaubeer",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Cookies-And-Cream.png",
+            "url": "../images/Eissorten/Cookies-And-Cream.png",
             "name": "Cookies & Cream",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Himbeer.png",
+            "url": "../images/Eissorten/Himbeer.png",
             "name": "Himbeer",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Nuss.png",
+            "url": "../images/Eissorten/Nuss.png",
             "name": "Nuss",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Pfirsich.png",
+            "url": "../images/Eissorten/Pfirsich.png",
             "name": "Pfirsich",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Salted-Caramel.png",
+            "url": "../images/Eissorten/Salted-Caramel.png",
             "name": "Salted Caramel",
             "preis": 1.00
         },
         {
-            "url": "Eissorten/Schoko-Kirsch.png",
+            "url": "../images/Eissorten/Schoko-Kirsch.png",
             "name": "Schoko-Kirsch",
             "preis": 1.00
         }
     ],
     "Toppings": [
         {
-            "url": "Toppings/Sahne.png",
+            "url": "../images/Toppings/Sahne.png",
             "name": "Sahne",
             "preis": 0.50
         },
         {
-            "url": "Toppings/Schoko-Sauce.png",
+            "url": "../images/Toppings/Schoko-Sauce.png",
             "name": "Schoko-Sauce",
             "preis": 0.50
         },
         {
-            "url": "Toppings/Erdbeer-Sauce.png",
+            "url": "../images/Toppings/Erdbeer-Sauce.png",
             "name": "Erdbeer-Sauce",
             "preis": 0.50
         },
         {
-            "url": "Toppings/Karamell-Sauce.png",
+            "url": "../images/Toppings/Karamell-Sauce.png",
             "name": "Karamell-Sauce",
             "preis": 0.50
         },
         {
-            "url": "Toppings/Schokostreusel.png",
+            "url": "../images/Toppings/Schokostreusel.png",
             "name": "Schoko-Streusel",
             "preis": 0.50
         },
         {
-            "url": "Toppings/bunte-Streusel.png",
+            "url": "../images/Toppings/bunte-Streusel.png",
             "name": "bunte Streusel",
             "preis": 0.50
         },
         {
-            "url": "Toppings/Smarties.png",
+            "url": "../images/Toppings/Smarties.png",
             "name": "Smarties",
             "preis": 0.50
         },
         {
-            "url": "Toppings/Marshmallows.png",
+            "url": "../images/Toppings/Marshmallows.png",
             "name": "Marshmallows",
             "preis": 0.50
         }

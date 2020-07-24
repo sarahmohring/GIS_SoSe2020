@@ -1,7 +1,7 @@
 /* bildschirmgrößen-unabhängig*/
 
 body {
-    background-image: url(images/background.jpg);
+    background-image: url(../images/background.jpg);
     font-family: 'Lobster', cursive;
     color: rgb(214, 106, 115);
     text-align: center;
@@ -9,7 +9,7 @@ body {
 }
 
 #header {
-        background-image: url(images/header.png);
+        background-image: url(../images/header.png);
         position: sticky;
         height: 145px;
         top:0;
@@ -43,7 +43,7 @@ button:hover {
 
 footer {
     background-color: rgb(255, 198, 1);
-    background-image: url(images/streusel-textur.png);
+    background-image: url(../images/streusel-textur.png);
     color: rgb(255, 255, 255);
     height: 65px;
     padding-top: 20px;
