@@ -1,4 +1,4 @@
-namespace Endabgabe {
+/*namespace Endabgabe {
 
     let orderDiv: HTMLElement = <HTMLElement>document.getElementById("order");
     let bestellung: string = <string>localStorage.getItem("Produkte");
@@ -15,7 +15,7 @@ namespace Endabgabe {
     // form.addEventListener("change", handleChange);
     submit.addEventListener("click", sendOrder);
 
-    async function sendOrder(_event: Event): Promise<void> {
+    /*async function sendOrder(_event: Event): Promise<void> {
         console.log("Send order");
         let formData: FormData = new FormData(form);
         // tslint:disable-next-line: no-any
@@ -24,8 +24,8 @@ namespace Endabgabe {
         let responseText: string = await response.text();
         //alert(responseText);
         alert("Danke für deine Bestellung!");
-    }
-}
+    }*/
+/*}/*
 /* Artikel von der Shopseite müssen aus Local Storage wieder erzeugt werden, aber als Liste (Aufzählungsicon Eis)
 - Behälter: ...
 - Eissorten: ...

@@ -32,8 +32,8 @@ var Endabgabe;
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         serverURL += "/store" + "?" + localStorageContent + query.toString();
-        let formular = document.getElementById("form");
-        formular.reset();
+        // let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("form");
+        // formular.reset();
         await fetch(serverURL);
         alert("Danke für deine Bestellung!");
     }

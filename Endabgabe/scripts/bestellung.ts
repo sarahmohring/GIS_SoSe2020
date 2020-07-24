@@ -38,8 +38,8 @@ namespace Endabgabe {
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         serverURL += "/store" + "?" + localStorageContent + query.toString();
 
-        let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("form");
-        formular.reset();
+        // let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("form");
+        // formular.reset();
 
         await fetch(serverURL);
 

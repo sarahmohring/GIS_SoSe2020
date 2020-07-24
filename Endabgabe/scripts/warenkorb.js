@@ -1,29 +1,32 @@
 "use strict";
-var Endabgabe;
-(function (Endabgabe) {
-    let orderDiv = document.getElementById("order");
-    let bestellung = localStorage.getItem("Produkte");
-    let gesamtpreis = localStorage.getItem("Gesamtsumme");
-    let inhalt = document.createElement("p");
+/*namespace Endabgabe {
+
+    let orderDiv: HTMLElement = <HTMLElement>document.getElementById("order");
+    let bestellung: string = <string>localStorage.getItem("Produkte");
+    let gesamtpreis: string = <string>localStorage.getItem("Gesamtsumme");
+    let inhalt: HTMLElement = document.createElement("p");
     inhalt.innerHTML = bestellung + "<br>" + gesamtpreis;
     orderDiv.appendChild(inhalt);
-    let url = "https://gis-sose2020.herokuapp.com/";
-    let form = document.querySelector("form");
-    let submit = document.querySelector("button[type=button]");
+
+    let url: string = "https://gis-sose2020.herokuapp.com/";
+    let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
+    let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=button]");
     console.log(submit);
+
     // form.addEventListener("change", handleChange);
     submit.addEventListener("click", sendOrder);
-    async function sendOrder(_event) {
+
+    /*async function sendOrder(_event: Event): Promise<void> {
         console.log("Send order");
-        let formData = new FormData(form);
+        let formData: FormData = new FormData(form);
         // tslint:disable-next-line: no-any
-        let query = new URLSearchParams(formData);
-        let response = await fetch(url + "?" + query.toString());
-        let responseText = await response.text();
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        let response: Response = await fetch(url + "?" + query.toString());
+        let responseText: string = await response.text();
         //alert(responseText);
         alert("Danke für deine Bestellung!");
-    }
-})(Endabgabe || (Endabgabe = {}));
+    }*/
+/*}/*
 /* Artikel von der Shopseite müssen aus Local Storage wieder erzeugt werden, aber als Liste (Aufzählungsicon Eis)
 - Behälter: ...
 - Eissorten: ...

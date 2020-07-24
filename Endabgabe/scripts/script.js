@@ -16,29 +16,29 @@ var Endabgabe;
     // Produkte erzeugen aus JSON
     window.addEventListener("load", handleLoad);
     let form;
-    let url = "https://gis-sose2020.herokuapp.com/";
+    // let url: string = "https://gis-sose2020.herokuapp.com/";
     document.getElementById("reset")?.addEventListener("click", resetOrder);
     async function handleLoad(_event) {
         let response = await fetch("../scripts/auswahl.json");
         let artikel = await response.text();
         let inhalt = JSON.parse(artikel);
         Endabgabe.produkteErzeugen(inhalt);
-        form = document.querySelector("form");
-        let submit = document.querySelector("button[type=button]");
-        console.log(submit);
+        /*form = <HTMLFormElement>document.querySelector("form");
+        let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=button]");
+        console.log(submit);*/
         form.addEventListener("change", handleChange);
-        submit.addEventListener("click", sendOrder);
+        //submit.addEventListener("click", sendOrder);
         displayOrder();
     }
-    async function sendOrder(_event) {
+    /*async function sendOrder(_event: Event): Promise<void> {
         console.log("Send order");
-        let formData = new FormData(form);
+        let formData: FormData = new FormData(form);
         // tslint:disable-next-line: no-any
-        let query = new URLSearchParams(formData);
-        let response = await fetch(url + "?" + query.toString());
-        let responseText = await response.text();
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        let response: Response = await fetch(url + "?" + query.toString());
+        let responseText: string = await response.text();
         alert(responseText);
-    }
+    }*/
     function handleChange(_event) {
         displayOrder();
     }
