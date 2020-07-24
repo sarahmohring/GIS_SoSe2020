@@ -28,8 +28,8 @@ namespace Endabgabe {
 
         produkteErzeugen(inhalt);
 
-        /*form = <HTMLFormElement>document.querySelector("form");
-        let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=button]");
+        form = <HTMLFormElement>document.querySelector("form");
+        /*let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=button]");
         console.log(submit);*/
 
         form.addEventListener("change", handleChange);

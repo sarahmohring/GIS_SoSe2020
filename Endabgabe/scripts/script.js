@@ -23,8 +23,8 @@ var Endabgabe;
         let artikel = await response.text();
         let inhalt = JSON.parse(artikel);
         Endabgabe.produkteErzeugen(inhalt);
-        /*form = <HTMLFormElement>document.querySelector("form");
-        let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=button]");
+        form = document.querySelector("form");
+        /*let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=button]");
         console.log(submit);*/
         form.addEventListener("change", handleChange);
         //submit.addEventListener("click", sendOrder);
