@@ -18,20 +18,17 @@ var Endabgabe;
       (<HTMLElement>document.getElementById("serverResponse")).innerHTML = responseText;
     }*/
     async function handleClickStore() {
-        let localStorageContent = "";
-        /*
-        for (let index: number = 0; index < localStorage.length; index++) {
-            let localKey: string = <string>localStorage.key(index);                         //holt sich jeweils den key aus dem LS
-            let localValue: string = <string>localStorage.getItem(localKey);                //holt sich jeweils den value aus dem LS
-
-            localStorageData += localKey + "=" + localValue + "&";                          //speichert Eintrag im String, damit dieser in die url übernommen werden kann
+        let localStorageData = "";
+        for (let index = 0; index < localStorage.length; index++) {
+            let localKey = localStorage.key(index); //holt sich jeweils den key aus dem LS
+            let localValue = localStorage.getItem(localKey); //holt sich jeweils den value aus dem LS
+            localStorageData += localKey + "=" + localValue + "&"; //speichert Eintrag im String, damit dieser in die url übernommen werden kann
         }
-        */
         formData = new FormData(document.forms[0]);
         let serverURL = "https://gis-sose2020.herokuapp.com";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        serverURL += "/store" + "?" + localStorageContent + query.toString();
+        serverURL += "/store" + "?" + localStorageData + query.toString();
         // let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("form");
         // formular.reset();
         await fetch(serverURL);
