@@ -59,18 +59,21 @@ var Endabgabe;
         localStorage.setItem("Gesamtsumme", "<b>Gesamtsumme: </b>" + JSON.stringify(preis.toFixed(2) + " €"));
     }
     function resetOrder() {
-        let formular = document.getElementById("bestellung");
+        window.location.reload(true);
+        window.localStorage.clear();
+        /*let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
         if (formular) {
             formular.reset();
-            window.location.reload(true);
+            
             /*window.localStorage.clear();
             localStorage.removeItem("Gesamtsumme");
-            localStorage.removeItem("Produkte");*/
-            let divOrder = document.getElementById("order");
+            localStorage.removeItem("Produkte");
+            let divOrder: HTMLElement = <HTMLElement>document.getElementById("order");
             divOrder.innerHTML = "";
-            //displayOrder();
-            // document.getElementById("order")?.removeChild(<Node>document.getElementById("order")?.lastChild);
-        }
+            displayOrder();
+             document.getElementById("order")?.removeChild(<Node>document.getElementById("order")?.lastChild);
+            
+        } */
     }
 })(Endabgabe || (Endabgabe = {}));
 /* LOCAL STORAGE, WARENKORB-ICON
