@@ -1,73 +1,67 @@
 namespace Endabgabe {
+
     let divAnzeige: HTMLDivElement = <HTMLDivElement>document.getElementById("bestellungenAnzeigen");
 
-    let buttonDisplay: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonRetrieve");
-    buttonDisplay.addEventListener("click", handleDisplay);
+    let buttonRetrieve: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonRetrieve");
+    buttonRetrieve.addEventListener("click", handleRetrieve);
 
     let buttonDeleteAll: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonDeleteAll");
     buttonDeleteAll.addEventListener("click", handleDeleteAll);
 
     // gibt aktuelle Einträge der Datenbank aus
-    async function handleDisplay(): Promise<void> { // falls FOramtierung nicht klappt
+    async function handleRetrieve(): Promise<void> {
 
-        let url: string = "https://gis-sose2020.herokuapp.com";
-        url += "/retrieve";
-
+        let url: string = "https://gis-sose2020.herokuapp.com/retrieve";
         let response: Response = await fetch(url);
-        let responseString: string = await response.text(); //JSON String 
+        let responseString: string = await response.text(); //JSON String enthält alle DB-Einträge
 
-        //document.getElementById("bestellungenAnzeigen")!.style.display = "none";
+        let order: Order[] = JSON.parse(responseString); // String formatieren in Array
 
-        let order: Order[] = JSON.parse(responseString);
+        for (let i: number = 0; i < order.length; i++) {
+            // Bestellung ansprechend darstellen
+            let divDB: HTMLDivElement = document.createElement("div");
+            divDB.setAttribute("class", "divDB");
+            divAnzeige.appendChild(divDB);
 
-        console.log(order);
+            let orderTitel: HTMLHeadingElement = document.createElement("h3");
+            let orderNummer: number = i + 1;
+            orderTitel.innerHTML = "Bestellung " + orderNummer;
+            divDB.appendChild(orderTitel);
 
-        for (let index: number = 0; index < order.length; index++) {
-            //HTML Gerüst der Bestellung aufbauen
-            let orderDiv: HTMLDivElement = document.createElement("div");
-            orderDiv.setAttribute("class", "orderSpan");
-            divAnzeige.appendChild(orderDiv);
+            let bestellSpan: HTMLSpanElement = document.createElement("span");
+            let inhaltString: string = "";
 
-            let orderHeading: HTMLHeadingElement = document.createElement("h3");
-            let orderIndex: number = index + 1;
-            orderHeading.innerHTML = "Bestellung " + orderIndex;
-            orderDiv.appendChild(orderHeading);
-
-            let outputSpan: HTMLSpanElement = document.createElement("span");
-            let ausgabeString: string = "";
-
-            //Produktausgabe
-            ausgabeString += "<b>Eis: </b>" + order[index].Produkte + "<br>";
-            ausgabeString += order[index].Gesamtsumme + "<br><br>";
-            ausgabeString += "<b>Name: </b>" + order[index].Name + "<br>";
-            ausgabeString += "<b>Adresse: </b>" + order[index].Adresse + "<br>";
-            ausgabeString += "<b>Anmerkungen: </b>" + order[index].Anmerkungen + "<br>";
+            //Produktausgabe nach Kategorie
+            inhaltString += "<b>Eis: </b>" + order[i].Produkte + "<br>";
+            inhaltString += order[i].Gesamtsumme + "<br><br>";
+            inhaltString += "<b>Name: </b>" + order[i].Name + "<br>";
+            inhaltString += "<b>Adresse: </b>" + order[i].Adresse + "<br>";
+            inhaltString += "<b>Anmerkungen: </b>" + order[i].Anmerkungen + "<br>";
 
             let buttonDeleteOne: HTMLImageElement = document.createElement("img");
             buttonDeleteOne.addEventListener("click", handleDeleteOne);
-            buttonDeleteOne.setAttribute("orderid", order[index]._id);
+            buttonDeleteOne.setAttribute("orderid", order[i]._id);
             buttonDeleteOne.setAttribute("src", "../images/checkmark.png");
             buttonDeleteOne.setAttribute("alt", "abgeschlossen");
             buttonDeleteOne.setAttribute("class", "orderDiv");
 
             let buttonEdit: HTMLImageElement = document.createElement("img");
             buttonEdit.addEventListener("click", handleEdit);
-            buttonEdit.setAttribute("orderid", order[index]._id);
+            buttonEdit.setAttribute("orderid", order[i]._id);
             buttonEdit.setAttribute("src", "../images/edit.png");
-            buttonEdit.setAttribute("alt", "edit");
+            buttonEdit.setAttribute("alt", "bearbeiten");
             buttonEdit.setAttribute("class", "orderDiv");
 
-            outputSpan.innerHTML = ausgabeString;
-            orderDiv.appendChild(outputSpan);
-            orderDiv.appendChild(buttonDeleteOne);
-            orderDiv.appendChild(buttonEdit);
+            bestellSpan.innerHTML = inhaltString;
+            divDB.appendChild(bestellSpan);
+            divDB.appendChild(buttonDeleteOne);
+            divDB.appendChild(buttonEdit);
         }
     }
 
-    async function handleDeleteOne(_event: Event): Promise<void> { // ???
+    async function handleDeleteOne(_event: Event): Promise<void> { // löscht einzelne Bestellung
         let clickedButton: HTMLElement = <HTMLElement>_event.target;
         let orderID: string = <string>clickedButton.getAttribute("orderid");
-
         let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/deleteOne" + "?" + "id=" + orderID;
         await fetch(url);
@@ -77,37 +71,28 @@ namespace Endabgabe {
     async function handleDeleteAll(): Promise<void> {
         let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/deleteAll";
-
         await fetch(url);
-
         while (divAnzeige.hasChildNodes()) {
             divAnzeige.removeChild(<Node>divAnzeige.firstChild);
         }
     }
 
-    async function handleEdit(_event: Event): Promise<void> {
+    async function handleEdit(_event: Event): Promise<void> { // reparieren!!
         let clickedButton: HTMLElement = <HTMLElement>_event.target;
         let orderID: string = <string>clickedButton.getAttribute("orderid");
-
         let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/edit" + "?" + "id=" + orderID;
-
         await fetch(url);
-
         update();
-
     }
 
-
-    function update(): void {
+    function update(): void { // soll eigentlich nicht alle Bestellungen verdoppeln?!
         while (divAnzeige.hasChildNodes()) {
             divAnzeige.removeChild(<Node>divAnzeige.firstChild);
         }
-
-        if (document.getElementById("buttonDiv") != null) {
-            document.getElementById("main")?.removeChild(<Node>document.getElementById("buttonDiv"));
+        if (document.getElementById("formular") != null) {
+            document.getElementById("main")?.removeChild(<Node>document.getElementById("bestellungenAnzeigen"));
         }
-
-        handleDisplay();
+        handleRetrieve();
     }
 }

@@ -5,7 +5,7 @@ import { ParsedUrlQuery } from "querystring";
 
 export namespace Endabgabe {
 
-    let orders: Mongo.Collection; // data = orders
+    let orders: Mongo.Collection;
     let port: number = Number(process.env.PORT);
     if (port == undefined)
         port = 5001;
@@ -53,27 +53,26 @@ export namespace Endabgabe {
             }
 
             else if (url.pathname == "/retrieve") { // Bestellung wird von Besitzer abgerufen
-                let bestellungDB: Mongo.Cursor<string> = orders.find(); //liest die Dokumente der Datenbank aus
+                let bestellungDB: Mongo.Cursor<string> = orders.find(); //liest die einzelnen Dokumente der DB aus
                 let bestellungArray: string[] = await bestellungDB.toArray();
                 let jsonString: string = JSON.stringify(bestellungArray);
                 _response.write(jsonString);
             }
 
-            else if (url.pathname == "/deleteOne") { // einzelne Bestellung löschen
+            else if (url.pathname == "/deleteOne") { // einzelne Bestellung aus DB löschen
                 let objectID: Mongo.ObjectID = getID();
                 let jsonString: string = JSON.stringify(await orders.deleteOne({ "_id": objectID }));
                 _response.write(jsonString);
             }
 
-            else if (url.pathname == "/deleteAll") { // alle Bestellungen löschen
+            else if (url.pathname == "/deleteAll") { // alle Bestellungen aus DB löschen
                 orders.drop();
             }
 
-            function getID(): Mongo.ObjectID {
+            function getID(): Mongo.ObjectID { // damit Dokument über ID gefunden werden kann
                 // Quelle: Beispiellösung A11 - https://github.com/Plagiatus/GIS_SoSe2020/blob/master/Aufgabe11/Server/database.ts#L29
                 let query: ParsedUrlQuery = url.query;
                 let id: string = <string>query["id"];   //wählt den richtigen Teil der query aus
-
                 let objectID: Mongo.ObjectID = new Mongo.ObjectID(id);
                 return objectID;
             }

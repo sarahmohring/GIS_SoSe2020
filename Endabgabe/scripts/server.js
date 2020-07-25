@@ -6,7 +6,7 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Endabgabe;
 (function (Endabgabe) {
-    let orders; // data = orders
+    let orders;
     let port = Number(process.env.PORT);
     if (port == undefined)
         port = 5001;
@@ -42,17 +42,17 @@ var Endabgabe;
                 orders.insertOne(url.query);
             }
             else if (url.pathname == "/retrieve") { // Bestellung wird von Besitzer abgerufen
-                let bestellungDB = orders.find(); //liest die Dokumente der Datenbank aus
+                let bestellungDB = orders.find(); //liest die einzelnen Dokumente der DB aus
                 let bestellungArray = await bestellungDB.toArray();
                 let jsonString = JSON.stringify(bestellungArray);
                 _response.write(jsonString);
             }
-            else if (url.pathname == "/deleteOne") { // einzelne Bestellung löschen
+            else if (url.pathname == "/deleteOne") { // einzelne Bestellung aus DB löschen
                 let objectID = getID();
                 let jsonString = JSON.stringify(await orders.deleteOne({ "_id": objectID }));
                 _response.write(jsonString);
             }
-            else if (url.pathname == "/deleteAll") { // alle Bestellungen löschen
+            else if (url.pathname == "/deleteAll") { // alle Bestellungen aus DB löschen
                 orders.drop();
             }
             function getID() {

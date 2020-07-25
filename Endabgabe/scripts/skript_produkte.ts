@@ -1,4 +1,4 @@
-namespace Endabgabe {
+namespace Endabgabe { // basierend auf Code von Jirka Dell'Oro Friedl (Cocktailbar)
 
     // allgemeines Interface mit allen Aspekten eines Artikels
     export interface Auswahl {
@@ -7,12 +7,13 @@ namespace Endabgabe {
         preis: number;
     }
 
+    // Format JSON
     export interface Inhalt {
         [kategorie: string]: Auswahl[];
     }
 
+    // JSON Artikel nach Kategorien aufteilen
     export function produkteErzeugen(_inhalt: Inhalt): void {
-
         for (let kategorie in _inhalt) {
             let auswahl: Auswahl[] = _inhalt[kategorie];
 
@@ -27,18 +28,16 @@ namespace Endabgabe {
                 case "Toppings":
                     group = checkboxAuswahl(auswahl, kategorie);
                     break;
-
                 default:
                     break;
             }
-
             let fieldset: HTMLFieldSetElement | null = document.querySelector("fieldset#" + kategorie);
             if (fieldset && group)
                 fieldset.appendChild(group);
         }
-
     }
 
+    // Behälter-Auswahl über Radio-Buttons
     function radioAuswahl(_auswahl: Auswahl[], _kategorie: string): HTMLElement | null {
         let group: HTMLSpanElement = document.createElement("span");
         for (let auswahl of _auswahl) {
@@ -69,17 +68,18 @@ namespace Endabgabe {
         return group;
     }
 
+    // Eissorten-Auswahl über Checkboxen
     function checkboxAuswahl(_auswahl: Auswahl[], _kategorie: string): HTMLElement | null {
         let group: HTMLSpanElement = document.createElement("span");
         for (let auswahl of _auswahl) {
             let divElem: HTMLDivElement = document.createElement("div");
             divElem.setAttribute("id", "flexDiv");
             group.appendChild(divElem);
-            
+
             let label: HTMLLabelElement = document.createElement("label");
             label.textContent = auswahl.name;
             label.htmlFor = auswahl.name;
-            
+
             let checkbox: HTMLInputElement = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.setAttribute("preis", auswahl.preis.toFixed(2));
@@ -87,7 +87,6 @@ namespace Endabgabe {
             checkbox.name = _kategorie;
             checkbox.id = auswahl.name;
             label.appendChild(checkbox);
-
 
             let imgURL: HTMLImageElement = document.createElement("img");
             imgURL.setAttribute("src", auswahl.url);
@@ -99,6 +98,7 @@ namespace Endabgabe {
         return group;
     }
 
+    // Interface für Besitzerseite/Anzeige der Bestellungen 
     export interface Order {
 
         _id: string;

@@ -1,6 +1,7 @@
 "use strict";
 var Endabgabe;
 (function (Endabgabe) {
+    // JSON Artikel nach Kategorien aufteilen
     function produkteErzeugen(_inhalt) {
         for (let kategorie in _inhalt) {
             let auswahl = _inhalt[kategorie];
@@ -24,6 +25,7 @@ var Endabgabe;
         }
     }
     Endabgabe.produkteErzeugen = produkteErzeugen;
+    // Behälter-Auswahl über Radio-Buttons
     function radioAuswahl(_auswahl, _kategorie) {
         let group = document.createElement("span");
         for (let auswahl of _auswahl) {
@@ -49,6 +51,7 @@ var Endabgabe;
         }
         return group;
     }
+    // Eissorten-Auswahl über Checkboxen
     function checkboxAuswahl(_auswahl, _kategorie) {
         let group = document.createElement("span");
         for (let auswahl of _auswahl) {

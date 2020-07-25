@@ -2,52 +2,49 @@
 var Endabgabe;
 (function (Endabgabe) {
     let divAnzeige = document.getElementById("bestellungenAnzeigen");
-    let buttonDisplay = document.getElementById("buttonRetrieve");
-    buttonDisplay.addEventListener("click", handleDisplay);
+    let buttonRetrieve = document.getElementById("buttonRetrieve");
+    buttonRetrieve.addEventListener("click", handleRetrieve);
     let buttonDeleteAll = document.getElementById("buttonDeleteAll");
     buttonDeleteAll.addEventListener("click", handleDeleteAll);
     // gibt aktuelle Einträge der Datenbank aus
-    async function handleDisplay() {
-        let url = "https://gis-sose2020.herokuapp.com";
-        url += "/retrieve";
+    async function handleRetrieve() {
+        let url = "https://gis-sose2020.herokuapp.com/retrieve";
         let response = await fetch(url);
-        let responseString = await response.text(); //JSON String 
-        //document.getElementById("bestellungenAnzeigen")!.style.display = "none";
-        let order = JSON.parse(responseString);
-        console.log(order);
-        for (let index = 0; index < order.length; index++) {
-            //HTML Gerüst der Bestellung aufbauen
-            let orderDiv = document.createElement("div");
-            orderDiv.setAttribute("class", "orderSpan");
-            divAnzeige.appendChild(orderDiv);
-            let orderHeading = document.createElement("h3");
-            let orderIndex = index + 1;
-            orderHeading.innerHTML = "Bestellung " + orderIndex;
-            orderDiv.appendChild(orderHeading);
-            let outputSpan = document.createElement("span");
-            let ausgabeString = "";
-            //Produktausgabe
-            ausgabeString += "<b>Eis: </b>" + order[index].Produkte + "<br>";
-            ausgabeString += order[index].Gesamtsumme + "<br><br>";
-            ausgabeString += "<b>Name: </b>" + order[index].Name + "<br>";
-            ausgabeString += "<b>Adresse: </b>" + order[index].Adresse + "<br>";
-            ausgabeString += "<b>Anmerkungen: </b>" + order[index].Anmerkungen + "<br>";
+        let responseString = await response.text(); //JSON String enthält alle DB-Einträge
+        let order = JSON.parse(responseString); // String formatieren in Array
+        for (let i = 0; i < order.length; i++) {
+            // Bestellung ansprechend darstellen
+            let divDB = document.createElement("div");
+            divDB.setAttribute("class", "divDB");
+            divAnzeige.appendChild(divDB);
+            let orderTitel = document.createElement("h3");
+            let orderNummer = i + 1;
+            orderTitel.innerHTML = "Bestellung " + orderNummer;
+            divDB.appendChild(orderTitel);
+            let bestellSpan = document.createElement("span");
+            let inhaltString = "";
+            //Produktausgabe nach Kategorie
+            inhaltString += "<b>Eis: </b>" + order[i].Produkte + "<br>";
+            inhaltString += order[i].Gesamtsumme + "<br><br>";
+            inhaltString += "<b>Name: </b>" + order[i].Name + "<br>";
+            inhaltString += "<b>Adresse: </b>" + order[i].Adresse + "<br>";
+            inhaltString += "<b>Anmerkungen: </b>" + order[i].Anmerkungen + "<br>";
             let buttonDeleteOne = document.createElement("img");
             buttonDeleteOne.addEventListener("click", handleDeleteOne);
-            buttonDeleteOne.setAttribute("orderid", order[index]._id);
+            buttonDeleteOne.setAttribute("orderid", order[i]._id);
             buttonDeleteOne.setAttribute("src", "../images/checkmark.png");
             buttonDeleteOne.setAttribute("alt", "abgeschlossen");
             buttonDeleteOne.setAttribute("class", "orderDiv");
             let buttonEdit = document.createElement("img");
             buttonEdit.addEventListener("click", handleEdit);
-            buttonEdit.setAttribute("orderid", order[index]._id);
+            buttonEdit.setAttribute("orderid", order[i]._id);
             buttonEdit.setAttribute("src", "../images/edit.png");
-            buttonEdit.setAttribute("alt", "edit");
+            buttonEdit.setAttribute("alt", "bearbeiten");
             buttonEdit.setAttribute("class", "orderDiv");
-            outputSpan.innerHTML = ausgabeString;
-            orderDiv.appendChild(outputSpan);
-            orderDiv.appendChild(buttonDeleteOne);
-            orderDiv.appendChild(buttonEdit);
+            bestellSpan.innerHTML = inhaltString;
+            divDB.appendChild(bestellSpan);
+            divDB.appendChild(buttonDeleteOne);
+            divDB.appendChild(buttonEdit);
         }
     }
     async function handleDeleteOne(_event) {
@@ -78,10 +75,10 @@ var Endabgabe;
         while (divAnzeige.hasChildNodes()) {
             divAnzeige.removeChild(divAnzeige.firstChild);
         }
-        if (document.getElementById("buttonDiv") != null) {
-            document.getElementById("main")?.removeChild(document.getElementById("buttonDiv"));
+        if (document.getElementById("formular") != null) {
+            document.getElementById("main")?.removeChild(document.getElementById("bestellungenAnzeigen"));
         }
-        handleDisplay();
+        handleRetrieve();
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=script_besitzer.js.map
