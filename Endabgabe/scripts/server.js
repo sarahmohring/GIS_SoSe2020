@@ -6,7 +6,6 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Endabgabe;
 (function (Endabgabe) {
-    let retrievedData;
     let orders; // data = orders
     let port = Number(process.env.PORT);
     if (port == undefined)
@@ -96,26 +95,17 @@ var Endabgabe;
                 let objectID = new Mongo.ObjectID(id);
                 return objectID;
             }
-            /*
             if (url.pathname == "/edit") {
-
-                let objectID: Mongo.ObjectID = getID();
-
+                let objectID = getID();
                 //Quelle: https://www.guru99.com/mongodb-update-document.html
-                orders.update
-                    (
-                        {
-                            "_id": objectID    //wählt das Document in der DB aus, welches verändert werden soll
-                        },
-                        {
-                            $set:
-                            {
-                                "street": "sent"   //verändert den Wert von street
-                            }
-                        }
-                    );
+                orders.update({
+                    "_id": objectID //wählt das Document in der DB aus, welches verändert werden soll
+                }, {
+                    $set: {
+                        "street": "sent" //verändert den Wert von street
+                    }
+                });
             }
-            */
         }
         _response.end();
     }

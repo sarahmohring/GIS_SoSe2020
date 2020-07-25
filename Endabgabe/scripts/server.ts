@@ -5,13 +5,6 @@ import { ParsedUrlQuery } from "querystring";
 
 export namespace Endabgabe {
 
-    interface Orders {
-
-        // tslint:disable-next-line: no-any
-        [type: string]: string[] | undefined;
-    }
-
-    let retrievedData: Orders[];
     let orders: Mongo.Collection; // data = orders
     let port: number = Number(process.env.PORT);
     if (port == undefined)
@@ -118,7 +111,7 @@ export namespace Endabgabe {
                 return objectID;
             }
 
-            /*
+
             if (url.pathname == "/edit") {
 
                 let objectID: Mongo.ObjectID = getID();
@@ -137,7 +130,6 @@ export namespace Endabgabe {
                         }
                     );
             }
-            */
         }
         _response.end();
     }

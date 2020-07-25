@@ -142,11 +142,11 @@ a:hover {
 }
 
 [type=radio] + img {
-    opacity: 50%;
+    opacity: 0.5;
 }
 
-[type=radio]:checked + img {
-    opacity: 100%;
+[type=radio]:checked + img, [type=radio]:hover + img {
+    opacity: 1;
     transition: opacity 0.5s;
 }
 
@@ -158,11 +158,11 @@ a:hover {
 }
 
 [type=checkbox] + img {
-    opacity: 50%;
+    opacity: 0.5;
 }
 
-[type=checkbox]:checked + img {
-    opacity: 100%;
+[type=checkbox]:checked + img, [type=checkbox]:hover + img {
+    opacity: 1;
     transition: opacity 0.5s;
 }
 
@@ -190,8 +190,8 @@ h3+span {
 .orderSpan button {
     height: 45px;
     width: 45px;
-    opacity: 0.6;
-    transition: ease-in 0.3s;
+    opacity: 0.5;
+    transition: opacity 0.5s;
     margin: 5px;
 }
 
