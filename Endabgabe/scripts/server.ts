@@ -5,18 +5,18 @@ import { ParsedUrlQuery } from "querystring";
 
 export namespace Endabgabe {
 
-    /*
-    interface Order {
-        [type: string]: string | string[] | undefined;
+    interface Orders {
+
+        // tslint:disable-next-line: no-any
+        [type: string]: string[] | undefined;
     }
 
-    */
-
+    let retrievedData: Orders[]
     let orders: Mongo.Collection; // data = orders
     let port: number = Number(process.env.PORT);
     if (port == undefined)
         port = 5001;
-        
+
     let databaseUrl: string = "";
 
     //local oder remote
@@ -45,6 +45,32 @@ export namespace Endabgabe {
         orders = mongoClient.db("EISDIELE").collection("Bestellungen");
         console.log("Database connection", orders != undefined); // Ausgabe true - hat geklappt; false - hat nicht geklappt
     }
+    /*
+        function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+            console.log("What's up?");
+    
+            _response.setHeader("content-type", "text/html; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
+    
+            if (_request.url) {
+                let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+                for (let key in url.query) {
+                    _response.write(key + ":" + url.query[key] + "<br/>");
+                }
+    
+                let jsonString: string = JSON.stringify(url.query);
+                _response.write(jsonString);
+    
+                storeOrder(url.query);
+            }
+    
+            _response.end();
+        }
+    
+    
+        function storeOrder(_order: Order): void {
+            orders.insert(_order);
+        } */
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
         console.log("I hear voices!");
@@ -55,46 +81,20 @@ export namespace Endabgabe {
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
-/*
-    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
-        console.log("What's up?");
-
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
-
-        if (_request.url) {
-            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            for (let key in url.query) {
-                _response.write(key + ":" + url.query[key] + "<br/>");
-            }
-
-            let jsonString: string = JSON.stringify(url.query);
-            _response.write(jsonString);
-
-            storeOrder(url.query);
-        }
-
-        _response.end();
-    }
-
-
-    function storeOrder(_order: Order): void {
-        orders.insert(_order);
-    } */
-
             if (url.pathname == "/store") { // Bestellung vom Kunde wird eingetragen in DB
                 orders.insertOne(url.query);
             }
 
             else if (url.pathname == "/retrieve") { // Bestellung wird von Besitzer abgerufen
-                //_response.write(JSON.stringify(await orders.find().toArray()));
+                await retrieveDB(_response);
+                /*//_response.write(JSON.stringify(await orders.find().toArray()));
                 let bestellungDB: Mongo.Cursor<string> = orders.find(); //liest die Dokumente der Datenbank aus
                 let bestellungArray: string[] = await bestellungDB.toArray();
                 let jsonString: string = JSON.stringify(bestellungArray);
-                _response.write(jsonString);
-            }   
-            
-            else if (url.pathname == "/deleteOne") {
+                _response.write(jsonString);*/
+            }
+
+            else if (url.pathname == "/deleteOne") { // !!!
                 let objectID: Mongo.ObjectID = getID();
                 let jsonString: string = JSON.stringify(await orders.deleteOne({ "_id": objectID }));
                 _response.write(jsonString);
@@ -137,4 +137,18 @@ export namespace Endabgabe {
         }
         _response.end();
     }
-}
+
+
+    async function retrieveDB(_response: Http.ServerResponse): Promise<void> {
+        //tslint:disable-next-line: no-any
+        retrievedData = await orders.find().toArray();
+        for (let index: number = 0; index <= retrievedData.length; index++) {
+
+            if (retrievedData[index]) {
+
+                let current: Orders = <Orders>retrievedData[index];
+                for (let key in current) {
+                    _response.write(key + ": " + JSON.stringify(current[key]) + "<br>");
+                }
+                _response.write("<br>");
+            }

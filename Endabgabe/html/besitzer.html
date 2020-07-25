@@ -19,27 +19,16 @@
     <main>
         <div>
             <h2>Zu bearbeitende Bestellungen:</h2>
-            <div id="Bestellungen"></div>
+            <div id="bestellungenAnzeigen">
+                <!-- aus Datenbank
+                button "löschen" jeweils id="buttonDeleteOne", buttonEdit-->
+            </div>
             <form action="https://gis-sose2020.herokuapp.com/" id="formular">
                 <!-- <form action="http://localhost:8100" id="formular"> -->
-                <button type="button" id="retrieve">Refresh</button>
-                <button type="button" id="delete">Alle löschen</button>
+                <button type="button" id="buttonRetrieve">Bestellungen laden</button>
+                <button type="button" id="buttonDeleteAll">Alle löschen</button>
             </form>
-
         </div>
-
-
-
-
-
-        <button id="requestOrders" type="button">aktuelle Bestellungen laden</button>
-        <div id="bestellungenAnzeigen">
-            <!-- aus Datenbank
-                button "löschen" jeweils id="deleteOne"-->
-        </div>
-        </div>
-        <button id="buttonDeleteAll" type="button">Bestellungen löschen</button>
-        <button id="buttonEdit" type="button">Bestellungen bearbeiten</button> <!-- !!!! -->
     </main>
     <footer id="footer">
         <p>&copy; Sarah Mohring, 2020 | Hier geht es zum <a href="../html/gis-meme.html">GiS-Meme</a></p>

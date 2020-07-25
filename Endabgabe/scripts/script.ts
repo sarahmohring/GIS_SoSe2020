@@ -1,22 +1,7 @@
 namespace Endabgabe {
-    /*//Liste für Einkaufswagen
-    let cartContent: Auswahl[] = [];
-    if (localStorage.getItem("Auswahl") != null) {
-        let schonDrin: Auswahl[] = JSON.parse(localStorage.getItem("Auswahl")!);
-        cartContent = schonDrin;
-    }
-    // Zaehler für Anzahl der Produkte
-    let zaehler: number[] = [];
-    if (localStorage.getItem("Summe") != null) {
-        let vorhandenerZaehler: number = parseFloat(localStorage.getItem("Summe")!);
-        zaehler[0] = vorhandenerZaehler;
-    }*/
-
-    // Produkte erzeugen aus JSON
 
     window.addEventListener("load", handleLoad);
     let form: HTMLFormElement;
-    // let url: string = "https://gis-sose2020.herokuapp.com/";
 
     document.getElementById("reset")?.addEventListener("click", resetOrder);
 
@@ -29,24 +14,10 @@ namespace Endabgabe {
         produkteErzeugen(inhalt);
 
         form = <HTMLFormElement>document.querySelector("form");
-        /*let submit: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button[type=button]");
-        console.log(submit);*/
-
         form.addEventListener("change", handleChange);
-        //submit.addEventListener("click", sendOrder);
 
         displayOrder();
     }
-
-    /*async function sendOrder(_event: Event): Promise<void> {
-        console.log("Send order");
-        let formData: FormData = new FormData(form);
-        // tslint:disable-next-line: no-any
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        let response: Response = await fetch(url + "?" + query.toString());
-        let responseText: string = await response.text();
-        alert(responseText);
-    }*/
 
     function handleChange(_event: Event): void {
         displayOrder();
@@ -90,38 +61,4 @@ namespace Endabgabe {
         } */
     }
 }
-
-
-
-/* LOCAL STORAGE, WARENKORB-ICON
-
-warenkorb.addEventListener("click", handleClick);
-
-            function handleClick(): void {
-
-                let kreisDiv: HTMLElement = <HTMLElement>document.getElementById("kreisIcon");
-
-                zaehler.push(produkte[index].preis);
-
-                cartContent.push(produkte[index]);
-
-                let anzahl: number = cartContent.length;
-
-                kreisDiv.innerHTML = "" + anzahl;
-
-                // Summe berechnen
-                let summe: number = 0;
-                for (let i: number = 0; i < zaehler.length; i++) {
-                    summe = summe + zaehler[i];
-                }
-
-                localStorage.setItem("Produkte", JSON.stringify(cartContent));
-
-                localStorage.setItem("Summe", summe.toLocaleString("de-DE", { "currency": "EUR", "style": "currency" }));
-                console.log("Summe:" + summe.toLocaleString("de-DE", { "currency": "EUR", "style": "currency" }));
-        }
-    }
-}
-
-*/
 

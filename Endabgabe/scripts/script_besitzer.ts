@@ -1,13 +1,19 @@
-/* retrieve */
-
 namespace Endabgabe {
-    let divOutput: HTMLDivElement = <HTMLDivElement>document.getElementById("bestellungenAnzeigen");
+    let divAnzeige: HTMLDivElement = <HTMLDivElement>document.getElementById("bestellungenAnzeigen");
 
-    let requestOrdersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("requestOrders");
-    requestOrdersButton.addEventListener("click", handleOutput);
+    let buttonDisplay: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonRetrieve");
+    buttonDisplay.addEventListener("click", handleDisplay);
+    
+    let buttonDeleteOne: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonDeleteOne");
+    buttonDeleteOne.addEventListener("click", handleDeleteOne);
 
-    //Gives Output of current Entries in DB
-    async function handleOutput(): Promise<void> {
+    let buttonDeleteAll: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonDeleteAll");
+    buttonDeleteAll.addEventListener("click", handleDeleteAll);
+
+    let buttonEdit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonEdit");
+    buttonEdit.addEventListener("click", handleEdit);
+    // gibt aktuelle Einträge der Datenbank aus
+    async function handleDisplay(): Promise<void> {
 
         let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/retrieve";
@@ -23,21 +29,14 @@ namespace Endabgabe {
 
     }
 
-    let buttonDeleteOne: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonDeleteOne");
-    buttonDeleteOne.addEventListener("click", deleteOne);
-
-    let buttonDeleteAll: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonDeleteAll");
-    buttonDeleteAll.addEventListener("click", deleteAll);
-
-    let buttonEdit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonEdit");
-    buttonEdit.addEventListener("click", editOne);
 
 
-    async function deleteOne(_event: Event): Promise<void> {
+
+    async function handleDeleteOne(_event: Event): Promise<void> {
         let clickedButton: HTMLElement = <HTMLElement>_event.target;
         let orderID: string = <string>clickedButton.getAttribute("orderid");
 
-        let url: string = "https://gissose2020jacquelinekoch.herokuapp.com";
+        let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/deleteOne" + "?" + "id=" + orderID;
 
         await fetch(url);
@@ -46,22 +45,22 @@ namespace Endabgabe {
 
     }
 
-    async function deleteAll(): Promise<void> {
-        let url: string = "https://gissose2020jacquelinekoch.herokuapp.com";
+    async function handleDeleteAll(): Promise<void> {
+        let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/deleteAll";
 
         await fetch(url);
 
-        while (divOutput.hasChildNodes()) {
-            divOutput.removeChild(<Node>divOutput.firstChild);
+        while (divAnzeige.hasChildNodes()) {
+            divAnzeige.removeChild(<Node>divAnzeige.firstChild);
         }
     }
 
-    async function editOne(_event: Event): Promise<void> {
+    async function handleEdit(_event: Event): Promise<void> {
         let clickedButton: HTMLElement = <HTMLElement>_event.target;
         let orderID: string = <string>clickedButton.getAttribute("orderid");
 
-        let url: string = "https://gissose2020jacquelinekoch.herokuapp.com";
+        let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/edit" + "?" + "id=" + orderID;
 
         await fetch(url);
@@ -72,14 +71,14 @@ namespace Endabgabe {
 
 
     function update(): void {
-        while (divOutput.hasChildNodes()) {
-            divOutput.removeChild(<Node>divOutput.firstChild);
+        while (divAnzeige.hasChildNodes()) {
+            divAnzeige.removeChild(<Node>divAnzeige.firstChild);
         }
 
         if (document.getElementById("buttonDiv") != null) {
             document.getElementById("main")?.removeChild(<Node>document.getElementById("buttonDiv"));
         }
 
-        handleOutput();
+        handleDisplay();
     }
 }

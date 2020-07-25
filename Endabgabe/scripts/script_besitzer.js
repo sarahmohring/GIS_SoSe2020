@@ -1,12 +1,17 @@
 "use strict";
-/* retrieve */
 var Endabgabe;
 (function (Endabgabe) {
-    let divOutput = document.getElementById("bestellungenAnzeigen");
-    let requestOrdersButton = document.getElementById("requestOrders");
-    requestOrdersButton.addEventListener("click", handleOutput);
-    //Gives Output of current Entries in DB
-    async function handleOutput() {
+    let divAnzeige = document.getElementById("bestellungenAnzeigen");
+    let buttonDisplay = document.getElementById("buttonRetrieve");
+    buttonDisplay.addEventListener("click", handleDisplay);
+    let buttonDeleteOne = document.getElementById("buttonDeleteOne");
+    buttonDeleteOne.addEventListener("click", handleDeleteOne);
+    let buttonDeleteAll = document.getElementById("buttonDeleteAll");
+    buttonDeleteAll.addEventListener("click", handleDeleteAll);
+    let buttonEdit = document.getElementById("buttonEdit");
+    buttonEdit.addEventListener("click", handleEdit);
+    // gibt aktuelle Einträge der Datenbank aus
+    async function handleDisplay() {
         let url = "https://gis-sose2020.herokuapp.com";
         url += "/retrieve";
         let response = await fetch(url);
@@ -15,44 +20,38 @@ var Endabgabe;
         let auswahl = JSON.parse(responseString);
         console.log(auswahl);
     }
-    let buttonDeleteOne = document.getElementById("buttonDeleteOne");
-    buttonDeleteOne.addEventListener("click", deleteOne);
-    let buttonDeleteAll = document.getElementById("buttonDeleteAll");
-    buttonDeleteAll.addEventListener("click", deleteAll);
-    let buttonEdit = document.getElementById("buttonEdit");
-    buttonEdit.addEventListener("click", editOne);
-    async function deleteOne(_event) {
+    async function handleDeleteOne(_event) {
         let clickedButton = _event.target;
         let orderID = clickedButton.getAttribute("orderid");
-        let url = "https://gissose2020jacquelinekoch.herokuapp.com";
+        let url = "https://gis-sose2020.herokuapp.com";
         url += "/deleteOne" + "?" + "id=" + orderID;
         await fetch(url);
         update();
     }
-    async function deleteAll() {
-        let url = "https://gissose2020jacquelinekoch.herokuapp.com";
+    async function handleDeleteAll() {
+        let url = "https://gis-sose2020.herokuapp.com";
         url += "/deleteAll";
         await fetch(url);
-        while (divOutput.hasChildNodes()) {
-            divOutput.removeChild(divOutput.firstChild);
+        while (divAnzeige.hasChildNodes()) {
+            divAnzeige.removeChild(divAnzeige.firstChild);
         }
     }
-    async function editOne(_event) {
+    async function handleEdit(_event) {
         let clickedButton = _event.target;
         let orderID = clickedButton.getAttribute("orderid");
-        let url = "https://gissose2020jacquelinekoch.herokuapp.com";
+        let url = "https://gis-sose2020.herokuapp.com";
         url += "/edit" + "?" + "id=" + orderID;
         await fetch(url);
         update();
     }
     function update() {
-        while (divOutput.hasChildNodes()) {
-            divOutput.removeChild(divOutput.firstChild);
+        while (divAnzeige.hasChildNodes()) {
+            divAnzeige.removeChild(divAnzeige.firstChild);
         }
         if (document.getElementById("buttonDiv") != null) {
             document.getElementById("main")?.removeChild(document.getElementById("buttonDiv"));
         }
-        handleOutput();
+        handleDisplay();
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=script_besitzer.js.map
