@@ -9,11 +9,12 @@ body {
 }
 
 #header {
-        background-image: url(../images/header.png);
-        position: sticky;
-        height: 145px;
-        top:0;
-        margin-bottom: -50px;
+    background-image: url(../images/header.png);
+    position: sticky;
+    height: 145px;
+    top:0;
+    margin-bottom: -50px;
+    z-index: +1;
     }
 
 h1+h3 {
@@ -23,7 +24,7 @@ h1+h3 {
 }
 
 div img {
-    width: 200px;
+    width: 170px;
 }
 
 button {
@@ -34,10 +35,12 @@ button {
     font-family: 'Lobster', 'cursive';
     font-size: large;
     width: 150px;
+    border: 2px rgb(214, 106, 115) solid;
+    border-radius: 10px;
 }
 
 button:hover {
-   background-color: rgb(121, 186, 103);
+   background-color: rgb(219, 136, 143);
    
 }
 
@@ -60,6 +63,7 @@ form {
 #logo {
     width: 350px;
     align-self: center;
+    opacity: 100%;
 }    
     
 #h1 {
@@ -77,8 +81,26 @@ div>h2 {
 label {
     color: rgb(121, 186, 103);
     font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
 }
     
+.formular {
+    width: 300px;
+    background-color: rgba(121, 186, 103, 0.5);
+    border-color: rgb(121, 186, 103);
+    color: white;
+    height: 30px;
+    border: 2px solid rgb(121, 186, 103);
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+    font-size: large;
+}
+
+::placeholder {
+    font-size: small;
+}
+
 #order {
     color: rgb(121, 186, 103);
     font-family: 'Roboto', sans-serif;
@@ -112,6 +134,37 @@ a:hover {
     color: rgb(214, 106, 115)
 }
 
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=radio] + img {
+    opacity: 50%;
+}
+
+[type=radio]:checked + img {
+    opacity: 100%;
+    font-weight: bolder;
+}
+
+[type=checkbox] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=checkbox] + img {
+    opacity: 50%;
+}
+
+[type=checkbox]:checked + img {
+    opacity: 100%;
+}
+
 /*Desktop*/
 @media screen and (min-width: 1000px) {
 
@@ -140,6 +193,10 @@ a:hover {
         width: 500px;
         margin-top: 80px;
         margin-bottom: 0px;
+    }
+    
+    div img {
+        width: 150px;
     }
 }
 
@@ -178,5 +235,9 @@ a:hover {
 
     footer {
         font-size: medium;
+    }
+
+    div img {
+        width: 150px;
     }
 }

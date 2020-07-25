@@ -28,21 +28,13 @@
         <form method="GET" action="https://gis-sose2020.herokuapp.com/">
             <h2>Damit du dein Eis bekommst, brauchen wir natürlich noch deine Kontaktdaten!</h2>
             <label>Name:</label><br>
-            <input type="text" name="Name">
+            <input class="formular" type="text" name="Name">
             <br>
             <label>Adresse</label><br>
-            <input type="text" name="Adresse">
+            <input class="formular" type="text" name="Adresse">
             <br>
-            <label><b>Zahlungsart</b></label><br>
-            <label for="paypal">PayPal</label>
-            <input id="paypal" type="radio" name="Zahlungsart" value="Paypal">
-            <label for="kreditkarte">Kreditkarte</label>
-            <input id="kreditkarte" type="radio" name="Zahlungsart" value="Kreditkarte">
-            <label for="sofort">Sofort-Überweisung</label>
-            <input id="sofort" type="radio" name="Zahlungsart" value="Sofort">
-            <br>
-            <label>Nachricht:</label><br>
-            <textarea name="Anmerkungen" placeholder="Hast du Anmerkungen zu deiner Bestellung?" cols="20"
+            <label>Anmerkungen:</label><br>
+            <textarea class="formular" name="Anmerkungen" placeholder="Hast du Anmerkungen zu deiner Bestellung?" cols="20"
                 rows="5"></textarea>
             <br>
             <button id="buttonBestellen" type="button">Jetzt bestellen!</button>

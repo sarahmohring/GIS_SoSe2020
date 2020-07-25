@@ -46,24 +46,25 @@ namespace Endabgabe {
             divElem.setAttribute("id", "flexDiv");
             group.appendChild(divElem);
 
+            let label: HTMLLabelElement = document.createElement("label");
+            label.textContent = auswahl.name;
+            label.htmlFor = auswahl.name;
+            label.setAttribute("id", "flexLabel");
+
             let radio: HTMLInputElement = document.createElement("input");
             radio.type = "radio";
             radio.setAttribute("preis", auswahl.preis.toFixed(2));
             radio.value = auswahl.name;
             radio.name = _kategorie;
             radio.id = auswahl.name;
-
-            let label: HTMLLabelElement = document.createElement("label");
-            label.textContent = auswahl.name;
-            label.htmlFor = auswahl.name;
+            label.appendChild(radio);
 
             let imgURL: HTMLImageElement = document.createElement("img");
             imgURL.setAttribute("src", auswahl.url);
             imgURL.setAttribute("alt", auswahl.name);
+            label.appendChild(imgURL);
 
-            divElem.appendChild(radio);
             divElem.appendChild(label);
-            divElem.appendChild(imgURL);
         }
         return group;
     }
@@ -74,24 +75,26 @@ namespace Endabgabe {
             let divElem: HTMLDivElement = document.createElement("div");
             divElem.setAttribute("id", "flexDiv");
             group.appendChild(divElem);
+            
+            let label: HTMLLabelElement = document.createElement("label");
+            label.textContent = auswahl.name;
+            label.htmlFor = auswahl.name;
+            
             let checkbox: HTMLInputElement = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.setAttribute("preis", auswahl.preis.toFixed(2));
             checkbox.value = auswahl.name;
             checkbox.name = _kategorie;
             checkbox.id = auswahl.name;
+            label.appendChild(checkbox);
 
-            let label: HTMLLabelElement = document.createElement("label");
-            label.textContent = auswahl.name;
-            label.htmlFor = auswahl.name;
 
             let imgURL: HTMLImageElement = document.createElement("img");
             imgURL.setAttribute("src", auswahl.url);
             imgURL.setAttribute("alt", auswahl.name);
+            label.appendChild(imgURL);
 
-            divElem.appendChild(checkbox);
             divElem.appendChild(label);
-            divElem.appendChild(imgURL);
         }
         return group;
     }
