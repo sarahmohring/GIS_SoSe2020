@@ -8,40 +8,38 @@ namespace Endabgabe {
     buttonDeleteAll.addEventListener("click", handleDeleteAll);
 
     // gibt aktuelle Einträge der Datenbank aus
-    /*async function handleDisplay(): Promise<void> { // falls FOramtierung nicht klappt
- 
-         let url: string = "https://gis-sose2020.herokuapp.com";
-         url += "/retrieve";
- 
-         let response: Response = await fetch(url);
-         let responseString: string = await response.text(); //JSON String 
- 
-         document.getElementById("bestellungenAnzeigen")!.style.display = "none";
- 
-         let auswahl: Auswahl[] = JSON.parse(responseString);
- 
-         console.log(auswahl);
- 
-     }*/
+    async function handleDisplay(): Promise<void> { // falls FOramtierung nicht klappt
 
-    let formData: FormData;
+        let url: string = "https://gis-sose2020.herokuapp.com";
+        url += "/retrieve";
 
-    async function handleDisplay(): Promise<void> {
-        formData = new FormData(document.forms[0]);
-        let serverURL: string = "https://gis-sose2020.herokuapp.com";
-        serverURL += "/retrieve";
-        // tslint:disable-next-line: no-any
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        serverURL += "?" + query.toString();
-        let response: Response = await fetch(serverURL);
-        let responseText: string = await response.text();
-        // (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
+        let response: Response = await fetch(url);
+        let responseString: string = await response.text(); //JSON String 
 
         document.getElementById("bestellungenAnzeigen")!.style.display = "none";
 
-        let order: Order[] = JSON.parse(responseText);
+        let order: Order[] = JSON.parse(responseString);
 
         console.log(order);
+
+        /*let formData: FormData;
+    
+        async function handleDisplay(): Promise<void> {
+            formData = new FormData(document.forms[0]);
+            let serverURL: string = "https://gis-sose2020.herokuapp.com";
+            serverURL += "/retrieve";
+            // tslint:disable-next-line: no-any
+            let query: URLSearchParams = new URLSearchParams(<any>formData);
+            serverURL += "?" + query.toString();
+            let response: Response = await fetch(serverURL);
+            let responseText: string = await response.text();
+            // (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
+    
+            document.getElementById("bestellungenAnzeigen")!.style.display = "none";
+    
+            let order: Order[] = JSON.parse(responseText);
+    
+            console.log(order);*/
 
         for (let index: number = 0; index < order.length; index++) {
             //HTML Gerüst der Bestellung aufbauen
