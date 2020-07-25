@@ -98,4 +98,14 @@ namespace Endabgabe {
         }
         return group;
     }
+
+    export interface Order {
+
+        _id: string;
+        Produkte: string;
+        Gesamtsumme: string;
+        Name: string;
+        Adresse: string;
+        Anmerkungen: string;
+    }
 }

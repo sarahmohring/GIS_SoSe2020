@@ -31,7 +31,37 @@ var Endabgabe;
         serverURL += "/retrieve";
         let response = await fetch(serverURL);
         let responseText = await response.text();
-        document.getElementById("bestellungenAnzeigen").innerHTML = responseText;
+        // (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
+        document.getElementById("requestOrders").style.display = "none";
+        let myOrders = JSON.parse(responseText);
+        console.log(myOrders);
+        for (let index = 0; index < myOrders.length; index++) {
+            //HTML Gerüst der Bestellung aufbauen
+            let orderDiv = document.createElement("div");
+            orderDiv.setAttribute("class", "orderSpan");
+            divAnzeige.appendChild(orderDiv);
+            let orderHeading = document.createElement("h3");
+            let orderIndex = index + 1;
+            orderHeading.innerHTML = "Bestellung " + orderIndex;
+            orderDiv.appendChild(orderHeading);
+            let outputSpan = document.createElement("span");
+            let ausgabeString = "";
+            //Produktausgabe
+            ausgabeString += "Eis: " + myOrders[index].Produkte + "<br>";
+            ausgabeString += "Name: " + myOrders[index].Name + "<br>";
+            ausgabeString += "Adresse: " + myOrders[index].Adresse + "<br>";
+            ausgabeString += "Anmerkungen: " + myOrders[index].Anmerkungen + "<br>";
+            let buttonDeleteOne = document.createElement("button");
+            buttonDeleteOne.addEventListener("click", handleDeleteOne);
+            buttonDeleteOne.setAttribute("orderid", myOrders[index]._id);
+            let buttonEdit = document.createElement("button");
+            buttonEdit.addEventListener("click", handleEdit);
+            buttonDeleteOne.setAttribute("orderid", myOrders[index]._id);
+            outputSpan.innerHTML = ausgabeString;
+            orderDiv.appendChild(outputSpan);
+            orderDiv.appendChild(buttonDeleteOne);
+            orderDiv.appendChild(buttonEdit);
+        }
     }
     async function handleDeleteOne(_event) {
         let clickedButton = _event.target;

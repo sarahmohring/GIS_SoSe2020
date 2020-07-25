@@ -11,7 +11,7 @@ export namespace Endabgabe {
         [type: string]: string[] | undefined;
     }
 
-    let retrievedData: Orders[]
+    let retrievedData: Orders[];
     let orders: Mongo.Collection; // data = orders
     let port: number = Number(process.env.PORT);
     if (port == undefined)
@@ -152,3 +152,7 @@ export namespace Endabgabe {
                 }
                 _response.write("<br>");
             }
+
+        }
+    }
+}
