@@ -81,9 +81,9 @@ div>h2 {
 label {
     color: rgb(121, 186, 103);
     font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
+    font-weight: bold;
 }
-    
+
 .formular {
     width: 300px;
     background-color: rgba(121, 186, 103, 0.5);
@@ -147,7 +147,7 @@ a:hover {
 
 [type=radio]:checked + img {
     opacity: 100%;
-    font-weight: bolder;
+    transition: opacity 0.5s;
 }
 
 [type=checkbox] { 
@@ -163,6 +163,7 @@ a:hover {
 
 [type=checkbox]:checked + img {
     opacity: 100%;
+    transition: opacity 0.5s;
 }
 
 /*Desktop*/
