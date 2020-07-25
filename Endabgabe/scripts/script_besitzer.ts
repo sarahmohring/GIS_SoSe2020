@@ -16,30 +16,11 @@ namespace Endabgabe {
         let response: Response = await fetch(url);
         let responseString: string = await response.text(); //JSON String 
 
-        document.getElementById("bestellungenAnzeigen")!.style.display = "none";
+        //document.getElementById("bestellungenAnzeigen")!.style.display = "none";
 
         let order: Order[] = JSON.parse(responseString);
 
         console.log(order);
-
-        /*let formData: FormData;
-    
-        async function handleDisplay(): Promise<void> {
-            formData = new FormData(document.forms[0]);
-            let serverURL: string = "https://gis-sose2020.herokuapp.com";
-            serverURL += "/retrieve";
-            // tslint:disable-next-line: no-any
-            let query: URLSearchParams = new URLSearchParams(<any>formData);
-            serverURL += "?" + query.toString();
-            let response: Response = await fetch(serverURL);
-            let responseText: string = await response.text();
-            // (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
-    
-            document.getElementById("bestellungenAnzeigen")!.style.display = "none";
-    
-            let order: Order[] = JSON.parse(responseText);
-    
-            console.log(order);*/
 
         for (let index: number = 0; index < order.length; index++) {
             //HTML Gerüst der Bestellung aufbauen
@@ -56,18 +37,25 @@ namespace Endabgabe {
             let ausgabeString: string = "";
 
             //Produktausgabe
-            ausgabeString += "Eis: " + order[index].Produkte + "<br>";
-            ausgabeString += "Name: " + order[index].Name + "<br>";
-            ausgabeString += "Adresse: " + order[index].Adresse + "<br>";
-            ausgabeString += "Anmerkungen: " + order[index].Anmerkungen + "<br>";
+            ausgabeString += "<b>Eis: </b>" + order[index].Produkte + "<br>";
+            ausgabeString += order[index].Gesamtsumme + "<br><br>";
+            ausgabeString += "<b>Name: </b>" + order[index].Name + "<br>";
+            ausgabeString += "<b>Adresse: </b>" + order[index].Adresse + "<br>";
+            ausgabeString += "<b>Anmerkungen: </b>" + order[index].Anmerkungen + "<br>";
 
-            let buttonDeleteOne: HTMLButtonElement = document.createElement("button");
+            let buttonDeleteOne: HTMLImageElement = document.createElement("img");
             buttonDeleteOne.addEventListener("click", handleDeleteOne);
             buttonDeleteOne.setAttribute("orderid", order[index]._id);
+            buttonDeleteOne.setAttribute("src", "../images/checkmark.png");
+            buttonDeleteOne.setAttribute("alt", "abgeschlossen");
+            buttonDeleteOne.setAttribute("class", "orderDiv");
 
-            let buttonEdit: HTMLButtonElement = document.createElement("button");
+            let buttonEdit: HTMLImageElement = document.createElement("img");
             buttonEdit.addEventListener("click", handleEdit);
-            buttonDeleteOne.setAttribute("orderid", order[index]._id);
+            buttonEdit.setAttribute("orderid", order[index]._id);
+            buttonEdit.setAttribute("src", "../images/edit.png");
+            buttonEdit.setAttribute("alt", "edit");
+            buttonEdit.setAttribute("class", "orderDiv");
 
             outputSpan.innerHTML = ausgabeString;
             orderDiv.appendChild(outputSpan);
@@ -82,11 +70,8 @@ namespace Endabgabe {
 
         let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/deleteOne" + "?" + "id=" + orderID;
-
         await fetch(url);
-
         update();
-
     }
 
     async function handleDeleteAll(): Promise<void> {
