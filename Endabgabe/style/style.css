@@ -39,7 +39,7 @@ button, #buttonBestellen {
     border-radius: 10px;
 }
 
-button:hover {
+button:hover, #buttonBestellen:hover {
    background-color: rgb(219, 136, 143);
    
 }
