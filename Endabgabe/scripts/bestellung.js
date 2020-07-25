@@ -2,10 +2,16 @@
 var Endabgabe;
 (function (Endabgabe) {
     let orderDiv = document.getElementById("order");
+    orderDiv.innerHTML = "";
     let bestellung = localStorage.getItem("Produkte");
     let gesamtpreis = localStorage.getItem("Gesamtsumme");
     let inhalt = document.createElement("p");
-    inhalt.innerHTML = bestellung + "<br>" + gesamtpreis;
+    if (bestellung == null) {
+        inhalt.innerHTML = "Keine Bestellung vorhanden";
+    }
+    else {
+        inhalt.innerHTML = bestellung + "<br>" + gesamtpreis;
+    }
     orderDiv.appendChild(inhalt);
     let formData;
     let buttonDatenbank = document.getElementById("buttonBestellen");

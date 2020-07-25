@@ -27,14 +27,14 @@ div img {
     width: 170px;
 }
 
-button {
+button, #buttonBestellen {
     padding: 10px 20px 10px 20px;
     background-color: rgb(214, 106, 115);
     color: white;
     margin-bottom: 20px;
     font-family: 'Lobster', 'cursive';
     font-size: large;
-    width: 150px;
+    width: 300px;
     border: 2px rgb(214, 106, 115) solid;
     border-radius: 10px;
 }

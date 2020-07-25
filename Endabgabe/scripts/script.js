@@ -60,12 +60,17 @@ var Endabgabe;
     }
     function resetOrder() {
         let formular = document.getElementById("bestellung");
-        if (formular)
+        if (formular) {
             formular.reset();
-        window.localStorage.clear();
-        localStorage.removeItem("Gesamtsumme");
-        localStorage.removeItem("Produkte");
-        document.getElementById("order")?.removeChild(document.getElementById("order")?.lastChild);
+            window.location.reload(true);
+            /*window.localStorage.clear();
+            localStorage.removeItem("Gesamtsumme");
+            localStorage.removeItem("Produkte");*/
+            let divOrder = document.getElementById("order");
+            divOrder.innerHTML = "";
+            //displayOrder();
+            // document.getElementById("order")?.removeChild(<Node>document.getElementById("order")?.lastChild);
+        }
     }
 })(Endabgabe || (Endabgabe = {}));
 /* LOCAL STORAGE, WARENKORB-ICON

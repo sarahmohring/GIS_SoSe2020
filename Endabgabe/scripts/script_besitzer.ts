@@ -1,7 +1,7 @@
 /* retrieve */
 
 namespace Endabgabe {
-    let divOutput: HTMLDivElement = <HTMLDivElement>document.getElementById("output");
+    let divOutput: HTMLDivElement = <HTMLDivElement>document.getElementById("bestellungenAnzeigen");
 
     let requestOrdersButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("requestOrders");
     requestOrdersButton.addEventListener("click", handleOutput);

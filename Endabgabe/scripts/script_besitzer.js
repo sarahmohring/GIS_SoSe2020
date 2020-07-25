@@ -2,7 +2,7 @@
 /* retrieve */
 var Endabgabe;
 (function (Endabgabe) {
-    let divOutput = document.getElementById("output");
+    let divOutput = document.getElementById("bestellungenAnzeigen");
     let requestOrdersButton = document.getElementById("requestOrders");
     requestOrdersButton.addEventListener("click", handleOutput);
     //Gives Output of current Entries in DB

@@ -1,10 +1,19 @@
 namespace Endabgabe {
 
     let orderDiv: HTMLElement = <HTMLElement>document.getElementById("order");
+    orderDiv.innerHTML = "";
     let bestellung: string = <string>localStorage.getItem("Produkte");
+    
     let gesamtpreis: string = <string>localStorage.getItem("Gesamtsumme");
     let inhalt: HTMLElement = document.createElement("p");
-    inhalt.innerHTML = bestellung + "<br>" + gesamtpreis;
+   
+    if (bestellung == null) {
+        inhalt.innerHTML = "Keine Bestellung vorhanden";
+    }
+    else {
+         inhalt.innerHTML = bestellung + "<br>" + gesamtpreis;
+    }
+    
     orderDiv.appendChild(inhalt);
 
     let formData: FormData;
@@ -22,14 +31,14 @@ namespace Endabgabe {
     async function handleClickStore(): Promise<void> {
 
         let localStorageData: string = "";
- 
+
         for (let index: number = 0; index < localStorage.length; index++) {
             let localKey: string = <string>localStorage.key(index);                         //holt sich jeweils den key aus dem LS
             let localValue: string = <string>localStorage.getItem(localKey);                //holt sich jeweils den value aus dem LS
 
             localStorageData += localKey + "=" + localValue + "&";                          //speichert Eintrag im String, damit dieser in die url übernommen werden kann
         }
-     
+
         formData = new FormData(document.forms[0]);
         let serverURL: string = "https://gis-sose2020.herokuapp.com";
 

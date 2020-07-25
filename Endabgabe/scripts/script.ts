@@ -74,12 +74,18 @@ namespace Endabgabe {
 
     function resetOrder(): void {
         let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
-        if (formular)
+        if (formular) {
             formular.reset();
-        window.localStorage.clear();
-        localStorage.removeItem("Gesamtsumme");
-        localStorage.removeItem("Produkte");
-        document.getElementById("order")?.removeChild(<Node>document.getElementById("order")?.lastChild);
+            window.location.reload(true);
+            /*window.localStorage.clear();
+            localStorage.removeItem("Gesamtsumme");
+            localStorage.removeItem("Produkte");*/
+            let divOrder: HTMLElement = <HTMLElement>document.getElementById("order");
+            divOrder.innerHTML = "";
+            //displayOrder();
+            // document.getElementById("order")?.removeChild(<Node>document.getElementById("order")?.lastChild);
+            
+        }
     }
 }
 
