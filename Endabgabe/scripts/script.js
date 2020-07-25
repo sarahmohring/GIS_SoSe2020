@@ -32,9 +32,11 @@ var Endabgabe;
         bestellung.innerHTML += "<p><strong>Gesamtsumme: " + preis.toFixed(2) + " €";
         localStorage.setItem("Gesamtsumme", "<b>Gesamtsumme: </b>" + JSON.stringify(preis.toFixed(2) + " €"));
     }
-    function resetOrder() {
+    function resetOrder(_event) {
         window.location.reload(true);
         window.localStorage.clear();
+        //localStorage.clear();
+        //displayOrder();
         /*let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
         if (formular) {
             formular.reset();

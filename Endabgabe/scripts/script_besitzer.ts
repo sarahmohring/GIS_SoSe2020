@@ -13,7 +13,7 @@ namespace Endabgabe {
     let buttonEdit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonEdit");
     buttonEdit.addEventListener("click", handleEdit);
     // gibt aktuelle Einträge der Datenbank aus
-    async function handleDisplay(): Promise<void> {
+   /*async function handleDisplay(): Promise<void> {
 
         let url: string = "https://gis-sose2020.herokuapp.com";
         url += "/retrieve";
@@ -27,12 +27,18 @@ namespace Endabgabe {
 
         console.log(auswahl);
 
-    }
+    }*/
+
+    async function handleDisplay(): Promise<void> {
+        let serverURL: string = "https://gis-sose2020.herokuapp.com";
+        serverURL += "/retrieve";
+        let response: Response = await fetch(serverURL);
+        let responseText: string = await response.text();
+        (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
+      }
 
 
-
-
-    async function handleDeleteOne(_event: Event): Promise<void> {
+    async function handleDeleteOne(_event: Event): Promise<void> { // ???
         let clickedButton: HTMLElement = <HTMLElement>_event.target;
         let orderID: string = <string>clickedButton.getAttribute("orderid");
 

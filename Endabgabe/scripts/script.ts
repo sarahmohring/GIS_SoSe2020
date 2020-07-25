@@ -43,9 +43,11 @@ namespace Endabgabe {
         localStorage.setItem("Gesamtsumme", "<b>Gesamtsumme: </b>" + JSON.stringify(preis.toFixed(2) + " €"));
     }
 
-    function resetOrder(): void {
+    function resetOrder(_event: Event): void {
         window.location.reload(true);
         window.localStorage.clear();
+        //localStorage.clear();
+        //displayOrder();
         /*let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
         if (formular) {
             formular.reset();

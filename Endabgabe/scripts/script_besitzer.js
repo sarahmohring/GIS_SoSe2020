@@ -11,14 +11,27 @@ var Endabgabe;
     let buttonEdit = document.getElementById("buttonEdit");
     buttonEdit.addEventListener("click", handleEdit);
     // gibt aktuelle Einträge der Datenbank aus
+    /*async function handleDisplay(): Promise<void> {
+ 
+         let url: string = "https://gis-sose2020.herokuapp.com";
+         url += "/retrieve";
+ 
+         let response: Response = await fetch(url);
+         let responseString: string = await response.text(); //JSON String
+ 
+         document.getElementById("bestellungenAnzeigen")!.style.display = "none";
+ 
+         let auswahl: Auswahl[] = JSON.parse(responseString);
+ 
+         console.log(auswahl);
+ 
+     }*/
     async function handleDisplay() {
-        let url = "https://gis-sose2020.herokuapp.com";
-        url += "/retrieve";
-        let response = await fetch(url);
-        let responseString = await response.text(); //JSON String 
-        document.getElementById("bestellungenAnzeigen").style.display = "none";
-        let auswahl = JSON.parse(responseString);
-        console.log(auswahl);
+        let serverURL = "https://gis-sose2020.herokuapp.com";
+        serverURL += "/retrieve";
+        let response = await fetch(serverURL);
+        let responseText = await response.text();
+        document.getElementById("bestellungenAnzeigen").innerHTML = responseText;
     }
     async function handleDeleteOne(_event) {
         let clickedButton = _event.target;
