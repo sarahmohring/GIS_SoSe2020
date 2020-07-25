@@ -69,12 +69,16 @@ var Endabgabe;
                 orders.insertOne(url.query);
             }
             else if (url.pathname == "/retrieve") { // Bestellung wird von Besitzer abgerufen
-                await retrieveDB(_response);
+                //await retrieveDB(_response);
                 /*//_response.write(JSON.stringify(await orders.find().toArray()));
                 let bestellungDB: Mongo.Cursor<string> = orders.find(); //liest die Dokumente der Datenbank aus
                 let bestellungArray: string[] = await bestellungDB.toArray();
                 let jsonString: string = JSON.stringify(bestellungArray);
                 _response.write(jsonString);*/
+                let dbInhalt = orders.find(); //liest die Dokumente der Datenbank aus
+                let dbInhaltArray = await dbInhalt.toArray();
+                let jsonString = JSON.stringify(dbInhaltArray);
+                _response.write(jsonString);
             }
             else if (url.pathname == "/deleteOne") { // !!!
                 let objectID = getID();
@@ -115,18 +119,24 @@ var Endabgabe;
         }
         _response.end();
     }
-    async function retrieveDB(_response) {
-        //tslint:disable-next-line: no-any
-        retrievedData = await orders.find().toArray();
-        for (let index = 0; index <= retrievedData.length; index++) {
-            if (retrievedData[index]) {
-                let current = retrievedData[index];
-                for (let key in current) {
-                    _response.write(key + ": " + JSON.stringify(current[key]) + "<br>");
+    /*
+        async function retrieveDB(_response: Http.ServerResponse): Promise<void> {
+            //tslint:disable-next-line: no-any
+            retrievedData = await orders.find().toArray();
+            for (let index: number = 0; index <= retrievedData.length; index++) {
+    
+                if (retrievedData[index]) {
+    
+                    let current: Orders = <Orders>retrievedData[index];
+                    for (let key in current) {
+                        _response.write(key + ": " + JSON.stringify(current[key]) + "<br>");
+                    }
+                    _response.write("<br>");
                 }
-                _response.write("<br>");
+    
             }
         }
     }
+    */
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

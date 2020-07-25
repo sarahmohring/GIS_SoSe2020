@@ -43,7 +43,7 @@ namespace Endabgabe {
         localStorage.setItem("Gesamtsumme", "<b>Gesamtsumme: </b>" + JSON.stringify(preis.toFixed(2) + " €"));
     }
 
-    function resetOrder(_event: Event): void {
+    export function resetOrder(_event: Event): void {
         window.location.reload(true);
         window.localStorage.clear();
         //localStorage.clear();

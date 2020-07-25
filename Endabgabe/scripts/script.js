@@ -51,5 +51,6 @@ var Endabgabe;
             
         } */
     }
+    Endabgabe.resetOrder = resetOrder;
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=script.js.map
