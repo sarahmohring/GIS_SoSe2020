@@ -4,14 +4,9 @@ namespace Endabgabe {
     let buttonDisplay: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonRetrieve");
     buttonDisplay.addEventListener("click", handleDisplay);
 
-    let buttonDeleteOne: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonDeleteOne");
-    buttonDeleteOne.addEventListener("click", handleDeleteOne);
-
     let buttonDeleteAll: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonDeleteAll");
     buttonDeleteAll.addEventListener("click", handleDeleteAll);
 
-    let buttonEdit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonEdit");
-    buttonEdit.addEventListener("click", handleEdit);
     // gibt aktuelle Einträge der Datenbank aus
     /*async function handleDisplay(): Promise<void> {
  
@@ -29,20 +24,26 @@ namespace Endabgabe {
  
      }*/
 
+    let formData: FormData;
+
     async function handleDisplay(): Promise<void> {
+        formData = new FormData(document.forms[0]);
         let serverURL: string = "https://gis-sose2020.herokuapp.com";
         serverURL += "/retrieve";
+        // tslint:disable-next-line: no-any
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        serverURL += "?" + query.toString();
         let response: Response = await fetch(serverURL);
         let responseText: string = await response.text();
         // (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
 
         document.getElementById("requestOrders")!.style.display = "none";
 
-        let myOrders: Order[] = JSON.parse(responseText);
+        let order: Order[] = JSON.parse(responseText);
 
-        console.log(myOrders);
+        console.log(order);
 
-        for (let index: number = 0; index < myOrders.length; index++) {
+        for (let index: number = 0; index < order.length; index++) {
             //HTML Gerüst der Bestellung aufbauen
             let orderDiv: HTMLDivElement = document.createElement("div");
             orderDiv.setAttribute("class", "orderSpan");
@@ -57,18 +58,18 @@ namespace Endabgabe {
             let ausgabeString: string = "";
 
             //Produktausgabe
-            ausgabeString += "Eis: " + myOrders[index].Produkte + "<br>";
-            ausgabeString += "Name: " + myOrders[index].Name + "<br>";
-            ausgabeString += "Adresse: " + myOrders[index].Adresse + "<br>";
-            ausgabeString += "Anmerkungen: " + myOrders[index].Anmerkungen + "<br>";
+            ausgabeString += "Eis: " + order[index].Produkte + "<br>";
+            ausgabeString += "Name: " + order[index].Name + "<br>";
+            ausgabeString += "Adresse: " + order[index].Adresse + "<br>";
+            ausgabeString += "Anmerkungen: " + order[index].Anmerkungen + "<br>";
 
             let buttonDeleteOne: HTMLButtonElement = document.createElement("button");
             buttonDeleteOne.addEventListener("click", handleDeleteOne);
-            buttonDeleteOne.setAttribute("orderid", myOrders[index]._id);
+            buttonDeleteOne.setAttribute("orderid", order[index]._id);
 
             let buttonEdit: HTMLButtonElement = document.createElement("button");
             buttonEdit.addEventListener("click", handleEdit);
-            buttonDeleteOne.setAttribute("orderid", myOrders[index]._id);
+            buttonDeleteOne.setAttribute("orderid", order[index]._id);
 
             outputSpan.innerHTML = ausgabeString;
             orderDiv.appendChild(outputSpan);

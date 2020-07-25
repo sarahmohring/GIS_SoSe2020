@@ -4,12 +4,8 @@ var Endabgabe;
     let divAnzeige = document.getElementById("bestellungenAnzeigen");
     let buttonDisplay = document.getElementById("buttonRetrieve");
     buttonDisplay.addEventListener("click", handleDisplay);
-    let buttonDeleteOne = document.getElementById("buttonDeleteOne");
-    buttonDeleteOne.addEventListener("click", handleDeleteOne);
     let buttonDeleteAll = document.getElementById("buttonDeleteAll");
     buttonDeleteAll.addEventListener("click", handleDeleteAll);
-    let buttonEdit = document.getElementById("buttonEdit");
-    buttonEdit.addEventListener("click", handleEdit);
     // gibt aktuelle Einträge der Datenbank aus
     /*async function handleDisplay(): Promise<void> {
  
@@ -26,16 +22,21 @@ var Endabgabe;
          console.log(auswahl);
  
      }*/
+    let formData;
     async function handleDisplay() {
+        formData = new FormData(document.forms[0]);
         let serverURL = "https://gis-sose2020.herokuapp.com";
         serverURL += "/retrieve";
+        // tslint:disable-next-line: no-any
+        let query = new URLSearchParams(formData);
+        serverURL += "?" + query.toString();
         let response = await fetch(serverURL);
         let responseText = await response.text();
         // (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
         document.getElementById("requestOrders").style.display = "none";
-        let myOrders = JSON.parse(responseText);
-        console.log(myOrders);
-        for (let index = 0; index < myOrders.length; index++) {
+        let order = JSON.parse(responseText);
+        console.log(order);
+        for (let index = 0; index < order.length; index++) {
             //HTML Gerüst der Bestellung aufbauen
             let orderDiv = document.createElement("div");
             orderDiv.setAttribute("class", "orderSpan");
@@ -47,16 +48,16 @@ var Endabgabe;
             let outputSpan = document.createElement("span");
             let ausgabeString = "";
             //Produktausgabe
-            ausgabeString += "Eis: " + myOrders[index].Produkte + "<br>";
-            ausgabeString += "Name: " + myOrders[index].Name + "<br>";
-            ausgabeString += "Adresse: " + myOrders[index].Adresse + "<br>";
-            ausgabeString += "Anmerkungen: " + myOrders[index].Anmerkungen + "<br>";
+            ausgabeString += "Eis: " + order[index].Produkte + "<br>";
+            ausgabeString += "Name: " + order[index].Name + "<br>";
+            ausgabeString += "Adresse: " + order[index].Adresse + "<br>";
+            ausgabeString += "Anmerkungen: " + order[index].Anmerkungen + "<br>";
             let buttonDeleteOne = document.createElement("button");
             buttonDeleteOne.addEventListener("click", handleDeleteOne);
-            buttonDeleteOne.setAttribute("orderid", myOrders[index]._id);
+            buttonDeleteOne.setAttribute("orderid", order[index]._id);
             let buttonEdit = document.createElement("button");
             buttonEdit.addEventListener("click", handleEdit);
-            buttonDeleteOne.setAttribute("orderid", myOrders[index]._id);
+            buttonDeleteOne.setAttribute("orderid", order[index]._id);
             outputSpan.innerHTML = ausgabeString;
             orderDiv.appendChild(outputSpan);
             orderDiv.appendChild(buttonDeleteOne);
