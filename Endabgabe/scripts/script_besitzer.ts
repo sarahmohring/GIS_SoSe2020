@@ -8,7 +8,7 @@ namespace Endabgabe {
     buttonDeleteAll.addEventListener("click", handleDeleteAll);
 
     // gibt aktuelle Einträge der Datenbank aus
-    /*async function handleDisplay(): Promise<void> {
+    /*async function handleDisplay(): Promise<void> { // falls FOramtierung nicht klappt
  
          let url: string = "https://gis-sose2020.herokuapp.com";
          url += "/retrieve";
@@ -37,7 +37,7 @@ namespace Endabgabe {
         let responseText: string = await response.text();
         // (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
 
-        document.getElementById("requestOrders")!.style.display = "none";
+        document.getElementById("bestellungenAnzeigen")!.style.display = "none";
 
         let order: Order[] = JSON.parse(responseText);
 

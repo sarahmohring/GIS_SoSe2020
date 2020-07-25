@@ -7,7 +7,7 @@ var Endabgabe;
     let buttonDeleteAll = document.getElementById("buttonDeleteAll");
     buttonDeleteAll.addEventListener("click", handleDeleteAll);
     // gibt aktuelle Einträge der Datenbank aus
-    /*async function handleDisplay(): Promise<void> {
+    /*async function handleDisplay(): Promise<void> { // falls FOramtierung nicht klappt
  
          let url: string = "https://gis-sose2020.herokuapp.com";
          url += "/retrieve";
@@ -33,7 +33,7 @@ var Endabgabe;
         let response = await fetch(serverURL);
         let responseText = await response.text();
         // (<HTMLElement>document.getElementById("bestellungenAnzeigen")).innerHTML = responseText;
-        document.getElementById("requestOrders").style.display = "none";
+        document.getElementById("bestellungenAnzeigen").style.display = "none";
         let order = JSON.parse(responseText);
         console.log(order);
         for (let index = 0; index < order.length; index++) {
