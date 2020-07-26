@@ -17,33 +17,35 @@
     <header id="header">
         <img id="logo" src="../images/logo.png" alt="Logo"><br>
     </header>
-
-    <form id="bestellung" method="GET" action="https://gis-sose2020.herokuapp.com/">
-        <div>
-            <h1 id="h1">Willkommen bei Deinem Online-Eisverkauf!</h1>
-            <h3><b>Klicke dir einfach deine Bestellung zusammen, und wir sorgen dafür, dass sie bis vor Deine Haustür
-                    geliefert wird - natürlich eisgekühlt!</b></h3>
-            <h2>Schritt 1: Becher oder Waffel?</h2>
-            <fieldset id="Behaelter" class="flex"></fieldset>
-            <h2>Schritt 2: Welche Sorten dürfen es sein?</h2>
-            <p>(1€ pro Kugel)</p>
-            <fieldset id="Eissorten" class="flex"></fieldset>
-            <h2>Schritt 3: Welche Toppings möchtest du?</h2>
-            <p>(50 Cent pro Topping)</p>
-            <fieldset id="Toppings" class="flex"></fieldset>
+    <main id="main">
+        <form id="bestellung" method="GET" action="https://gis-sose2020.herokuapp.com/">
+            <div>
+                <h1 id="h1">Willkommen bei Deinem Online-Eisverkauf!</h1>
+                <h3><b>Klicke dir einfach deine Bestellung zusammen, und wir sorgen dafür, dass sie bis vor Deine
+                        Haustür
+                        geliefert wird - natürlich eisgekühlt!</b></h3>
+                <h2>Schritt 1: Becher oder Waffel?</h2>
+                <fieldset id="Behaelter" class="flex"></fieldset>
+                <h2>Schritt 2: Welche Sorten dürfen es sein?</h2>
+                <p>(1€ pro Kugel)</p>
+                <fieldset id="Eissorten" class="flex"></fieldset>
+                <h2>Schritt 3: Welche Toppings möchtest du?</h2>
+                <p>(50 Cent pro Topping)</p>
+                <fieldset id="Toppings" class="flex"></fieldset>
+            </div>
+        </form>
+        <div id=liveupdate>
+            <h2>Deine Bestellung:</h2>
+            <div id="order">
+                ...
+            </div>
         </div>
-    </form>
+    </main>
+    <button onclick="window.localStorage.clear(); window.location.reload()" id="reset" type="reset"
+        form="bestellung">Zurücksetzen</button>
+    <h2 id="h2">&gt;&gt;&gt; Weiter zum <a href="../html/warenkorb.html">Warenkorb</a> &gt;&gt;&gt;</h2>
+    <!-- onclick muss weg! -->
 
-    <div>
-        <h2>Deine Bestellung:</h2>
-        <div id="order">
-            ...
-        </div>
-        <button onclick="window.localStorage.clear(); window.location.reload()" id="reset" type="reset"
-            form="bestellung">Zurücksetzen</button>
-        <h2 id="h2">&gt;&gt;&gt; Weiter zum <a href="../html/warenkorb.html">Warenkorb</a> &gt;&gt;&gt;</h2>
-        <!-- onclick muss weg! -->
-    </div>
     <footer id="footer">
         <p>
             &copy; Sarah Mohring, 2020 | Hier geht es zum <a href="../html/gis-meme.html">GiS-Meme</a><br>

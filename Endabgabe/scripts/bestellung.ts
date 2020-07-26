@@ -20,14 +20,6 @@ namespace Endabgabe {
     let buttonDatenbank: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonBestellen");
     buttonDatenbank.addEventListener("click", handleClickStore);
 
-    /*async function handleClickRetrieve(): Promise<void> {
-      let serverURL: string = "https://gis-sose2020.herokuapp.com";
-      serverURL += "/retrieve";
-      let response: Response = await fetch(serverURL);
-      let responseText: string = await response.text();
-      (<HTMLElement>document.getElementById("serverResponse")).innerHTML = responseText;
-    }*/
-
     async function handleClickStore(): Promise<void> {
 
         let localStorageData: string = "";

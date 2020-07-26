@@ -17,33 +17,35 @@
     <header id="header">
         <a href="../html/kunde_shop.html"><img id="logo" src="../images/logo.png" alt="Logo" /></a>
     </header>
-    <main>
-        <div>
+    <main id="main">
+        <div id="liveupdate">
             <h2>Deine Bestellung:</h2>
             <div id="order">
                 ...
                 <!-- aus local storage-->
             </div>
         </div>
-
         <form method="GET" action="https://gis-sose2020.herokuapp.com/">
-            <h2>Damit du dein Eis bekommst, brauchen wir natürlich noch deine Kontaktdaten!</h2>
-            <label>Name:</label><br>
-            <input class="formular" type="text" name="Name">
-            <br>
-            <label>Adresse</label><br>
-            <input class="formular" type="text" name="Adresse">
-            <br>
-            <label>Anmerkungen:</label><br>
-            <textarea class="formular" name="Anmerkungen" placeholder="Hast du Anmerkungen zu deiner Bestellung?" cols="20"
-                rows="5"></textarea>
-            <br>
-            <button id="buttonBestellen" type="button">Jetzt bestellen!</button>
-
+            <div>
+                <h2 id="bestellheader">Danke für deine Bestellung beim Ice Cream Shop! <br> <br>Damit du dein Eis
+                    bekommst, brauchen wir natürlich noch deine Kontaktdaten!</h2>
+                <label>Name:</label><br>
+                <input class="formular" type="text" name="Name">
+                <br>
+                <label>Adresse</label><br>
+                <input class="formular" type="text" name="Adresse">
+                <br>
+                <label>Anmerkungen:</label><br>
+                <textarea class="formular" name="Anmerkungen" placeholder="Hast du Anmerkungen zu deiner Bestellung?"
+                    cols="20" rows="5"></textarea>
+                <br>
+                <button id="buttonBestellen" type="button">Jetzt bestellen!</button>
+            </div>
         </form>
 
-        <h2 id="h2">&gt;&gt;&gt; Noch mehr <a href="../html/kunde_shop.html">Eis</a> &gt;&gt;&gt;</h2>
     </main>
+    <h2 id="h2">&gt;&gt;&gt; Noch mehr <a href="../html/kunde_shop.html">Eis</a> &gt;&gt;&gt;</h2>
+
     <footer id="footer">
         <p>
             &copy; Sarah Mohring, 2020 | Hier geht es zum <a href="../html/gis-meme.html">GiS-Meme</a><br>
