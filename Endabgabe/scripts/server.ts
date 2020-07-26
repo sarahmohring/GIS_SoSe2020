@@ -81,7 +81,7 @@ export namespace Endabgabe { // basierend auf meinen GiS-Semesteraufgaben, Muste
                 let objectID: Mongo.ObjectID = getID();
                 // Quelle: https://www.guru99.com/mongodb-update-document.html
                 orders.updateOne(
-                    { "_id": objectID },{ $set: { "Anmerkungen": "gesendet" }}); // verändert den Wert von "Anmerkungen" in der DB
+                    { "_id": objectID }, { $set: { "Anmerkungen": "gesendet" }}); // verändert den Wert von "Anmerkungen" in der DB
             }
         }
         _response.end();

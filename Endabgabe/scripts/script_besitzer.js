@@ -73,19 +73,12 @@ var Endabgabe;
             divAnzeige.removeChild(divAnzeige.firstChild);
         }
     }
-    /*async function handleEdit(_event: Event): Promise<void> { // verändert DB-Eintrag - Status: gesendet
-        let clickedButton: HTMLElement = <HTMLElement>_event.target;
-        let orderID: string = <string>clickedButton.getAttribute("orderid");
-        let url: string = "https://gis-sose2020.herokuapp.com";
-        // let url: string = "http://localhost:8100";
-        url += "/edit" + "?" + "id=" + orderID;
-        await fetch(url);
-        update();*/
     async function handleEdit(_event) {
         let clickedButton = _event.target;
         let orderID = clickedButton.getAttribute("orderid");
-        let url = "https://gis-sose2020.herokuapp.com/edit" + "?_id=" + orderID;
-        // let url: string = "http://localhost:8100/edit" + "?_id=" + orderID;
+        let url = "https://gis-sose2020.herokuapp.com";
+        // let url: string = "http://localhost:8100";
+        url += "/edit" + "?" + "id=" + orderID;
         await fetch(url);
         update();
     }
