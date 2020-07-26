@@ -89,17 +89,26 @@ namespace Endabgabe { // grob basierend auf meinen GiS-Semesteraufgaben
         }
     }
 
-    async function handleEdit(_event: Event): Promise<void> { // verändert DB-Eintrag - Status: gesendet
+    /*async function handleEdit(_event: Event): Promise<void> { // verändert DB-Eintrag - Status: gesendet
         let clickedButton: HTMLElement = <HTMLElement>_event.target;
         let orderID: string = <string>clickedButton.getAttribute("orderid");
         let url: string = "https://gis-sose2020.herokuapp.com";
         // let url: string = "http://localhost:8100";
         url += "/edit" + "?" + "id=" + orderID;
         await fetch(url);
+        update();*/
+
+    async function handleEdit(_event: Event): Promise<void> {
+        let clickedButton: HTMLElement = <HTMLElement>_event.target;
+        let orderID: string = <string>clickedButton.getAttribute("orderid");
+        let url: string = "https://gis-sose2020.herokuapp.com/edit" + "?_id=" + orderID;
+        // let url: string = "http://localhost:8100/edit" + "?_id=" + orderID;
+        await fetch(url);
         update();
     }
 
-    async function update(): Promise<void> { // Datenbank aktualisieren
+
+    async function update(): Promise<void> { // Datenbankanzeige aktualisieren
         while (divAnzeige.hasChildNodes()) {
             divAnzeige.removeChild(<Node>divAnzeige.firstChild);
         }
