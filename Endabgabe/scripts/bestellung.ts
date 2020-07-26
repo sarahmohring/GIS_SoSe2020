@@ -7,7 +7,7 @@ namespace Endabgabe {
     let gesamtpreis: string = <string>localStorage.getItem("Gesamtsumme");
     let inhalt: HTMLElement = document.createElement("p");
 
-    if (bestellung == null) {
+    if (bestellung == null) { // damit nicht "NaN" angezeigt wird
         inhalt.innerHTML = "Keine Bestellung vorhanden";
     }
     else {
@@ -20,7 +20,7 @@ namespace Endabgabe {
     let buttonDatenbank: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonBestellen");
     buttonDatenbank.addEventListener("click", handleClickStore);
 
-    async function handleClickStore(): Promise<void> {
+    async function handleClickStore(): Promise<void> { // Bestellung aus LocalStorage in DB speichern, Formulardaten mitsenden
 
         let localStorageData: string = "";
 
@@ -37,14 +37,14 @@ namespace Endabgabe {
 
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        serverURL += "/store" + "?" + localStorageData + query.toString();
+        serverURL += "/store" + "?" + localStorageData + query.toString(); // LocalStorage und Formular in URL
         
-        let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("formCart");
+        let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("formCart"); // Formular nach dem Absenden zurücksetzen
         if (formular)
             formular.reset();
         
         await fetch(serverURL);
 
-        alert("Danke für deine Bestellung!");
+        alert("Danke für deine Bestellung!"); // Benachrichtigung an Nutzer
     }
 }

@@ -1,4 +1,4 @@
-namespace Endabgabe { // basierend auf Code von Jirka Dell'Oro Friedl (Cocktailbar)
+namespace Endabgabe { // basierend auf EIA-Cocktailbar
 
     // allgemeines Interface mit allen Aspekten eines Artikels
     export interface Auswahl {
@@ -68,7 +68,7 @@ namespace Endabgabe { // basierend auf Code von Jirka Dell'Oro Friedl (Cocktailb
         return group;
     }
 
-    // Eissorten-Auswahl über Checkboxen
+    // Eissorten- und Topping-Auswahl über Checkboxen
     function checkboxAuswahl(_auswahl: Auswahl[], _kategorie: string): HTMLElement | null {
         let group: HTMLSpanElement = document.createElement("span");
         for (let auswahl of _auswahl) {

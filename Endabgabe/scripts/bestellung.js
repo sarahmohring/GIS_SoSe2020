@@ -6,7 +6,7 @@ var Endabgabe;
     let bestellung = localStorage.getItem("Produkte");
     let gesamtpreis = localStorage.getItem("Gesamtsumme");
     let inhalt = document.createElement("p");
-    if (bestellung == null) {
+    if (bestellung == null) { // damit nicht "NaN" angezeigt wird
         inhalt.innerHTML = "Keine Bestellung vorhanden";
     }
     else {
@@ -28,12 +28,12 @@ var Endabgabe;
         // let serverURL: string = "http://localhost:8100";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        serverURL += "/store" + "?" + localStorageData + query.toString();
-        let formular = document.getElementById("formCart");
+        serverURL += "/store" + "?" + localStorageData + query.toString(); // LocalStorage und Formular in URL
+        let formular = document.getElementById("formCart"); // Formular nach dem Absenden zurücksetzen
         if (formular)
             formular.reset();
         await fetch(serverURL);
-        alert("Danke für deine Bestellung!");
+        alert("Danke für deine Bestellung!"); // Benachrichtigung an Nutzer
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=bestellung.js.map

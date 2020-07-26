@@ -3,7 +3,7 @@ import * as Url from "url";
 import * as Mongo from "mongodb";
 import { ParsedUrlQuery } from "querystring";
 
-export namespace Endabgabe {
+export namespace Endabgabe { // basierend auf meinen GiS-Semesteraufgaben, Musterlösungen
 
     let orders: Mongo.Collection;
     let port: number = Number(process.env.PORT);
@@ -72,17 +72,17 @@ export namespace Endabgabe {
             function getID(): Mongo.ObjectID { // damit Dokument über ID gefunden werden kann
                 // Quelle: Beispiellösung A11 - https://github.com/Plagiatus/GIS_SoSe2020/blob/master/Aufgabe11/Server/database.ts#L29
                 let query: ParsedUrlQuery = url.query;
-                let id: string = <string>query["id"];   //wählt den richtigen Teil der query aus
+                let id: string = <string>query["id"];   // richtigen URL-Teil auswählen
                 let objectID: Mongo.ObjectID = new Mongo.ObjectID(id);
                 return objectID;
             }
 
             if (url.pathname == "/edit") { // Bestellung bearbeiten
                 let objectID: Mongo.ObjectID = getID();
-                //Quelle: https://www.guru99.com/mongodb-update-document.html
-                orders.update(
-                    { "_id": objectID },    //wählt das Document in der DB aus, welches verändert werden soll
-                    { $set: { "street": "sent" } }  //verändert den Wert von street    
+                // Quelle: https://www.guru99.com/mongodb-update-document.html
+                orders.updateOne(
+                    { "_id": objectID },    // richtiges Document identifizieren
+                    { $set: { "Anmerkungen": "gesendet" }}  // verändert den Wert von "Anmerkungen"  
                 );
             }
         }

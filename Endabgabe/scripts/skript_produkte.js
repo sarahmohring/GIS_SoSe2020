@@ -51,7 +51,7 @@ var Endabgabe;
         }
         return group;
     }
-    // Eissorten-Auswahl über Checkboxen
+    // Eissorten- und Topping-Auswahl über Checkboxen
     function checkboxAuswahl(_auswahl, _kategorie) {
         let group = document.createElement("span");
         for (let auswahl of _auswahl) {

@@ -1,13 +1,13 @@
-namespace Endabgabe {
+namespace Endabgabe { // basierend auf Code der EIA-Cocktailbar
 
     window.addEventListener("load", handleLoad);
     let form: HTMLFormElement;
 
-    document.getElementById("reset")?.addEventListener("click", resetOrder);
+    // document.getElementById("reset")?.addEventListener("click", resetOrder);
 
-    async function handleLoad(_event: Event): Promise<void> {
+    async function handleLoad(_event: Event): Promise<void> { // wird beim erstmaligen Laden ausgeführt
 
-        let response: Response = await fetch("../scripts/auswahl.json");
+        let response: Response = await fetch("../scripts/auswahl.json"); // Daten aus JSON laden
         let artikel: string = await response.text();
         let inhalt: Inhalt = JSON.parse(artikel);
 
@@ -23,7 +23,7 @@ namespace Endabgabe {
         displayOrder();
     }
 
-    function displayOrder(): void {
+    function displayOrder(): void { // Bestellung laufend anzeigen und in LocalStorage speichern/aktualisieren
         let preis: number = 0;
         let bestellung: HTMLDivElement = <HTMLDivElement>document.querySelector("div#order");
         bestellung.innerHTML = "";
@@ -31,36 +31,29 @@ namespace Endabgabe {
         let formData: FormData = new FormData(form);
 
         for (let entry of formData) {
-            let selector: string = "[value='" + entry[1] + "']"; // "[name='" + entry[0] + "'][value='" + entry[1] + "']";
+            let selector: string = "[value='" + entry[1] + "']";
             let auswahl: HTMLInputElement = <HTMLInputElement>document.querySelector(selector);
             let auswahlPreis: number = Number(auswahl.getAttribute("preis"));
             bestellung.innerHTML += auswahl.value + ": " + auswahlPreis.toFixed(2) + " €" + "<br>";
             preis += auswahlPreis;
             localStorage.setItem("Produkte", JSON.stringify(bestellung.innerHTML));
         }
-
+        // Preis an Bestellung anhängen und in LocalStorage
         bestellung.innerHTML += "<p><strong>Gesamtsumme: " + preis.toFixed(2) + " €";
         localStorage.setItem("Gesamtsumme", "<b>Gesamtsumme: </b>" + JSON.stringify(preis.toFixed(2) + " €"));
     }
 
-    export function resetOrder(_event: Event): void { // hinkriegen ohne inline javascript!!
+    /*export function resetOrder(_event: Event): void { // funktioniert über Javascript im HTML
         window.location.reload(true);
         window.localStorage.clear();
-        //localStorage.clear();
-        //displayOrder();
-        /*let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
+        let formular: HTMLFormElement = <HTMLFormElement>document.getElementById("bestellung");
         if (formular) {
             formular.reset();
-            
-            /*window.localStorage.clear();
-            localStorage.removeItem("Gesamtsumme");
-            localStorage.removeItem("Produkte");
             let divOrder: HTMLElement = <HTMLElement>document.getElementById("order");
             divOrder.innerHTML = "";
             displayOrder();
-             document.getElementById("order")?.removeChild(<Node>document.getElementById("order")?.lastChild);
-            
-        } */
-    }
+            document.getElementById("order")?.removeChild(<Node>document.getElementById("order")?.lastChild);
+        }
+    }*/
 }
 

@@ -27,7 +27,7 @@ div img {
     width: 170px;
 }
 
-button, #buttonBestellen, #buttonDeleteAll, #buttonRetrieve {
+button, #buttonBestellen, #buttonDeleteAll, #buttonRetrieve, #buttonRefresh {
     padding: 10px 20px 10px 20px;
     background-color: rgb(214, 106, 115);
     color: white;
@@ -39,7 +39,7 @@ button, #buttonBestellen, #buttonDeleteAll, #buttonRetrieve {
     border-radius: 10px;
 }
 
-button:hover, #buttonBestellen:hover, #buttonDeleteAll:hover, #buttonRetrieve:hover {
+button:hover, #buttonBestellen:hover, #buttonDeleteAll:hover, #buttonRetrieve:hover, #buttonRefresh:hover {
    background-color: rgb(219, 136, 143);
    
 }

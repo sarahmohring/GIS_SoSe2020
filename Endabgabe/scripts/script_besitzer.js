@@ -6,9 +6,12 @@ var Endabgabe;
     buttonRetrieve.addEventListener("click", handleRetrieve);
     let buttonDeleteAll = document.getElementById("buttonDeleteAll");
     buttonDeleteAll.addEventListener("click", handleDeleteAll);
+    let buttonRefresh = document.getElementById("buttonRefresh");
+    buttonRefresh.addEventListener("click", update);
     // gibt aktuelle Einträge der Datenbank aus
     async function handleRetrieve() {
         let url = "https://gis-sose2020.herokuapp.com/retrieve";
+        // let url: string = "http://localhost:8100/retrieve";
         let response = await fetch(url);
         let responseString = await response.text(); //JSON String enthält alle DB-Einträge
         let order = JSON.parse(responseString); // String formatieren in Array
@@ -28,20 +31,25 @@ var Endabgabe;
             inhaltString += order[i].Gesamtsumme + "<br><br>";
             inhaltString += "<b>Name: </b>" + order[i].Name + "<br>";
             inhaltString += "<b>Adresse: </b>" + order[i].Adresse + "<br>";
-            inhaltString += "<b>Anmerkungen: </b>" + order[i].Anmerkungen + "<br>";
-            let buttonDeleteOne = document.createElement("img");
+            if (order[i].Anmerkungen == "gesendet") { // soll eigentlich das Document in der DB verändern
+                inhaltString += "Status: gesendet <br>";
+            }
+            else {
+                inhaltString += "<b>Anmerkungen: </b>" + order[i].Anmerkungen + "<br>";
+            }
+            let buttonDeleteOne = document.createElement("img"); // Button, um einen DB-Eintrag zu löschen
             buttonDeleteOne.addEventListener("click", handleDeleteOne);
             buttonDeleteOne.setAttribute("orderid", order[i]._id);
             buttonDeleteOne.setAttribute("src", "../images/checkmark.png");
             buttonDeleteOne.setAttribute("alt", "abgeschlossen");
             buttonDeleteOne.setAttribute("class", "orderDiv");
-            let buttonEdit = document.createElement("img");
+            let buttonEdit = document.createElement("img"); // Button, um einen DB-Eintrag zu bearbeiten
             buttonEdit.addEventListener("click", handleEdit);
             buttonEdit.setAttribute("orderid", order[i]._id);
             buttonEdit.setAttribute("src", "../images/edit.png");
             buttonEdit.setAttribute("alt", "bearbeiten");
             buttonEdit.setAttribute("class", "orderDiv");
-            bestellSpan.innerHTML = inhaltString;
+            bestellSpan.innerHTML = inhaltString; // Div füllen mit DB-Eintrag und Buttons
             divDB.appendChild(bestellSpan);
             divDB.appendChild(buttonDeleteOne);
             divDB.appendChild(buttonEdit);
@@ -51,12 +59,14 @@ var Endabgabe;
         let clickedButton = _event.target;
         let orderID = clickedButton.getAttribute("orderid");
         let url = "https://gis-sose2020.herokuapp.com";
+        // let url: string = "http://localhost:8100";
         url += "/deleteOne" + "?" + "id=" + orderID;
         await fetch(url);
         update();
     }
     async function handleDeleteAll() {
         let url = "https://gis-sose2020.herokuapp.com";
+        // let url: string = "http://localhost:8100";
         url += "/deleteAll";
         await fetch(url);
         while (divAnzeige.hasChildNodes()) {
@@ -67,16 +77,17 @@ var Endabgabe;
         let clickedButton = _event.target;
         let orderID = clickedButton.getAttribute("orderid");
         let url = "https://gis-sose2020.herokuapp.com";
+        // let url: string = "http://localhost:8100";
         url += "/edit" + "?" + "id=" + orderID;
         await fetch(url);
         update();
     }
-    function update() {
+    async function update() {
         while (divAnzeige.hasChildNodes()) {
             divAnzeige.removeChild(divAnzeige.firstChild);
         }
-        if (document.getElementById("formular") != null) {
-            document.getElementById("main")?.removeChild(document.getElementById("bestellungenAnzeigen"));
+        if (document.getElementById("buttonRetrieve") != null) {
+            document.getElementById("formular")?.removeChild(document.getElementById("buttonRetrieve"));
         }
         handleRetrieve();
     }
