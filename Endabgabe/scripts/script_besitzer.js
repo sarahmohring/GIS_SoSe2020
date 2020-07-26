@@ -40,14 +40,14 @@ var Endabgabe;
             let buttonDeleteOne = document.createElement("img"); // Button, um einen DB-Eintrag zu löschen
             buttonDeleteOne.addEventListener("click", handleDeleteOne);
             buttonDeleteOne.setAttribute("orderid", order[i]._id);
-            buttonDeleteOne.setAttribute("src", "../images/checkmark.png");
-            buttonDeleteOne.setAttribute("alt", "abgeschlossen");
+            buttonDeleteOne.setAttribute("src", "../images/loeschen.png");
+            buttonDeleteOne.setAttribute("alt", "löschen");
             buttonDeleteOne.setAttribute("class", "orderDiv");
             let buttonEdit = document.createElement("img"); // Button, um einen DB-Eintrag zu bearbeiten
             buttonEdit.addEventListener("click", handleEdit);
             buttonEdit.setAttribute("orderid", order[i]._id);
-            buttonEdit.setAttribute("src", "../images/edit.png");
-            buttonEdit.setAttribute("alt", "bearbeiten");
+            buttonEdit.setAttribute("src", "../images/abgehakt.png");
+            buttonEdit.setAttribute("alt", "abgehakt");
             buttonEdit.setAttribute("class", "orderDiv");
             bestellSpan.innerHTML = inhaltString; // Div füllen mit DB-Eintrag und Buttons
             divDB.appendChild(bestellSpan);
