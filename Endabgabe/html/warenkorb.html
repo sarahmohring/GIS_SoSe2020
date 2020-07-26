@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../style/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <!--<script src="../scripts/warenkorb.js" defer=""></script>  kann weg?? -->
     <script src="../scripts/bestellung.js" defer=""></script>
 </head>
 
@@ -26,10 +25,11 @@
             </div>
         </div>
         <form id=formCart method="GET" action="https://gis-sose2020.herokuapp.com/">
-        <!-- <form method="GET" action="http://localhost:8100" > -->
+            <!-- <form method="GET" action="http://localhost:8100" > -->
             <div>
-                <h2 id="bestellheader">Danke für deine Bestellung beim Ice Cream Shop! <br> <br>Damit du dein Eis
-                    bekommst, brauchen wir natürlich noch deine Kontaktdaten!</h2>
+                <h2 id="bestellheader">Danke für deine Bestellung beim Ice Cream Shop!<br><br>
+                    Damit du dein Eis bekommst, brauchen wir natürlich noch deine Kontaktdaten!
+                </h2>
                 <label>Name:</label><br>
                 <input class="formular" type="text" name="Name">
                 <br>
@@ -37,16 +37,14 @@
                 <input class="formular" type="text" name="Adresse">
                 <br>
                 <label>Anmerkungen:</label><br>
-                <textarea class="formular" name="Anmerkungen" placeholder="Hast du Anmerkungen zu deiner Bestellung?"
-                    cols="20" rows="5"></textarea>
+                <textarea class="formular" name="Anmerkungen" placeholder="Möchtest du was loswerden?" cols="20"
+                    rows="5"></textarea>
                 <br>
                 <button id="buttonBestellen" type="button">Jetzt bestellen!</button>
             </div>
         </form>
-
     </main>
     <h2 id="h2">&gt;&gt;&gt; Noch mehr <a href="../html/kunde_shop.html">Eis</a> &gt;&gt;&gt;</h2>
-
     <footer id="footer">
         <p>
             &copy; Sarah Mohring, 2020 | Hier geht es zum <a href="../html/gis-meme.html">GiS-Meme</a><br>

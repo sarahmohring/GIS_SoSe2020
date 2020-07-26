@@ -19,9 +19,9 @@ var Endabgabe;
     async function handleClickStore() {
         let localStorageData = "";
         for (let index = 0; index < localStorage.length; index++) {
-            let localKey = localStorage.key(index); //holt sich jeweils den key aus dem LS
-            let localValue = localStorage.getItem(localKey); //holt sich jeweils den value aus dem LS
-            localStorageData += localKey + "=" + localValue + "&"; //speichert Eintrag im String, damit dieser in die url übernommen werden kann
+            let localKey = localStorage.key(index); // key aus LocalStorage
+            let localValue = localStorage.getItem(localKey); // value aus LocalStorage
+            localStorageData += localKey + "=" + localValue + "&"; // LocalStorage in URL Form
         }
         formData = new FormData(document.forms[0]);
         let serverURL = "https://gis-sose2020.herokuapp.com";

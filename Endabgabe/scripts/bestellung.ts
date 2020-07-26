@@ -25,10 +25,10 @@ namespace Endabgabe {
         let localStorageData: string = "";
 
         for (let index: number = 0; index < localStorage.length; index++) {
-            let localKey: string = <string>localStorage.key(index);                         //holt sich jeweils den key aus dem LS
-            let localValue: string = <string>localStorage.getItem(localKey);                //holt sich jeweils den value aus dem LS
+            let localKey: string = <string>localStorage.key(index); // key aus LocalStorage
+            let localValue: string = <string>localStorage.getItem(localKey); // value aus LocalStorage
 
-            localStorageData += localKey + "=" + localValue + "&";                          //speichert Eintrag im String, damit dieser in die url übernommen werden kann
+            localStorageData += localKey + "=" + localValue + "&";  // LocalStorage in URL Form
         }
 
         formData = new FormData(document.forms[0]);
