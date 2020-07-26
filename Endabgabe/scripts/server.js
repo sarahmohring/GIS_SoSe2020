@@ -9,7 +9,7 @@ var Endabgabe;
     let orders;
     let port = Number(process.env.PORT);
     if (port == undefined)
-        port = 5001;
+        port = 8100;
     let databaseUrl = "";
     //local oder remote
     let args = process.argv.slice(2);
