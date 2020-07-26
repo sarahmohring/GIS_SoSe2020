@@ -32,7 +32,7 @@ var Endabgabe;
             inhaltString += "<b>Name: </b>" + order[i].Name + "<br>";
             inhaltString += "<b>Adresse: </b>" + order[i].Adresse + "<br>";
             if (order[i].Anmerkungen == "gesendet") { // soll eigentlich das Document in der DB verändern
-                inhaltString += "Status: gesendet <br>";
+                inhaltString += "<b>Status:<b> Bestellung erfolgreich versandt <br>";
             }
             else {
                 inhaltString += "<b>Anmerkungen: </b>" + order[i].Anmerkungen + "<br>";
